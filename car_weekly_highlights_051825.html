@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>车圈一周速览 2026/05/18 - 2026/05/25</title>
+<style>
+  :root {
+    --primary:#0B2545; --secondary:#13618A; --accent:#F4811F; --accent2:#00B4D8;
+    --bg:#F0F4F8; --card-bg:#FFFFFF; --text:#1A1A2E; --text-light:#5A6A7A;
+    --shadow:0 4px 20px rgba(11,37,69,0.10); --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.75}
+  .banner{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 60%,var(--accent2) 100%);color:#fff;padding:52px 24px 46px;text-align:center;position:relative;overflow:hidden}
+  .banner::after{content:'';position:absolute;bottom:-40px;left:-10%;width:120%;height:80px;background:var(--bg);border-radius:50% 50% 0 0}
+  .banner h1{font-size:2.4rem;font-weight:900;letter-spacing:2px;margin-bottom:6px}
+  .banner .date{font-size:1rem;opacity:0.85;margin-bottom:18px}
+  .banner .summary-pill{display:inline-block;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);padding:10px 28px;border-radius:30px;font-size:0.95rem;font-weight:500;max-width:720px}
+  .container{max-width:960px;margin:0 auto;padding:0 20px}
+  .section-title{font-size:1.5rem;font-weight:700;color:var(--primary);margin:44px 0 22px;padding-left:14px;border-left:5px solid var(--accent)}
+  .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:24px}
+  .card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px 26px 24px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent)}
+  .card:hover{transform:translateY(-6px);box-shadow:0 14px 38px rgba(11,37,69,0.17)}
+  .card .badge{position:absolute;top:-16px;left:22px;width:36px;height:36px;background:var(--accent);color:#fff;font-weight:900;font-size:1.1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(244,129,31,0.4)}
+  .card h3{font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:10px}
+  .card .facts{font-size:0.92rem;color:var(--text);margin-bottom:14px}
+  .card .implication{background:linear-gradient(135deg,#EBF5FB,#FDF2E9);border-left:4px solid var(--accent2);border-radius:8px;padding:12px 16px;font-size:0.88rem;color:var(--text-light)}
+  .card .implication strong{color:var(--secondary)}
+  .keywords-list{display:flex;flex-wrap:wrap;gap:16px;margin-top:6px}
+  .keyword-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 22px;flex:1 1 260px;transition:transform .25s ease,box-shadow .25s ease}
+  .keyword-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(11,37,69,0.14)}
+  .keyword-card .kw-tag{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:0.85rem;padding:4px 14px;border-radius:20px;margin-bottom:8px}
+  .keyword-card p{font-size:0.9rem;color:var(--text-light)}
+  .sources{margin:44px 0 54px;background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 26px}
+  .sources h3{font-size:1rem;color:var(--primary);margin-bottom:10px}
+  .sources ul{list-style:none;padding:0}
+  .sources li{font-size:0.88rem;color:var(--text-light);padding:4px 0 4px 18px;position:relative}
+  .sources li::before{content:'';position:absolute;left:0;top:12px;width:8px;height:8px;background:var(--accent2);border-radius:50%}
+
+  /* ===== BACK TO HOME BUTTON ===== */
+  .back-home {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    z-index: 9999;
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(11,37,69,0.92);
+    color: #fff;
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 12px 22px;
+    border-radius: 40px;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(11,37,69,0.35);
+    backdrop-filter: blur(8px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    letter-spacing: 0.5px;
+  }
+  .back-home:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(11,37,69,0.45);
+    background: rgba(19,97,138,0.95);
+  }
+  .back-home .arrow { font-size: 1.1rem; }
+  @media (max-width: 520px) {
+    .back-home {
+      bottom: 16px; right: 16px;
+      padding: 10px 18px;
+      font-size: 0.82rem;
+    }
+  }
+
+  @media(max-width:520px){
+    .banner h1{font-size:1.6rem}
+    .banner .summary-pill{font-size:0.82rem;padding:8px 16px}
+    .cards-grid{grid-template-columns:1fr}
+    .card{padding:24px 18px 20px}
+    .section-title{font-size:1.25rem}
+  }
+</style>
+</head>
+<body>
+<div class="banner">
+  <h1>🚗 车圈一周速览</h1>
+  <div class="date">2026 / 05 / 18 — 2026 / 05 / 25</div>
+  <div class="summary-pill">本周6件大事：合资纯电发力、800V下沉、终端回暖</div>
+</div>
+<div class="container">
+  <div class="section-title">六大行业动态</div>
+  <div class="cards-grid">
+    <div class="card"><div class="badge">1</div><h3>终端回暖，新能稳在"六成+"</h3><p class="facts">乘联会预估5月狭义乘用车零售152万辆，新能源约95万辆，渗透率约62.5%。</p><div class="implication"><strong>含义：</strong>新能源占比继续抬升，线束高压与低压混配需求维持高位，月末冲量或带动本周排产与发运节奏。</div></div>
+    <div class="card"><div class="badge">2</div><h3>小鹏GX上市，800V+线控底盘打组合拳</h3><p class="facts">售价26.98万元起，纯电/超增两套动力，标配800V高压+5C快充，原生线控底盘、后轮转向等。</p><div class="implication"><strong>含义：</strong>20-30万元技术堆叠加速，域控与线束架构复杂度提升，利于含高压与冗余回路的方案渗透。</div></div>
+    <div class="card"><div class="badge">3</div><h3>吉利银河星舰7 MAX拉低四驱门槛</h3><p class="facts">全系四驱，售价9.88-12.98万元，e-AWD智电四驱综合功率312kW、峰值扭矩526N·m，搭载NOA高阶驾辅。</p><div class="implication"><strong>含义：</strong>十万元级拉起电混四驱"普及线"，中低价位车型线束/连接器用量与规格同步上探。</div></div>
+    <div class="card"><div class="badge">4</div><h3>奔驰GLC纯电长轴将预售，合资纯电开始"认真"</h3><p class="facts">基于800V电气架构，85.5kWh电池，CLTC约700km，峰值充电功率320kW，6月预售、7月上市。</p><div class="implication"><strong>含义：</strong>豪华合资电动化落地加速，E/E与热管理件本土化切换提速，带动高端配套切入窗口。</div></div>
+    <div class="card"><div class="badge">5</div><h3>能源局通报：充电设施累计超2195万把</h3><p class="facts">截至4月末，全国充电基础设施总量2195.5万（公共490.7万、私人1704.8万），同比分别+29.6%、+53.5%。</p><div class="implication"><strong>含义：</strong>高压快充网络量级"补齐短板"，800V及液冷枪线等高规格连接方案加速落地。</div></div>
+    <div class="card"><div class="badge">6</div><h3>800V从"高端秀肌肉"转为"主流必选"</h3><p class="facts">本周新车中，小鹏GX、岚图泰山X8（PHEV/EV均配超充）、奔驰GLC纯电均围绕800V与高压快充配置发力。</p><div class="implication"><strong>含义：</strong>800V正下沉至主流价位段，带动高压线束、屏蔽件与冷却快接等单车价值提升。</div></div>
+  </div>
+  <div class="section-title">本周关键词</div>
+  <div class="keywords-list">
+    <div class="keyword-card"><span class="kw-tag">终端回暖</span><p>5月零售预估回升，月末冲量在即。</p></div>
+    <div class="keyword-card"><span class="kw-tag">800V下沉</span><p>高压快充成20-30万级"标配选项"。</p></div>
+    <div class="keyword-card"><span class="kw-tag">合资发力</span><p>豪华合资电动化进入量产兑现期。</p></div>
+  </div>
+  <div class="sources"><h3>📎 引用来源</h3><ul>
+    <li>中国质量新闻网（2026/05/25）</li>
+    <li>金融界-IT之家 转引乘联会预估（2026/05/22）</li>
+    <li>乘联会官网（2026/05/25）</li>
+  </ul></div>
+</div>
+
+<!-- BACK TO HOME -->
+<a class="back-home" href="index.html">
+  <span class="arrow">←</span> 返回首页
+</a>
+
+</body>
+</html>
