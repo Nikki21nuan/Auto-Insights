@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OEM & HM 加油站· 往期合集</title>
+<style>
+  :root {
+    --primary:#0B2545; --secondary:#13618A; --accent:#F4811F; --accent2:#00B4D8; --accent3:#6C5CE7;
+    --bg:#F0F4F8; --card-bg:#FFFFFF; --text:#1A1A2E; --text-light:#5A6A7A; --text-muted:#94A3B8;
+    --shadow:0 4px 20px rgba(11,37,69,0.10); --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.75;min-height:100vh}
+
+  /* BANNER */
+  .banner{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 55%,var(--accent2) 100%);color:#fff;padding:56px 24px 52px;text-align:center;position:relative;overflow:hidden}
+  .banner::before{content:'';position:absolute;top:-80px;right:-80px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,0.04)}
+  .banner::after{content:'';position:absolute;bottom:-40px;left:-10%;width:120%;height:80px;background:var(--bg);border-radius:50% 50% 0 0}
+  .banner h1{font-size:2.5rem;font-weight:900;letter-spacing:3px;margin-bottom:8px}
+  .banner .subtitle{font-size:1.05rem;opacity:0.8;font-weight:400;letter-spacing:1px}
+
+  .container{max-width:960px;margin:0 auto;padding:0 20px}
+
+  /* SEARCH */
+  .search-bar{margin:36px auto 0;max-width:560px;position:relative}
+  .search-bar input{width:100%;padding:14px 20px 14px 48px;border:2px solid #E2E8F0;border-radius:40px;font-size:0.95rem;background:var(--card-bg);color:var(--text);outline:none;transition:border-color .3s ease,box-shadow .3s ease}
+  .search-bar input:focus{border-color:var(--accent2);box-shadow:0 0 0 4px rgba(0,180,216,0.12)}
+  .search-bar input::placeholder{color:var(--text-muted)}
+  .search-bar .search-icon{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:1.15rem;color:var(--text-muted);pointer-events:none}
+  .search-hint{text-align:center;font-size:0.78rem;color:var(--text-muted);margin-top:8px}
+
+  /* SECTION TITLE */
+  .section-title{font-size:1.45rem;font-weight:700;color:var(--primary);margin:44px 0 20px;padding-left:14px;border-left:5px solid var(--accent);display:flex;align-items:center;gap:8px}
+  .section-title.tool{border-left-color:var(--accent3)}
+  .section-title .emoji{font-size:1.3rem}
+
+  /* ISSUE CARDS */
+  .issue-list{display:flex;flex-direction:column;gap:20px}
+  .issue-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 28px;display:flex;align-items:flex-start;gap:20px;border-left:5px solid var(--accent2);transition:transform .25s ease,box-shadow .25s ease,opacity .25s ease;text-decoration:none;color:inherit;position:relative;cursor:pointer}
+  .issue-card:hover{transform:translateY(-5px);box-shadow:0 14px 38px rgba(11,37,69,0.16)}
+  .issue-card.hidden{display:none}
+  .issue-card .week-badge{flex-shrink:0;width:64px;height:64px;background:linear-gradient(135deg,var(--secondary),var(--accent2));border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-weight:700}
+  .issue-card .week-badge .week-num{font-size:1.4rem;line-height:1}
+  .issue-card .week-badge .week-label{font-size:0.65rem;opacity:0.85;margin-top:2px}
+  .issue-card .issue-body{flex:1;min-width:0}
+  .issue-card .issue-date{font-size:0.82rem;color:var(--text-muted);margin-bottom:4px;font-weight:500}
+  .issue-card .issue-summary{font-size:0.95rem;color:var(--text-light);margin-bottom:8px}
+  .issue-card .read-btn{display:inline-block;background:linear-gradient(135deg,var(--secondary),var(--accent2));color:#fff;font-size:0.82rem;font-weight:600;padding:6px 18px;border-radius:20px;text-decoration:none;transition:opacity .2s ease}
+  .issue-card:hover .read-btn{opacity:0.88}
+
+  /* MATCH SNIPPET */
+  .match-snippet{margin-top:10px;padding:8px 14px;background:#FFF8F0;border-left:3px solid var(--accent);border-radius:6px;font-size:0.82rem;color:var(--text-light);line-height:1.55;display:none}
+  .match-snippet.show{display:block}
+  .match-snippet .match-label{font-weight:700;color:var(--accent);font-size:0.75rem;margin-bottom:2px}
+  .match-snippet mark{background:#FFECD2;color:var(--accent);font-weight:600;padding:1px 3px;border-radius:3px}
+
+  /* NEW badge */
+  .new-badge{position:absolute;top:14px;right:18px;background:var(--accent);color:#fff;font-size:0.68rem;font-weight:800;padding:3px 10px;border-radius:10px;letter-spacing:1px;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.65}}
+
+  /* TOOL CARDS */
+  .tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+  .tool-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 24px;border-top:4px solid var(--accent3);transition:transform .25s ease,box-shadow .25s ease;text-decoration:none;color:inherit;display:block}
+  .tool-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(108,92,231,0.18)}
+  .tool-card.hidden{display:none}
+  .tool-card .tool-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--accent3),#A29BFE);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:14px}
+  .tool-card h3{font-size:1.05rem;font-weight:700;color:var(--primary);margin-bottom:8px}
+  .tool-card .tool-desc{font-size:0.88rem;color:var(--text-light);margin-bottom:14px}
+  .tool-card .tool-link{font-size:0.82rem;color:var(--accent3);font-weight:600;text-decoration:none}
+  .tool-card .tool-link::after{content:' →'}
+
+  /* NO RESULT */
+  .no-result{display:none;text-align:center;padding:40px 20px;color:var(--text-muted);font-size:0.95rem}
+  .no-result.show{display:block}
+
+  /* FOOTER */
+  .footer{text-align:center;padding:36px 20px 40px;color:var(--text-muted);font-size:0.8rem;letter-spacing:1px}
+  .footer .divider{width:60px;height:3px;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:3px;margin:0 auto 12px}
+
+  @media(max-width:600px){
+    .banner h1{font-size:1.7rem}
+    .banner .subtitle{font-size:0.9rem}
+    .issue-card{flex-direction:column;gap:14px;padding:22px 18px}
+    .issue-card .week-badge{width:52px;height:52px}
+    .issue-card .week-badge .week-num{font-size:1.15rem}
+    .tool-grid{grid-template-columns:1fr}
+    .section-title{font-size:1.2rem}
+    .new-badge{top:10px;right:12px}
+  }
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <h1>📚OEM&HM 加油站 · 往期合集</h1>
+  <div class="subtitle">每周行业动态 &amp; 销售工具箱</div>
+</div>
+
+<div class="container">
+
+  <div class="search-bar">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="搜索关键词，如 800V、蔚来、立讯、决策者…" oninput="filterCards()">
+  </div>
+  <div class="search-hint">支持深度搜索：可检索每期详情中的标题、数据、竞对、关键词等全部内容</div>
+
+  <!-- ===== WEEKLY BRIEFINGS ===== -->
+  <div class="section-title"><span class="emoji">📰</span> 每周行业速览</div>
+  <div class="issue-list" id="issueList">
+
+    <!-- ★ LATEST ISSUE ★ -->
+    <a class="issue-card searchable" href="车圈一周速览_2026-05-18_05-24.html"
+       data-content="蔚来扛住下行连续盈利 Q1营收255.3亿元经营利润6680万元单季交付8.3万辆连续两个季度盈利 高端新能源修复信号增强现金流与毛利改善为二季度新品交付与渠道投入提供弹药 小鹏GX上市引爆客流 上市次日到店客流刷新2026年工作日最高超过2025年全年峰值 产品力与定价匹配度高短期关注订单承接与产能爬坡线束配套需快速响应 中国品牌在南非加速上位 2025年中国车企在南非乘用车市占率由11.2%升至16.8% 非洲成为出海第二增长曲线CKD与本地化供给需求升温 5月终端回暖但节律前高后低 乘联会预计5月狭义乘用车零售152万新能源95万渗透率约62.5%周度日均由5.1万回落至3.9万后在第四周回升至4.3万 渠道去库存尚未完成新能源与燃油分化扩大月末厂商冲量仍是关键变量 丰田在印混动创里程碑 丰田基洛斯卡在印度累计混动车型销量突破30万辆 强混在新兴市场具备规模基础高压线束热管理与12V-48V架构并存期将延长 欧洲纯电重启加速 4月欧盟核心市场纯电上牌20.15万辆同比+34.1% 海外需求修复叠加本地关税不确定出口与海外本地化需双线推进 竞对速递 立讯精密 拟通过收购京西智行集团间接持有京西国际约59.5%股份切入智能底盘与线控制动 安波福 与Comau宣布联合研发智能自动化解决方案加速工厂柔性与效率 Amphenol 将于5/27-5/29亮相JSAE横滨展展示车规多千兆以太网与可换电连接器 终端回暖 5月零售回升但节律波动新能源贡献主导 爆款兑现 新品上市带动客流与订单小鹏GX表现突出 版图重塑 消费电子巨头加码底盘与系统集成Tier1格局洗牌 乘联分会 盖世汽车 Amphenol官网 中国汽车流通协会乘用车市场信息联席分会官网 中国汽车报AI汽车网">
+      <span class="new-badge">NEW</span>
+      <div class="week-badge">
+        <span class="week-num">W21</span>
+        <span class="week-label">2026</span>
+      </div>
+      <div class="issue-body">
+        <div class="issue-date">2026 / 05 / 18 — 05 / 24</div>
+        <div class="issue-summary">蔚来盈利修复、小鹏新品引流、南非份额跃升，5月终端回暖但节律"前高后低"</div>
+        <span class="read-btn">查看详情 →</span>
+        <div class="match-snippet"><div class="match-label">🔍 匹配内容</div><span class="match-text"></span></div>
+      </div>
+    </a>
+
+    <!-- PREVIOUS ISSUE -->
+    <a class="issue-card searchable" href="车圈一周速览_2026-05-18_05-25.html"
+       data-content="终端回暖新能稳在六成+ 乘联会预估5月狭义乘用车零售152万辆新能源约95万辆渗透率约62.5% 新能源占比继续抬升线束高压与低压混配需求维持高位月末冲量或带动本周排产与发运节奏 小鹏GX上市800V+线控底盘打组合拳 售价26.98万元起纯电超增两套动力标配800V高压+5C快充原生线控底盘后轮转向 20-30万元技术堆叠加速域控与线束架构复杂度提升利于含高压与冗余回路的方案渗透 吉利银河星舰7 MAX拉低四驱门槛 全系四驱售价9.88-12.98万元e-AWD智电四驱综合功率312kW峰值扭矩526Nm搭载NOA高阶驾辅 十万元级拉起电混四驱普及线中低价位车型线束连接器用量与规格同步上探 奔驰GLC纯电长轴将预售合资纯电开始认真 基于800V电气架构85.5kWh电池CLTC约700km峰值充电功率320kW 6月预售7月上市 豪华合资电动化落地加速E/E与热管理件本土化切换提速带动高端配套切入窗口 能源局通报充电设施累计超2195万把 截至4月末全国充电基础设施总量2195.5万公共490.7万私人1704.8万同比分别+29.6%+53.5% 高压快充网络量级补齐短板800V及液冷枪线等高规格连接方案加速落地 800V从高端秀肌肉转为主流必选 小鹏GX岚图泰山X8 PHEV EV均配超充奔驰GLC纯电均围绕800V与高压快充配置发力 800V正下沉至主流价位段带动高压线束屏蔽件与冷却快接等单车价值提升 终端回暖 5月零售预估回升月末冲量在即 800V下沉 高压快充成20-30万级标配选项 合资发力 豪华合资电动化进入量产兑现期 中国质量新闻网 金融界IT之家 转引乘联会预估 乘联会官网">
+      <div class="week-badge">
+        <span class="week-num">W21</span>
+        <span class="week-label">2026</span>
+      </div>
+      <div class="issue-body">
+        <div class="issue-date">2026 / 05 / 18 — 05 / 25</div>
+        <div class="issue-summary">合资纯电发力、800V下沉、终端回暖</div>
+        <span class="read-btn">查看详情 →</span>
+        <div class="match-snippet"><div class="match-label">🔍 匹配内容</div><span class="match-text"></span></div>
+      </div>
+    </a>
+
+    <!-- ★ ADD MORE ISSUES HERE ★ -->
+
+  </div>
+
+  <!-- ===== SALES TOOLBOX ===== -->
+  <div class="section-title tool"><span class="emoji">🛠️</span> 销售工具箱</div>
+  <div class="tool-grid" id="toolGrid">
+
+    <a class="tool-card searchable" href="销售判断自检_互动卡片版.html"
+       data-content="销售判断自检清单 拜访前先确认干什么和谁谈能推进到哪一步 谁是决策者如何影响 相信客户单一推脱见不到决策者 误把找茬当需求一切照单执行 甘当千年老二 不会托人 在一棵树上吊死 只满足需求不塑造需求 拿着产品当解决方案 先找到能向上汇报的人再帮他把价值讲出去 别只听一个窗口要主动拼出决策链 先判断再投入先问清再让步 不是每个机会都值得拼到最后 不是让客户夸你而是让客户会替你说 一个内线只能开门多角色信任才能过会 越早影响需求越不容易沦为被动比价 让客户买的不是参数是结果和价值 FAE 技术建议 方案对比 应用案例 总成本 返修 停线 售后风险 采购 技术 质量 SQE 项目 Leader 老板">
+      <div class="tool-icon">✅</div>
+      <h3>销售判断自检清单</h3>
+      <p class="tool-desc">拜访前先确认：干什么 / 和谁谈 / 能推进到哪一步</p>
+      <span class="tool-link">打开工具</span>
+    </a>
+
+    <!-- ★ ADD MORE TOOLS HERE ★ -->
+     <a class="tool-card searchable" href="Copilot_Sales_Training_互动卡片版.html"
+       data-content="Copilot AI for Sales 销售日常高频场景快速上手 聚焦3类能力 写沟通 处理Excel 做PPT 场景1 写邮件改措辞 适用客户未回复 英文邮件 内部升级说明 场景2 Excel基础用法 适用客户PN数据整理 做汇总 找异常 场景3 写PPT汇报 适用客户Review 周报月报 内部沟通材料 可选总结信息 长邮件 会议纪要 Action item提炼 用法口诀 给背景 说目标 定格式 多轮优化 帮销售更快整理 更清楚表达 更高效推进">
+      <div class="tool-icon"><img src="https://res.cdn.office.net/officehub/images/content/images/unauth-ccm/hero-copilot-4b11c882d8.png" alt="Copilot" style="width:28px;height:28px;border-radius:6px;object-fit:cover"></div>
+      <h3>Copilot销售培训</h3>
+      <p class="tool-desc">日常场景快速上手：写沟通 / 处理Excel / 做PPT</p>
+      <span class="tool-link">打开工具</span>
+    </a>
+
+  </div>
+
+  <div class="no-result" id="noResult">😅 没有找到匹配内容，试试其它关键词？</div>
+
+</div>
+
+<div class="footer">
+  <div class="divider"></div>
+  内部资料 · 仅供团队参考
+  </br>
+  © 2026 TE Connectivity. Confidential & Proprietary.
+</div>
+
+<script>
+function filterCards() {
+  const query = document.getElementById('searchInput').value.trim().toLowerCase();
+  const cards = document.querySelectorAll('.searchable');
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+    const visibleText = card.textContent.toLowerCase();
+    const deepContent = (card.getAttribute('data-content') || '').toLowerCase();
+    const allText = visibleText + ' ' + deepContent;
+    const snippet = card.querySelector('.match-snippet');
+    const matchTextEl = snippet ? snippet.querySelector('.match-text') : null;
+
+    if (!query) {
+      card.classList.remove('hidden');
+      if (snippet) snippet.classList.remove('show');
+      visibleCount++;
+      return;
+    }
+
+    if (allText.includes(query)) {
+      card.classList.remove('hidden');
+      visibleCount++;
+
+      // Check if the match is ONLY in deep content (not visible summary/date)
+      if (snippet && matchTextEl) {
+        if (!visibleText.includes(query)) {
+          // Show snippet with context
+          const idx = deepContent.indexOf(query);
+          const start = Math.max(0, idx - 20);
+          const end = Math.min(deepContent.length, idx + query.length + 30);
+          let contextStr = (start > 0 ? '…' : '') + deepContent.substring(start, end) + (end < deepContent.length ? '…' : '');
+          // Highlight match
+          const re = new RegExp('(' + query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+          contextStr = contextStr.replace(re, '<mark>$1</mark>');
+          matchTextEl.innerHTML = contextStr;
+          snippet.classList.add('show');
+        } else {
+          snippet.classList.remove('show');
+        }
+      }
+    } else {
+      card.classList.add('hidden');
+      if (snippet) snippet.classList.remove('show');
+    }
+  });
+
+  document.getElementById('noResult').classList.toggle('show', visibleCount === 0 && query.length > 0);
+}
+</script>
+
+</body>
+</html>
