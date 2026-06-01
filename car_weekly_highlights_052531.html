@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>车圈一周速览 2026/05/25 - 2026/05/31</title>
+<style>
+  :root {
+    --primary:#0B2545; --secondary:#13618A; --accent:#F4811F; --accent2:#00B4D8; --accent3:#6C5CE7;
+    --bg:#F0F4F8; --card-bg:#FFFFFF; --text:#1A1A2E; --text-light:#5A6A7A;
+    --shadow:0 4px 20px rgba(11,37,69,0.10); --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.75}
+
+  /* BANNER */
+  .banner{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 60%,var(--accent2) 100%);color:#fff;padding:52px 24px 46px;text-align:center;position:relative;overflow:hidden}
+  .banner::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.04)}
+  .banner::after{content:'';position:absolute;bottom:-40px;left:-10%;width:120%;height:80px;background:var(--bg);border-radius:50% 50% 0 0}
+  .banner h1{font-size:2.4rem;font-weight:900;letter-spacing:2px;margin-bottom:6px}
+  .banner .date{font-size:1rem;opacity:0.85;margin-bottom:18px}
+  .banner .summary-pill{display:inline-block;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);padding:10px 28px;border-radius:30px;font-size:0.95rem;font-weight:500;max-width:800px;line-height:1.6}
+
+  .container{max-width:960px;margin:0 auto;padding:0 20px}
+
+  /* SECTION TITLE */
+  .section-title{font-size:1.5rem;font-weight:700;color:var(--primary);margin:44px 0 22px;padding-left:14px;border-left:5px solid var(--accent)}
+  .section-title.purple{border-left-color:var(--accent3)}
+
+  /* NEWS CARDS */
+  .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:24px}
+  .card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px 26px 24px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent)}
+  .card:hover{transform:translateY(-6px);box-shadow:0 14px 38px rgba(11,37,69,0.17)}
+  .card .badge{position:absolute;top:-16px;left:22px;width:36px;height:36px;background:var(--accent);color:#fff;font-weight:900;font-size:1.1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(244,129,31,0.4)}
+  .card h3{font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:10px}
+  .card .facts{font-size:0.92rem;color:var(--text);margin-bottom:14px}
+  .card .facts strong{color:var(--secondary)}
+  .card .implication{background:linear-gradient(135deg,#EBF5FB,#FDF2E9);border-left:4px solid var(--accent2);border-radius:8px;padding:12px 16px;font-size:0.88rem;color:var(--text-light)}
+  .card .implication strong{color:var(--secondary)}
+
+  /* COMPETITOR CARDS */
+  .competitor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+  .comp-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 22px 20px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent3)}
+  .comp-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(108,92,231,0.18)}
+  .comp-card .comp-tag{display:inline-block;background:var(--accent3);color:#fff;font-weight:700;font-size:0.82rem;padding:4px 14px;border-radius:20px;margin-bottom:10px}
+  .comp-card .comp-label{font-size:0.78rem;color:var(--accent3);opacity:0.7;margin-top:10px;font-weight:500}
+  .comp-card p{font-size:0.9rem;color:var(--text-light);line-height:1.65}
+
+  /* KEYWORDS */
+  .keywords-list{display:flex;flex-wrap:wrap;gap:16px;margin-top:6px}
+  .keyword-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 22px;flex:1 1 260px;transition:transform .25s ease,box-shadow .25s ease}
+  .keyword-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(11,37,69,0.14)}
+  .keyword-card .kw-tag{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:0.85rem;padding:4px 14px;border-radius:20px;margin-bottom:8px}
+  .keyword-card p{font-size:0.9rem;color:var(--text-light)}
+
+  /* SOURCES */
+  .sources{margin:44px 0 54px;background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 26px}
+  .sources h3{font-size:1rem;color:var(--primary);margin-bottom:10px}
+  .sources ul{list-style:none;padding:0}
+  .sources li{font-size:0.88rem;color:var(--text-light);padding:4px 0 4px 18px;position:relative}
+  .sources li::before{content:'';position:absolute;left:0;top:12px;width:8px;height:8px;background:var(--accent2);border-radius:50%}
+
+  /* BACK BTN */
+  .back-home{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(11,37,69,0.92);color:#fff;font-size:0.88rem;font-weight:600;padding:12px 22px;border-radius:40px;text-decoration:none;box-shadow:0 6px 24px rgba(11,37,69,0.35);backdrop-filter:blur(8px);transition:transform .2s ease,box-shadow .2s ease,background .2s ease;letter-spacing:0.5px}
+  .back-home:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(11,37,69,0.45);background:rgba(19,97,138,0.95)}
+
+  /* RESPONSIVE */
+  @media(max-width:520px){
+    .banner h1{font-size:1.55rem}
+    .banner .summary-pill{font-size:0.82rem;padding:8px 16px}
+    .cards-grid,.competitor-grid{grid-template-columns:1fr}
+    .card,.comp-card{padding:24px 18px 20px}
+    .section-title{font-size:1.25rem}
+    .back-home{bottom:16px;right:16px;padding:10px 18px;font-size:0.82rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="banner">
+  <h1>🚗 车圈一周速览</h1>
+  <div class="date">2026 / 05 / 25 — 2026 / 05 / 31</div>
+  <div class="summary-pill">问界M9吸单、小米稳住三万+、五菱放量；中汽协回击"过剩"，油耗新规催化母排/高压连接上车</div>
+</div>
+
+<div class="container">
+
+  <!-- SIX NEWS -->
+  <div class="section-title">六大行业动态</div>
+  <div class="cards-grid">
+
+    <div class="card">
+      <div class="badge">1</div>
+      <h3>问界M9 24小时破2万单</h3>
+      <p class="facts"><strong>核心内容：</strong>5/28全新一代问界M9发布，24小时订单突破2万；品牌热度延续。</p>
+      <div class="implication"><strong>行业含义：</strong>旗舰+智驾定价策略有效，Q2-Q3高压线束、域控与热管理需求仍将走高。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">2</div>
+      <h3>小米稳住"三万+"阵营</h3>
+      <p class="facts"><strong>核心内容：</strong>5月交付继续超过3万台，连续第二个月站稳"三万+"。</p>
+      <div class="implication"><strong>行业含义：</strong>产销爬坡与渠道成形验证供应链协同，关注Q3新品与出海节奏的追加配套。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">3</div>
+      <h3>五菱重回放量通道</h3>
+      <p class="facts"><strong>核心内容：</strong>5月全球销量达126,087辆，月度放量明显。</p>
+      <div class="implication"><strong>行业含义：</strong>A00/A0纯电与微客双驱拉动，出口CKD与本地化同步升温，线束补货节奏需跟进。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">4</div>
+      <h3>中汽协回击"产能过剩"指控</h3>
+      <p class="facts"><strong>核心内容：</strong>5/29中汽协发文反驳欧方"产能过剩"片面说法，倡导理性看待产能与贸易。</p>
+      <div class="implication"><strong>行业含义：</strong>关税与贸易工具不确定性上行，Tier1需推进海外本地化与双供，以分散政策风险。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">5</div>
+      <h3>油耗新规倒逼高压母排加速落地</h3>
+      <p class="facts"><strong>核心内容：</strong>工信部WLTC油耗新规自2026/01/01实施，按整备质量设阶梯限值（≤2.57/≤3.3/≤4.7L/100km），纯电/插混电耗纳入企业平均、2030年目标3.2L；</p>
+      <p class="facts"><strong>本周内部分享：</strong>巴斯巴将于2026欧洲电池电动车展集中展示大电流高压连接方案，海外高压平台采购关注度上行。</p>
+      <div class="implication"><strong>行业含义：</strong>新规压近整车能效底线，PHEV/HEV电气化加速；高电流母排+高压线束一体化迎来量产窗口，需在低损与热-电协同上做强。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">6</div>
+      <h3>Model Y拿下挪威"十万俱乐部"</h3>
+      <p class="facts"><strong>核心内容：</strong>Model Y在挪威累计注册破10万（截至5/28），成为首款达成里程碑的单一车型。</p>
+      <div class="implication"><strong>行业含义：</strong>北欧市场对高压架构与整车能效的验证效应明显，利好高压连接与标准化推进。</div>
+    </div>
+
+  </div>
+
+  <!-- COMPETITOR -->
+  <div class="section-title purple">友商速递</div>
+  <div class="competitor-grid">
+
+    <div class="comp-card">
+      <span class="comp-tag">中航光电</span>
+      <p>5/18投关纪要披露2026年经营目标（营收228亿元、利润30亿元）及民品高端制造布局，涵盖新能源车高压互连与智能网联产品矩阵。</p>
+    </div>
+
+    <div class="comp-card">
+      <span class="comp-tag">立讯精密</span>
+      <p>与Marvell签署战略合作MOU，发力AI光铜互连生态，相关高速互连与系统整合能力有望外溢至车载高速链路与域控平台（5/29）。</p>
+    </div>
+    <div class="comp-card">
+      <span class="comp-tag">宏发股份</span>
+      <p>5/30发布ESG及多项公告，围绕继电器/连接器等业务与内控治理推进，利于车规高压继电器长期供给稳定。​</p>
+    </div>
+
+  </div>
+
+  <!-- KEYWORDS -->
+  <div class="section-title">本周关键词</div>
+  <div class="keywords-list">
+    <div class="keyword-card">
+      <span class="kw-tag">旗舰吸粉</span>
+      <p>问界M9 24小时2万单，验证"大车+智驾"的订单拉动与交付潜力。</p>
+    </div>
+    <div class="keyword-card">
+      <span class="kw-tag">新规压顶</span>
+      <p>WLTC与企业平均油耗新规落地，倒逼能效与电气化升级，母排/高压连接优先级上调。</p>
+    </div>
+    <div class="keyword-card">
+      <span class="kw-tag">海外对冲</span>
+      <p>中汽协回击"过剩"，一手应对关税不确定性，一手加速海外本地化与标准化。</p>
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <h3>📎 引用来源</h3>
+    <ul>
+      <li>盖世汽车（2026-05-28/06-01）</li>
+      <li>财联社电报（2026-05-29）</li>
+      <li>中汽协官网（2026-06-01检索）</li>
+      <li>工信部油耗新规（2026-01-01实施；用户提供解读）</li>
+      <li>内部沟通：巴斯巴将亮相2026欧洲电池电动车展（2026-05-29）</li>
+      <li>同花顺财经（2026-05-29）</li>
+      <li>中财网（2026-05-19）</li>
+      <li>东方财富网（2026-05-30）</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- BACK HOME -->
+<a class="back-home" href="index.html">
+  <span>←</span> 返回首页
+</a>
+
+</body>
+</html>
