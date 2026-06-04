@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>销售日常Q&amp;A</title>
+<style>
+:root{
+  --primary:#00375A;--accent:#F4811F;--accent2:#00B4D8;--accent3:#6C5CE7;
+  --bg:#F0F4F8;--card:#fff;--text:#1A1A2E;--tl:#5A6A7A;--muted:#94A3B8;
+  --shadow:0 4px 20px rgba(0,55,90,.10);--r:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.75;min-height:100vh}
+
+/* TOP BAR */
+.topbar{height:6px;background:var(--primary)}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--primary) 0%,#004F7C 60%,var(--accent2) 100%);color:#fff;padding:52px 24px 48px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.04)}
+.hero::after{content:'';position:absolute;bottom:-40px;left:-10%;width:120%;height:80px;background:var(--bg);border-radius:50% 50% 0 0}
+.hero h1{font-size:2.2rem;font-weight:900;letter-spacing:2px;margin-bottom:6px}
+.hero .badge-update{display:inline-block;background:var(--accent);color:#fff;font-size:.72rem;font-weight:800;padding:3px 14px;border-radius:20px;letter-spacing:2px;margin-bottom:14px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.65}}
+.hero .sub{font-size:.95rem;opacity:.8}
+
+.container{max-width:720px;margin:0 auto;padding:0 20px}
+
+/* TIP BAR */
+.tip{background:var(--primary);color:#fff;font-size:.88rem;text-align:center;padding:12px 16px;border-radius:10px;margin:36px auto 28px;max-width:720px;line-height:1.5}
+
+/* ACCORDION CARD */
+.qa-card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);margin-bottom:20px;overflow:hidden;border-left:5px solid var(--accent);transition:box-shadow .25s ease}
+.qa-card:hover{box-shadow:0 8px 32px rgba(0,55,90,.16)}
+
+/* QUESTION HEADER (clickable) */
+.qa-header{display:flex;align-items:center;gap:14px;padding:20px 22px;cursor:pointer;user-select:none;transition:background .2s ease}
+.qa-header:hover{background:#F8FAFC}
+.qa-header .q-badge{flex-shrink:0;width:40px;height:40px;background:linear-gradient(135deg,var(--accent),#FF9A3C);color:#fff;font-weight:800;font-size:.88rem;border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(244,129,31,.3)}
+.qa-header .q-text{flex:1;font-size:.98rem;font-weight:700;color:var(--primary);line-height:1.45}
+.qa-header .q-arrow{flex-shrink:0;font-size:1.2rem;color:var(--muted);transition:transform .3s ease;font-weight:800}
+.qa-card.open .qa-header .q-arrow{transform:rotate(180deg);color:var(--accent)}
+
+/* ANSWER BODY (accordion) */
+.qa-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.qa-body-inner{padding:0 22px 22px}
+
+/* REASON SECTION */
+.reason{background:#EBF5FB;border-left:4px solid var(--accent2);border-radius:8px;padding:14px 16px;margin-bottom:14px}
+.reason .label{font-size:.78rem;font-weight:800;color:var(--accent2);margin-bottom:6px;display:flex;align-items:center;gap:5px}
+.reason p{font-size:.9rem;color:var(--tl);line-height:1.65}
+
+/* SOLUTION SECTION */
+.solution{background:linear-gradient(135deg,#FFF8F0,#FEF3E2);border-left:4px solid var(--accent);border-radius:8px;padding:14px 16px}
+.solution .label{font-size:.78rem;font-weight:800;color:var(--accent);margin-bottom:6px;display:flex;align-items:center;gap:5px}
+.solution p{font-size:.9rem;color:var(--tl);line-height:1.65}
+
+/* COUNT BAR */
+.count-bar{text-align:center;margin:36px 0 10px;font-size:.85rem;color:var(--muted)}
+.count-bar span{background:var(--accent2);color:#fff;font-weight:700;padding:2px 10px;border-radius:12px;font-size:.78rem}
+
+/* FOOTER */
+.footer{text-align:center;padding:30px 20px 40px;color:var(--muted);font-size:.8rem;letter-spacing:1px}
+.footer .divider{width:60px;height:3px;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:3px;margin:0 auto 12px}
+
+/* BACK BTN */
+.back-home{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(0,55,90,.92);color:#fff;font-size:.88rem;font-weight:600;padding:12px 22px;border-radius:40px;text-decoration:none;box-shadow:0 6px 24px rgba(0,55,90,.35);backdrop-filter:blur(8px);transition:transform .2s,box-shadow .2s,background .2s}
+.back-home:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,55,90,.45);background:rgba(0,180,216,.95)}
+
+@media(max-width:520px){
+  .hero h1{font-size:1.6rem}
+  .qa-header{padding:16px 16px}
+  .qa-header .q-badge{width:34px;height:34px;font-size:.78rem}
+  .qa-header .q-text{font-size:.9rem}
+  .qa-body-inner{padding:0 16px 18px}
+  .back-home{bottom:16px;right:16px;padding:10px 18px;font-size:.82rem}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge-update">不停更新</div>
+  <h1>&#x1F4AC; 销售日常Q&amp;A</h1>
+  <div class="sub">系统操作常见问题速查手册</div>
+</div>
+
+<div class="container">
+
+  <div class="tip">&#x1F449; 遇到系统问题？点击卡片查看原因和解决方法</div>
+
+  <!-- Q1 -->
+  <div class="qa-card" onclick="toggle(this)">
+    <div class="qa-header">
+      <div class="q-badge">Q1</div>
+      <div class="q-text">为什么SAP里已经有料号了，申请价格还说没有part master/cost？</div>
+      <div class="q-arrow">&#x25BC;</div>
+    </div>
+    <div class="qa-body">
+      <div class="qa-body-inner">
+        <div class="reason">
+          <div class="label">&#x1F50D; 原因</div>
+          <p>part master是一系列的动作，并非SAP里能看到料号就是建完了。要在MMstatus Web上显示&ldquo;FICO done&rdquo;才算建完。</p>
+        </div>
+        <div class="solution">
+          <div class="label">&#x2705; 解决方法</div>
+          <p>可以重新建part master；<br>或者直接找财务run cost。WGQ: Iris Zhang；HK: Yolanda Chen</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="qa-card" onclick="toggle(this)">
+    <div class="qa-header">
+      <div class="q-badge">Q2</div>
+      <div class="q-text">为什么pricing已经re-open申请，但系统里依然显示reject？</div>
+      <div class="q-arrow">&#x25BC;</div>
+    </div>
+    <div class="qa-body">
+      <div class="qa-body-inner">
+        <div class="reason">
+          <div class="label">&#x1F50D; 原因</div>
+          <p>系统原因，只要第一次reject，后续就算重新开始审批依然显示reject</p>
+        </div>
+        <div class="solution">
+          <div class="label">&#x2705; 解决方法</div>
+          <p>Pricing re-open 以后，虽然还是reject状态，但是approver会跳到下一级<br>耐心等待对应的approver审批即可</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="qa-card" onclick="toggle(this)">
+    <div class="qa-header">
+      <div class="q-badge">Q3</div>
+      <div class="q-text">为什么PDF上显示已经审批通过，但SAP里找不到价格？</div>
+      <div class="q-arrow">&#x25BC;</div>
+    </div>
+    <div class="qa-body">
+      <div class="qa-body-inner">
+        <div class="reason">
+          <div class="label">&#x1F50D; 原因</div>
+          <p>因为新料号没有set up option，pricing无法将价格批入SAP</p>
+        </div>
+        <div class="solution">
+          <div class="label">&#x2705; 解决方法</div>
+          <p>pricing会针对这个问题在PDF上给出comment，收到PDF后可以把PDF转发给pricing，请她帮忙手工upload到系统。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COUNT -->
+  <div class="count-bar">已收录 <span>3</span> 个常见问题 &middot; 持续更新中</div>
+
+</div>
+
+<div class="footer">
+  <div class="divider"></div>
+  持续更新中 &middot; 有新问题请随时联系
+</div>
+
+<!-- BACK HOME -->
+<a class="back-home" href="index.html">
+  <span>&larr;</span> 返回首页
+</a>
+
+<script>
+function toggle(card) {
+  var body = card.querySelector('.qa-body');
+  var isOpen = card.classList.contains('open');
+
+  // Close all first
+  document.querySelectorAll('.qa-card').forEach(function(c) {
+    c.classList.remove('open');
+    c.querySelector('.qa-body').style.maxHeight = null;
+  });
+
+  // Open clicked if it was closed
+  if (!isOpen) {
+    card.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+  }
+}
+</script>
+
+</body>
+</html>
