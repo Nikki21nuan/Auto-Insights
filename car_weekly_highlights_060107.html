@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>车圈一周速览 2026/06/01 - 2026/06/07</title>
+<style>
+  :root {
+    --primary:#0B2545; --secondary:#13618A; --accent:#F4811F; --accent2:#00B4D8; --accent3:#6C5CE7;
+    --bg:#F0F4F8; --card-bg:#FFFFFF; --text:#1A1A2E; --text-light:#5A6A7A;
+    --shadow:0 4px 20px rgba(11,37,69,0.10); --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.75}
+  .banner{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 60%,var(--accent2) 100%);color:#fff;padding:52px 24px 46px;text-align:center;position:relative;overflow:hidden}
+  .banner::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.04)}
+  .banner::after{content:'';position:absolute;bottom:-40px;left:-10%;width:120%;height:80px;background:var(--bg);border-radius:50% 50% 0 0}
+  .banner h1{font-size:2.4rem;font-weight:900;letter-spacing:2px;margin-bottom:6px}
+  .banner .date{font-size:1rem;opacity:0.85;margin-bottom:18px}
+  .banner .summary-pill{display:inline-block;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);padding:10px 28px;border-radius:30px;font-size:0.95rem;font-weight:500;max-width:800px;line-height:1.6}
+  .container{max-width:960px;margin:0 auto;padding:0 20px}
+  .section-title{font-size:1.5rem;font-weight:700;color:var(--primary);margin:44px 0 22px;padding-left:14px;border-left:5px solid var(--accent)}
+  .section-title.purple{border-left-color:var(--accent3)}
+  .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:24px}
+  .card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px 26px 24px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent)}
+  .card:hover{transform:translateY(-6px);box-shadow:0 14px 38px rgba(11,37,69,0.17)}
+  .card .badge{position:absolute;top:-16px;left:22px;width:36px;height:36px;background:var(--accent);color:#fff;font-weight:900;font-size:1.1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(244,129,31,0.4)}
+  .card h3{font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:10px}
+  .card .facts{font-size:0.92rem;color:var(--text);margin-bottom:14px}
+  .card .facts strong{color:var(--secondary)}
+  .card .implication{background:linear-gradient(135deg,#EBF5FB,#FDF2E9);border-left:4px solid var(--accent2);border-radius:8px;padding:12px 16px;font-size:0.88rem;color:var(--text-light)}
+  .card .implication strong{color:var(--secondary)}
+  .competitor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+  .comp-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 22px 20px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent3)}
+  .comp-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(108,92,231,0.18)}
+  .comp-card .comp-tag{display:inline-block;background:var(--accent3);color:#fff;font-weight:700;font-size:0.82rem;padding:4px 14px;border-radius:20px;margin-bottom:10px}
+  .comp-card .comp-label{font-size:0.78rem;color:var(--accent3);opacity:0.7;margin-top:10px;font-weight:500}
+  .comp-card p{font-size:0.9rem;color:var(--text-light);line-height:1.65}
+  .keywords-list{display:flex;flex-wrap:wrap;gap:16px;margin-top:6px}
+  .keyword-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 22px;flex:1 1 260px;transition:transform .25s ease,box-shadow .25s ease}
+  .keyword-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(11,37,69,0.14)}
+  .keyword-card .kw-tag{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:0.85rem;padding:4px 14px;border-radius:20px;margin-bottom:8px}
+  .keyword-card p{font-size:0.9rem;color:var(--text-light)}
+  .sources{margin:44px 0 54px;background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 26px}
+  .sources h3{font-size:1rem;color:var(--primary);margin-bottom:10px}
+  .sources ul{list-style:none;padding:0}
+  .sources li{font-size:0.88rem;color:var(--text-light);padding:4px 0 4px 18px;position:relative}
+  .sources li::before{content:'';position:absolute;left:0;top:12px;width:8px;height:8px;background:var(--accent2);border-radius:50%}
+  .back-home{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(11,37,69,0.92);color:#fff;font-size:0.88rem;font-weight:600;padding:12px 22px;border-radius:40px;text-decoration:none;box-shadow:0 6px 24px rgba(11,37,69,0.35);backdrop-filter:blur(8px);transition:transform .2s ease,box-shadow .2s ease,background .2s ease;letter-spacing:0.5px}
+  .back-home:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(11,37,69,0.45);background:rgba(19,97,138,0.95)}
+  @media(max-width:520px){
+    .banner h1{font-size:1.55rem}
+    .banner .summary-pill{font-size:0.82rem;padding:8px 16px}
+    .cards-grid,.competitor-grid{grid-template-columns:1fr}
+    .card,.comp-card{padding:24px 18px 20px}
+    .section-title{font-size:1.25rem}
+    .back-home{bottom:16px;right:16px;padding:10px 18px;font-size:0.82rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="banner">
+  <h1>&#x1F697; 车圈一周速览</h1>
+  <div class="date">2026 / 06 / 01 — 2026 / 06 / 07</div>
+  <div class="summary-pill">本周6件大事：零跑领跑新势力、合资豪华上新、油气与车企深度绑定</div>
+</div>
+
+<div class="container">
+
+  <!-- SIX NEWS -->
+  <div class="section-title">六大行业动态</div>
+  <div class="cards-grid">
+
+    <div class="card">
+      <div class="badge">1</div>
+      <h3>零跑坐上新势力销冠</h3>
+      <p class="facts"><strong>核心内容：</strong>5月交付81,569台，同比+81%，新势力占比30.5%；第二梯队（极氪/问界/理想/小鹏/小米）集中在3.0–3.4万区间。</p>
+      <div class="implication"><strong>行业含义：</strong>规模化交付驱动中低压与高压线束、域控线束需求扩容，二线竞争趋胶着。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">2</div>
+      <h3>比亚迪重回38万+阵位</h3>
+      <p class="facts"><strong>核心内容：</strong>5月总销量383,453辆；海外出口160,177辆创单月新高；方程豹3.02万、腾势1.63万。</p>
+      <div class="implication"><strong>行业含义：</strong>主品牌稳盘+出口高增，"高压+数据"线束增量确定性强，出口配套优先级提升。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">3</div>
+      <h3>奔驰纯电GLC上阵，豪华电动化加速</h3>
+      <p class="facts"><strong>核心内容：</strong>6/5预售34.9万起，800V架构 / 85.5kWh / CLTC 700km / 320kW快充，搭载Momenta智驾。</p>
+      <div class="implication"><strong>行业含义：</strong>合资豪华用高压/高带宽架构重塑门槛，800V与以太网走向主流，高端线束规格上探。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">4</div>
+      <h3>油气巨头牵手车企：补能一体化提速</h3>
+      <p class="facts"><strong>核心内容：</strong>6/3广汽×中石化投运首座"能源+汽车"综合站；比亚迪×中石化签署闪充网络与生态合作框架。</p>
+      <div class="implication"><strong>行业含义：</strong>油气渠道与车企绑定、县域下沉，带动快充接口/高压件渗透，促进配套打包采购。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">5</div>
+      <h3>智驾扩围：Momenta获无锡路测许可</h3>
+      <p class="facts"><strong>核心内容：</strong>6/2获无锡智能网联道路测试许可并落地；R7强化学习世界模型已用于L4。</p>
+      <div class="implication"><strong>行业含义：</strong>高阶智驾向地级市外溢，域控/以太网高带宽线束需求加速，前装NOA渗透提升。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">6</div>
+      <h3>自主"三强"格局更稳</h3>
+      <p class="facts"><strong>核心内容：</strong>5月前三：比亚迪38.3万、奇瑞24.78万、吉利23.76万；前五合计占比&asymp;72%。</p>
+      <div class="implication"><strong>行业含义：</strong>头部优势扩大，Tier1资源向头部平台集中，价格战转向"结构战+平台化供货"。</div>
+    </div>
+
+  </div>
+
+  <!-- COMPETITOR -->
+  <div class="section-title purple">友商速递</div>
+  <div class="competitor-grid">
+
+    <div class="comp-card">
+      <span class="comp-tag">安波福</span>
+      <p>Q1净销售50.86亿美元、毛利率18.1%，分拆后聚焦高附加值连接/高速互联。</p>
+      <div class="comp-label">近期财报</div>
+    </div>
+
+    <div class="comp-card">
+      <span class="comp-tag">瑞可达</span>
+      <p>称"稳步落地海内外产能、打造内外联动韧性供应链"，发布瑞可转债赎回条件提示。</p>
+      <div class="comp-label">近期动态</div>
+    </div>
+
+    <div class="comp-card">
+      <span class="comp-tag">7月初二次涨价成定局</span>
+      <p>受有色金属价格上涨驱动，安费诺7/1起通用品涨约5%，高压/高速定制涨8%–10%；</br>莫仕同日起涨5%–30%（渠道消息，待官方确认）；</br>立讯精密、中航光电5–6月已上调3%–8%，持续传导至7月报价与交付。</p>
+      <div class="comp-label">近期动态</div>
+    </div>
+  </div>
+
+  <!-- KEYWORDS -->
+  <div class="section-title">本周关键词</div>
+  <div class="keywords-list">
+    <div class="keyword-card">
+      <span class="kw-tag">新势力分层</span>
+      <p>零跑显著拉开与第二梯队差距，规模化交付驱动中低压/高压线束放量。</p>
+    </div>
+    <div class="keyword-card">
+      <span class="kw-tag">豪华电动化</span>
+      <p>合资豪华推动800V与高带宽架构上车，对高端线束/连接器提出更高规格。</p>
+    </div>
+    <div class="keyword-card">
+      <span class="kw-tag">油电融合网</span>
+      <p>油气渠道与车企共建"一体站"，补能+售服协同下沉。</p>
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <h3>&#x1F4CE; 引用来源</h3>
+    <ul>
+      <li>太平洋汽车（2026/06/01；2026/06/07）</li>
+      <li>腾讯新闻（2026/06/02）</li>
+      <li>新浪财经（2026/06/08）</li>
+      <li>盖世汽车（2026/05/07）</li>
+      <li>网易（2026/05/13）</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- BACK HOME -->
+<a class="back-home" href="index.html">
+  <span>&larr;</span> 返回首页
+</a>
+
+</body>
+</html>

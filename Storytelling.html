@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>职场Storytelling培训 · 销售团队专属干货复盘</title>
+<style>
+:root{
+  --primary:#00375A;--accent:#F4811F;--accent2:#00B4D8;--accent3:#6C5CE7;
+  --bg:#F0F4F8;--card:#fff;--text:#1A1A2E;--tl:#5A6A7A;--muted:#94A3B8;
+  --shadow:0 4px 20px rgba(0,55,90,.10);--r:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.75;min-height:100vh}
+.tb{height:6px;background:var(--primary)}
+
+.hero{background:linear-gradient(135deg,var(--primary) 0%,#004F7C 55%,var(--accent2) 100%);color:#fff;padding:52px 24px 48px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04)}
+.hero::after{content:'';position:absolute;bottom:-40px;left:-10%;width:120%;height:80px;background:var(--bg);border-radius:50% 50% 0 0}
+.hero h1{font-size:1.6rem;font-weight:900;letter-spacing:1px;margin-bottom:10px;line-height:1.4}
+.hero .sub{font-size:.9rem;opacity:.8;margin-bottom:16px}
+.hero .pill{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);padding:8px 24px;border-radius:30px;font-size:.88rem;font-weight:600}
+
+.container{max-width:720px;margin:0 auto;padding:0 20px}
+
+.intro{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:22px 24px;margin:32px 0 10px;border-left:5px solid var(--accent2);font-size:.92rem;color:var(--tl);line-height:1.7}
+.intro strong{color:var(--primary)}
+
+.sec-hdr{font-size:1.4rem;font-weight:800;color:var(--primary);margin:36px 0 18px;text-align:center}
+.sec-hdr span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.tool-box{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);margin-bottom:20px;overflow:hidden}
+.tool-header{display:flex;align-items:center;gap:12px;padding:20px 22px;cursor:pointer;user-select:none;transition:background .2s}
+.tool-header:hover{background:#F8FAFC}
+.tool-header .tool-num{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:1.1rem;flex-shrink:0}
+.tool-header .tool-num.t1{background:linear-gradient(135deg,var(--accent2),var(--primary))}
+.tool-header .tool-num.t2{background:linear-gradient(135deg,var(--accent),var(--accent3))}
+.tool-header .tool-info{flex:1}
+.tool-header .tool-info h2{font-size:1.05rem;font-weight:700;color:var(--primary);line-height:1.35}
+.tool-header .tool-info p{font-size:.78rem;color:var(--muted)}
+.tool-header .chev{font-size:.9rem;color:var(--muted);transition:transform .3s;font-weight:800}
+.tool-box.open .tool-header .chev{transform:rotate(180deg);color:var(--accent2)}
+.tool-body{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.tool-inner{padding:0 22px 24px}
+
+.timeline{position:relative;padding-left:32px}
+.timeline::before{content:'';position:absolute;left:13px;top:10px;bottom:10px;width:3px;background:linear-gradient(to bottom,var(--accent2),var(--primary));border-radius:2px}
+.step{position:relative;margin-bottom:20px}
+.step:last-child{margin-bottom:0}
+.step .dot{position:absolute;left:-32px;top:4px;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.75rem;z-index:1}
+.step .dot.s1{background:var(--accent2)}
+.step .dot.s2{background:#E74C3C}
+.step .dot.s3{background:#27AE60}
+.step .dot.s4{background:var(--accent)}
+.step .dot.s5{background:var(--accent3)}
+.step .step-card{background:#F8FAFC;border-radius:10px;padding:14px 16px}
+.step .step-card h3{font-size:.95rem;font-weight:700;color:var(--primary);margin-bottom:4px}
+.step .step-card h3 em{font-style:normal;color:var(--accent2);font-weight:800}
+.step .step-card p{font-size:.86rem;color:var(--tl);line-height:1.55}
+.step .step-card .tag{display:inline-block;background:var(--accent2);color:#fff;font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:8px;margin-right:4px}
+.step .step-card .tag.core{background:#E74C3C}
+
+.formula{background:#1A4A72;border-radius:10px;padding:14px 16px;margin:8px 0;text-align:center}
+.formula p{color:#E2E8F0;font-size:.9rem;font-family:'Menlo','Courier New',monospace;font-weight:600}
+.formula p span{color:var(--accent);font-weight:800}
+.formula-sub{font-size:.8rem;color:var(--muted);margin-top:6px;text-align:center}
+
+.n-card{background:#F8FAFC;border-radius:10px;padding:16px 16px 14px;margin-bottom:14px;border-left:4px solid var(--accent);position:relative;transition:transform .15s}
+.n-card:hover{transform:translateX(3px)}
+.n-card:last-child{margin-bottom:0}
+.n-card .big-n{position:absolute;top:12px;right:14px;font-size:2.2rem;font-weight:900;opacity:.12;line-height:1;color:var(--primary)}
+.n-card h3{font-size:.95rem;font-weight:700;color:var(--primary);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.n-card h3 .n-badge{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;color:#fff;font-weight:800;font-size:.82rem;flex-shrink:0}
+.n-badge.c5{background:var(--accent2)}
+.n-badge.c3{background:var(--accent)}
+.n-badge.c2{background:var(--accent3)}
+.n-badge.c1{background:#E74C3C}
+.n-card p,.n-card li{font-size:.86rem;color:var(--tl);line-height:1.6}
+.n-card ul{list-style:none;margin-top:4px}
+.n-card li{padding:4px 0 4px 14px;position:relative}
+.n-card li::before{content:'';position:absolute;left:0;top:12px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.n-card li strong{color:var(--primary)}
+
+.closing{background:linear-gradient(135deg,#FFF8F0,#FEF3E2);border:2px solid var(--accent);border-radius:var(--r);padding:20px 24px;text-align:center;margin:32px 0 20px}
+.closing p{font-size:1.05rem;font-weight:700;color:var(--accent);line-height:1.5}
+
+.back-home{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(0,55,90,.92);color:#fff;font-size:.86rem;font-weight:600;padding:11px 20px;border-radius:40px;text-decoration:none;box-shadow:0 6px 24px rgba(0,55,90,.35);backdrop-filter:blur(8px);transition:transform .2s,box-shadow .2s,background .2s}
+.back-home:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,55,90,.45);background:rgba(0,180,216,.95)}
+
+@media(max-width:520px){
+  .hero h1{font-size:1.3rem}
+  .hero .pill{font-size:.8rem;padding:6px 16px}
+  .tool-header{padding:16px 16px}
+  .tool-inner{padding:0 16px 20px}
+  .timeline{padding-left:28px}
+  .timeline::before{left:11px}
+  .step .dot{left:-28px;width:24px;height:24px;font-size:.68rem}
+  .back-home{bottom:16px;right:16px;padding:9px 16px;font-size:.8rem}
+}
+</style>
+</head>
+<body>
+
+<div class="tb"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>讲好故事，让销售表达<br>「有逻辑、有感染力、能落地」</h1>
+  <div class="sub">职场Storytelling培训 &middot; 销售团队专属干货复盘</div>
+  <div class="pill">普通表达靠话术，顶级表达靠叙事</div>
+</div>
+
+<div class="container">
+
+  <!-- INTRO (精简) -->
+  <div class="intro">
+    职场不缺讲道理的人，缺<strong>会讲故事的人</strong>。解锁销售全场景讲故事万能公式。
+  </div>
+
+  <!-- SECTION HEADER -->
+  <div class="sec-hdr">&#x1F3AF; 两大万能实操工具<br><span>5S结构 + 5321故事技巧</span></div>
+
+  <!-- ===== 工具1: 5S（内容不变） ===== -->
+  <div class="tool-box open" id="tool1">
+    <div class="tool-header" onclick="toggleTool('tool1')">
+      <div class="tool-num t1">5S</div>
+      <div class="tool-info">
+        <h2>5S标准故事结构 </h2>
+        <h2>-职场通用万能模板</h2>
+        <p>一套公式搞定：汇报、复盘、述职、案例分享、客户宣讲</p>
+      </div>
+      <span class="chev">&#x25BC;</span>
+    </div>
+    <div class="tool-body" id="tool1-body">
+      <div class="tool-inner">
+
+        <div class="timeline">
+
+          <div class="step">
+            <div class="dot s1">1</div>
+            <div class="step-card">
+              <h3><em>S</em>etup 铺垫 <span class="tag">&#x2264;10%</span></h3>
+              <p>一句话交代时间、场景、背景，简洁入题</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="dot s2">2</div>
+            <div class="step-card">
+              <h3><em>S</em>truggle 冲突 <span class="tag core">核心亮点</span></h3>
+              <p><span>冲突公式</span> = 主角目标 + 现实阻力</p>
+              <div class="formula-sub">包含：市场环境冲突、客户人际冲突、自我能力压力冲突</div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="dot s3">3</div>
+            <div class="step-card">
+              <h3><em>S</em>olution 解决方案</h3>
+              <p>心态转变 + 落地行动，真实不套路</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="dot s4">4</div>
+            <div class="step-card">
+              <h3><em>R</em>esult 结果</h3>
+              <p>定量数据（业绩/降本/增量）+ 定性价值（经验/资源/口碑）</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="dot s5">5</div>
+            <div class="step-card">
+              <h3><em>S</em>tandpoint 观点</h3>
+              <p>一个故事只输出一句核心金句观点</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 工具2: 5321（精简表述） ===== -->
+  <div class="tool-box" id="tool2">
+    <div class="tool-header" onclick="toggleTool('tool2')">
+      <div class="tool-num t2">5321</div>
+      <div class="tool-info">
+        <h2>5321故事丰满技巧</h2>
+        <h2>-平淡故事&#x2192;高级感染力</h2>
+        <p>名场面 + 修辞 + 元素 + 金句</p>
+      </div>
+      <span class="chev">&#x25BC;</span>
+    </div>
+    <div class="tool-body" id="tool2-body">
+      <div class="tool-inner">
+
+        <!-- 5 -->
+        <div class="n-card" style="border-left-color:var(--accent2)">
+          <div class="big-n">5</div>
+          <h3><span class="n-badge c5">5</span> 1个名场面（画面记忆）</h3>
+          <ul><li><strong>五感词汇</strong>打造具象场景，身临其境</li></ul>
+        </div>
+
+        <!-- 3 -->
+        <div class="n-card" style="border-left-color:var(--accent)">
+          <div class="big-n">3</div>
+          <h3><span class="n-badge c3">3</span> 3种核心修辞（销售必备）</h3>
+          <ul>
+            <li><strong>比喻：</strong>复杂方案&#x2192;客户听得懂的生活化语言</li>
+            <li><strong>拟人：</strong>让产品优势更鲜活，降低理解成本</li>
+            <li><strong>对比：</strong>新旧 / 竞品 / 现状vs目标，快速凸显价值</li>
+          </ul>
+        </div>
+
+        <!-- 2 -->
+        <div class="n-card" style="border-left-color:var(--accent3)">
+          <div class="big-n">2</div>
+          <h3><span class="n-badge c2">2</span> 2类故事元素（真实落地）</h3>
+          <ul>
+            <li><strong>人物精简：</strong>单故事&#x2264;3人，有具体身份</li>
+            <li><strong>简短对话：</strong>1-2轮真实对话还原冲突、凸显专业</li>
+          </ul>
+        </div>
+
+        <!-- 1 -->
+        <div class="n-card" style="border-left-color:#E74C3C">
+          <div class="big-n">1</div>
+          <h3><span class="n-badge c1">1</span> 1句原创金句 &middot; 升华收尾</h3>
+          <ul><li>痛点类 / 价值类 / 态度类 / 号召类，贴合自己真实故事</li></ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="closing">
+    <p>5S搭骨架，5321填血肉，<br>三分钟打造高分职场故事。</p>
+  </div>
+
+</div>
+
+<!-- BACK -->
+<a class="back-home" href="index.html">
+  <span>&larr;</span> 返回首页
+</a>
+
+<script>
+function toggleTool(id) {
+  var box = document.getElementById(id);
+  var body = box.querySelector('.tool-body');
+  if (box.classList.contains('open')) {
+    box.classList.remove('open');
+    body.style.maxHeight = null;
+  } else {
+    box.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var t1 = document.getElementById('tool1');
+  var b1 = t1.querySelector('.tool-body');
+  b1.style.maxHeight = b1.scrollHeight + 'px';
+});
+</script>
+
+</body>
+</html>
