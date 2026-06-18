@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>用AI给自己养一个销售小助理</title>
+<style>
+:root{
+  --primary:#00375A;--accent:#F4811F;--accent2:#00B4D8;--accent3:#6C5CE7;
+  --bg:#F0F4F8;--card:#fff;--text:#1A1A2E;--tl:#5A6A7A;--muted:#94A3B8;
+  --dark:#1E293B;--shadow:0 3px 14px rgba(0,55,90,.10);--r:12px;
+  --red:#E74C3C;--green:#27AE60;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+.tb{height:5px;background:var(--primary)}
+
+/* HERO — compact */
+.hero{background:linear-gradient(135deg,var(--primary) 0%,#004F7C 55%,var(--accent2) 100%);color:#fff;padding:24px 20px 28px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-30px;left:-10%;width:120%;height:60px;background:var(--bg);border-radius:50% 50% 0 0}
+.hero h1{font-size:1.25rem;font-weight:900;margin-bottom:6px;line-height:1.35}
+.hero .ver-pill{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);padding:2px 10px;border-radius:14px;font-size:.66rem;font-weight:600;margin-bottom:12px}
+.hero .core{font-size:1.1rem;font-weight:900;margin-bottom:5px;background:linear-gradient(135deg,#FFB870,#FFE0B0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .features{font-size:.78rem;opacity:.85}
+.hero .features .sep{opacity:.4;margin:0 4px}
+.hero .bottom-msg{font-size:.74rem;opacity:.7;margin-top:6px;font-style:italic}
+
+.container{max-width:680px;margin:0 auto;padding:0 14px 20px}
+
+/* SECTION HEADER (visible) */
+.sec-hdr{font-size:.95rem;font-weight:800;color:var(--primary);margin:18px 0 10px;padding-left:10px;border-left:4px solid var(--accent);display:flex;align-items:center;gap:6px}
+.sec-hdr .step{font-size:.62rem;color:var(--muted);font-weight:700;letter-spacing:1px;background:#EBF5FB;padding:2px 8px;border-radius:8px}
+
+/* FORMULA — compact */
+.formula-card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:16px 14px 14px;border-top:3px solid var(--accent)}
+.formula-blocks{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px;margin-bottom:10px}
+.formula-blocks .blk{background:linear-gradient(135deg,var(--accent2),var(--primary));color:#fff;font-weight:700;font-size:.78rem;padding:7px 10px;border-radius:7px;min-width:62px;text-align:center}
+.formula-blocks .plus{font-size:.95rem;font-weight:900;color:var(--accent)}
+.formula-note{text-align:center;font-size:.7rem;color:var(--muted);margin-bottom:10px;letter-spacing:.5px}
+.refine-row{margin-top:12px;padding-top:10px;border-top:1px dashed #E2E8F0}
+.refine-row .label{font-size:.78rem;color:var(--primary);font-weight:700;margin-bottom:7px}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{background:#FFF8F0;border:1.5px solid var(--accent);color:var(--accent);font-size:.72rem;font-weight:600;padding:3px 10px;border-radius:14px}
+
+/* ACCORDION (compact) */
+.acc{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);margin-top:12px;overflow:hidden}
+.acc-hdr{display:flex;align-items:center;gap:8px;padding:14px 16px;cursor:pointer;user-select:none;transition:background .15s}
+.acc-hdr:hover{background:#F8FAFC}
+.acc-hdr .ah-icon{font-size:1.05rem}
+.acc-hdr .ah-title{flex:1;font-size:.95rem;font-weight:800;color:var(--primary)}
+.acc-hdr .ah-count{background:var(--accent2);color:#fff;font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:10px}
+.acc-hdr.red .ah-count{background:var(--red)}
+.acc-hdr.purple .ah-count{background:var(--accent3)}
+.acc-hdr .ah-chev{font-size:.7rem;color:var(--muted);transition:transform .3s;font-weight:800}
+.acc.open .acc-hdr .ah-chev{transform:rotate(180deg);color:var(--accent2)}
+.acc.open .acc-hdr.red .ah-chev{color:var(--red)}
+.acc.open .acc-hdr.purple .ah-chev{color:var(--accent3)}
+
+.acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.acc-inner{padding:0 14px 14px}
+
+/* SCENARIO mini cards (vertical compact) */
+.sc-list{display:flex;flex-direction:column;gap:10px}
+.sc-card{background:#F8FAFC;border-radius:10px;padding:10px 12px;border-left:3px solid var(--accent2)}
+.sc-card .sc-head{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.sc-card .sc-num{width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,var(--accent2),var(--primary));color:#fff;font-weight:800;font-size:.78rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sc-card .sc-title{font-size:.88rem;font-weight:700;color:var(--primary)}
+.sc-card .sc-how{font-size:.74rem;color:var(--tl);margin-bottom:7px;padding-left:32px}
+.sc-card .sc-prompt{background:var(--dark);border-radius:7px;padding:8px 10px;position:relative}
+.sc-card .sc-prompt .pl{display:inline-block;background:var(--accent);color:#fff;font-size:.58rem;font-weight:800;padding:1px 7px;border-radius:0 0 5px 0;position:absolute;top:0;left:0}
+.sc-card .sc-prompt p{color:#E2E8F0;font-size:.78rem;line-height:1.5;margin-top:12px;font-family:'Menlo','Courier New',monospace}
+
+/* RED LINES (inside accordion) */
+.rl-item{padding:12px 14px;background:#FFF8F8;border-radius:10px;border-left:3px solid var(--red);margin-bottom:10px}
+.rl-item:last-child{margin-bottom:0}
+.rl-item .rl-t{font-size:.88rem;font-weight:800;color:var(--red);margin-bottom:7px;display:flex;align-items:center;gap:6px}
+.rl-item .rl-t .n{background:var(--red);color:#fff;font-size:.66rem;font-weight:900;padding:1px 7px;border-radius:8px}
+.rl-item .danger,.rl-item .safe{font-size:.78rem;line-height:1.5;padding:6px 10px;border-radius:6px;margin-top:5px;display:flex;gap:6px}
+.rl-item .danger{background:#FEEAEA;color:var(--red)}
+.rl-item .safe{background:#E8F8EE;color:var(--green)}
+.copilot-note{display:inline-block;background:var(--accent);color:#fff;font-size:.62rem;font-weight:700;padding:1px 7px;border-radius:8px;margin-left:2px}
+.rl-item p.emph{font-size:.82rem;color:var(--primary);font-weight:700;line-height:1.5}
+
+/* TOOLS table (inside accordion) */
+.tool-row{display:flex;align-items:flex-start;gap:8px;padding:10px 12px;background:#F8FAFC;border-radius:8px;margin-bottom:8px;border-left:3px solid var(--accent3)}
+.tool-row:last-child{margin-bottom:0}
+.tool-row .t-left{flex-shrink:0;min-width:74px}
+.tool-row .t-name{font-size:.85rem;font-weight:800;color:var(--primary);line-height:1.3;margin-bottom:3px}
+.tool-row .t-tag{display:inline-block;background:var(--accent3);color:#fff;font-size:.6rem;font-weight:700;padding:1px 7px;border-radius:8px}
+.tool-row .t-use{flex:1;font-size:.76rem;color:var(--tl);line-height:1.55}
+.tool-row .t-use strong{color:var(--primary);font-weight:600}
+
+/* GLOSSARY (inside accordion) */
+.gl-item{padding:12px 14px;background:#F8FAFC;border-radius:10px;border-left:3px solid var(--accent2);margin-bottom:10px}
+.gl-item:last-child{margin-bottom:0}
+.gl-item h4{font-size:.88rem;font-weight:800;color:var(--primary);margin-bottom:5px;display:flex;align-items:center;gap:6px}
+.gl-item h4 .q{background:var(--accent2);color:#fff;width:20px;height:20px;border-radius:50%;font-size:.66rem;font-weight:900;display:inline-flex;align-items:center;justify-content:center}
+.gl-item p{font-size:.78rem;color:var(--tl);line-height:1.55;margin-bottom:5px}
+.gl-item .you{background:#FFF8F0;border-left:3px solid var(--accent);border-radius:5px;padding:7px 10px;font-size:.74rem;color:var(--tl);margin-top:5px;line-height:1.5}
+.gl-item .you strong{color:var(--accent)}
+
+/* image sizing for accordion items */
+.gl-item .you img, .how-img{max-width:360px;max-height:220px;width:auto;height:auto;object-fit:contain;border-radius:8px;border:1px solid #eef6fb;margin-top:8px;display:block}
+
+/* HOWTO box
+.dropdown .how-fig{display:flex;flex-direction:column;gap:8px;align-items:flex-start;margin-top:8px}
+.dropdown .how-fig img{max-width:100%;height:auto;border-radius:8px;border:1px solid #eef6fb}
+.dropdown .how-fig figcaption{font-size:.8rem;color:var(--muted)} */
+
+/* BACK */
+.back-home{position:fixed;bottom:16px;right:16px;z-index:9999;display:flex;align-items:center;gap:5px;background:rgba(0,55,90,.92);color:#fff;font-size:.78rem;font-weight:600;padding:8px 14px;border-radius:30px;text-decoration:none;box-shadow:0 4px 18px rgba(0,55,90,.35)}
+.back-home:active{transform:translateY(1px)}
+
+.footer-tip{text-align:center;font-size:.7rem;color:var(--muted);padding:20px 14px;letter-spacing:.5px}
+</style>
+</head>
+<body>
+
+<div class="tb"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>用Copilot AI给自己养一个小助理</h1>
+  <div class="core">AI就是你的免费实习生</div>
+  <div class="features">
+    <span>不占工位</span><span class="sep">·</span><span>不要工资</span><span class="sep">·</span><span>随叫随到</span>
+  </div>
+  <div class="bottom-msg">你只需要学会——怎么给它派活</div>
+</div>
+
+<div class="container">
+
+  <!-- ===== 1. FORMULA (always visible, short) ===== -->
+  <div class="sec-hdr"><span class="step"></span> 🎯 一步教会Copilot AI实习生</div>
+
+  <div class="formula-card">
+    <div class="formula-note">— 万能公式 · 套上就能用 —</div>
+    <div class="formula-blocks">
+      <div class="blk">我是谁</div><div class="plus">+</div>
+      <div class="blk">要什么</div><div class="plus">+</div>
+      <div class="blk">给谁用</div><div class="plus">+</div>
+      <div class="blk">什么格式</div>
+    </div>
+
+    <div class="refine-row">
+      <div class="label">🔧 不满意就改</div>
+      <div class="chips">
+        <span class="chip">"太长了"</span>
+        <span class="chip">"太官方了"</span>
+        <span class="chip">"补上交期信息"</span>
+      </div>
+    </div>
+  </div>
+  <!-- HOW TO FIND COPILOT — use same accordion style as Glossary -->
+  <div class="acc" id="howtoCopilot">
+    <div class="acc-hdr purple" onclick="toggleAcc('howtoCopilot')">
+      <span class="ah-icon">🖥️</span>
+      <span class="ah-title">如何打开 Microsoft 365 Copilot</span>
+      <span class="ah-count">1条</span>
+      <span class="ah-chev">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="gl-item">
+          <h4><span class="q">?</span> 一步打开 Copilot</h4>
+          <p>在电脑桌面按下 <strong>Windows 键</strong>（或点击开始），然后输入 <strong>365</strong>，选择 <em>Microsoft 365 Copilot</em> 即可打开。</p>
+          <div class="you">
+            <img class="how-img" src="assets/copilot-search-365.jpg" alt="在桌面搜索 365 打开 Copilot">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 2. SCENARIOS (accordion) ===== -->
+  <div class="acc" id="acc1">
+    <div class="acc-hdr" onclick="toggleAcc('acc1')">
+      <span class="ah-icon">📋</span>
+      <span class="ah-title">六个场景 · 套模板直接用</span>
+      <span class="ah-count">6个</span>
+      <span class="ah-chev">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+        <div class="sc-list">
+
+          <div class="sc-card">
+            <div class="sc-head">
+              <div class="sc-num">①</div><div class="sc-title">写邮件</div>
+            </div>
+            <div class="sc-how">怎么做：自己先说一遍大意</div>
+            <div class="sc-prompt"><span class="pl">贴给AI</span><p>把这段话改成正式邮件：____</p></div>
+          </div>
+
+          <div class="sc-card">
+            <div class="sc-head">
+              <div class="sc-num">②</div><div class="sc-title">整理纪要</div>
+            </div>
+            <div class="sc-how">怎么做：给定内容/关键词</div>
+            <div class="sc-prompt"><span class="pl">贴给AI</span><p>整理成待办清单：____</p></div>
+          </div>
+
+          <div class="sc-card">
+            <div class="sc-head">
+              <div class="sc-num">③</div><div class="sc-title">查客户</div>
+            </div>
+            <div class="sc-how">怎么做：告诉AI客户名字</div>
+            <div class="sc-prompt"><span class="pl">贴给AI</span><p>帮查XX最近动态，一页简报</p></div>
+          </div>
+
+          <div class="sc-card">
+            <div class="sc-head">
+              <div class="sc-num">④</div><div class="sc-title">读标书</div>
+            </div>
+            <div class="sc-how">怎么做：拖文件进去</div>
+            <div class="sc-prompt"><span class="pl">贴给AI</span><p>总结关键技术要求和交期</p></div>
+          </div>
+
+          <div class="sc-card">
+            <div class="sc-head">
+              <div class="sc-num">⑤</div><div class="sc-title">翻译</div>
+            </div>
+            <div class="sc-how">怎么做：贴外文原文</div>
+            <div class="sc-prompt"><span class="pl">贴给AI</span><p>翻译+大白话解释</p></div>
+          </div>
+
+          <div class="sc-card">
+            <div class="sc-head">
+              <div class="sc-num">⑥</div><div class="sc-title">编话术</div>
+            </div>
+            <div class="sc-how">怎么做：描述客户异议</div>
+            <div class="sc-prompt"><span class="pl">贴给AI</span><p>客户说贵，给5个回应角度</p></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 3. RED LINES (accordion) ===== -->
+  <div class="acc" id="acc2">
+    <div class="acc-hdr red" onclick="toggleAcc('acc2')">
+      <span class="ah-icon">⚠️</span>
+      <span class="ah-title">红线 · 必读</span>
+      <span class="ah-count">2条</span>
+      <span class="ah-chev">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+
+        <div class="rl-item">
+          <div class="rl-t"><span class="n">1</span> 保密第一</div>
+          <div class="danger"><strong>❌</strong><div>客户图纸 / 报价合同 / 内部成本 — 优先用 <span class="copilot-note">Copilot 企业数据保护</span></div></div>
+          <div class="safe"><strong>✅</strong><div>能给的：公开资料 ✓ 自己打的速记 ✓ 脱敏信息 ✓</div></div>
+        </div>
+
+        <div class="rl-item">
+          <div class="rl-t"><span class="n">2</span> AI出的永远是草稿，你永远是最后一关</div>
+          <p class="emph">核心数据、客户承诺——过你眼才能发。</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 4. TOOLS (accordion) ===== -->
+  <div class="acc" id="acc3">
+    <div class="acc-hdr purple" onclick="toggleAcc('acc3')">
+      <span class="ah-icon">🛠️</span>
+      <span class="ah-title">国内AI工具速览</span>
+      <span class="ah-count">5个</span>
+      <span class="ah-chev">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+
+        <div class="tool-row">
+          <div class="t-left"><div class="t-name">DeepSeek</div><div class="t-tag">推理强·免费</div></div>
+          <div class="t-use">写邮件、整纪要、编话术、分析问题</div>
+        </div>
+
+        <div class="tool-row">
+          <div class="t-left"><div class="t-name">Kimi</div><div class="t-tag">超长文</div></div>
+          <div class="t-use"><strong>20万字一口气读完</strong>，快速消化长文章、整理要点</div>
+        </div>
+
+        <div class="tool-row">
+          <div class="t-left"><div class="t-name">豆包</div><div class="t-tag">语音交互</div></div>
+          <div class="t-use">国内月活第一，开车口述记想法、语音录入</div>
+        </div>
+
+        <div class="tool-row">
+          <div class="t-left"><div class="t-name">通义千问</div><div class="t-tag">钉钉内置</div></div>
+          <div class="t-use">风格稳重，写方案、做汇报、正式文档</div>
+        </div>
+
+        <div class="tool-row">
+          <div class="t-left"><div class="t-name">腾讯元宝</div><div class="t-tag">微信打通</div></div>
+          <div class="t-use">读公众号文章、追踪行业动态</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 5. GLOSSARY (accordion) ===== -->
+  <div class="acc" id="acc4">
+    <div class="acc-hdr purple" onclick="toggleAcc('acc4')">
+      <span class="ah-icon">📚</span>
+      <span class="ah-title">名词扫盲 · 一分钟搞懂</span>
+      <span class="ah-count">2个</span>
+      <span class="ah-chev">▼</span>
+    </div>
+    <div class="acc-body">
+      <div class="acc-inner">
+
+        <div class="gl-item">
+          <h4><span class="q">?</span> Token 是什么？</h4>
+          <p>AI的"字数单位"。你问的问题、AI给的回答，都按token计费/计数。<strong style="color:var(--primary)">1个汉字 ≈ 2-4个token</strong>。</p>
+          <div class="you"><strong>👉 跟你有关的事：</strong>Kimi免费200万字 ≈ 约400万token，够读2-3本《红楼梦》。</div>
+        </div>
+
+        <div class="gl-item">
+          <h4><span class="q">?</span> Agent 是什么？</h4>
+          <p>能自己干活、不用你一步步催的AI，但它需要IT提前设置好才能用。</p>
+          <div class="you"><strong>👉 对你来说：</strong>公司如果上线了，你会收到通知。目前不用操心。</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+   
+
+</div>
+
+ 
+
+<div class="footer-tip">— 给AI派活，把时间还给推进 —</div>
+
+<a class="back-home" href="index.html"><span>←</span> 返回首页</a>
+
+<script>
+function toggleAcc(id) {
+  var acc = document.getElementById(id);
+  var body = acc.querySelector('.acc-body');
+  if (acc.classList.contains('open')) {
+    acc.classList.remove('open');
+    body.style.maxHeight = null;
+  } else {
+    acc.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+  }
+}
+</script>
+
+</body>
+</html>

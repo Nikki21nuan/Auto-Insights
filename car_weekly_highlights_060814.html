@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>车圈一周速览 2026/06/08 - 2026/06/14</title>
+<style>
+  :root {
+    --primary:#0B2545; --secondary:#13618A; --accent:#F4811F; --accent2:#00B4D8; --accent3:#6C5CE7;
+    --bg:#F0F4F8; --card-bg:#FFFFFF; --text:#1A1A2E; --text-light:#5A6A7A;
+    --shadow:0 4px 20px rgba(11,37,69,0.10); --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.75}
+  .banner{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 60%,var(--accent2) 100%);color:#fff;padding:52px 24px 46px;text-align:center;position:relative;overflow:hidden}
+  .banner::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.04)}
+  .banner::after{content:'';position:absolute;bottom:-40px;left:-10%;width:120%;height:80px;background:var(--bg);border-radius:50% 50% 0 0}
+  .banner h1{font-size:2.4rem;font-weight:900;letter-spacing:2px;margin-bottom:6px}
+  .banner .date{font-size:1rem;opacity:0.85;margin-bottom:18px}
+  .banner .summary-pill{display:inline-block;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);padding:10px 28px;border-radius:30px;font-size:0.95rem;font-weight:500;max-width:800px;line-height:1.6}
+  .container{max-width:960px;margin:0 auto;padding:0 20px}
+  .section-title{font-size:1.5rem;font-weight:700;color:var(--primary);margin:44px 0 22px;padding-left:14px;border-left:5px solid var(--accent)}
+  .section-title.purple{border-left-color:var(--accent3)}
+  .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:24px}
+  .card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px 26px 24px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent)}
+  .card:hover{transform:translateY(-6px);box-shadow:0 14px 38px rgba(11,37,69,0.17)}
+  .card .badge{position:absolute;top:-16px;left:22px;width:36px;height:36px;background:var(--accent);color:#fff;font-weight:900;font-size:1.1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(244,129,31,0.4)}
+  .card h3{font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:10px}
+  .card .facts{font-size:0.92rem;color:var(--text);margin-bottom:14px}
+  .card .facts strong{color:var(--secondary)}
+  .card .implication{background:linear-gradient(135deg,#EBF5FB,#FDF2E9);border-left:4px solid var(--accent2);border-radius:8px;padding:12px 16px;font-size:0.88rem;color:var(--text-light)}
+  .card .implication strong{color:var(--secondary)}
+  .competitor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+  .comp-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 22px 20px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent3)}
+  .comp-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(108,92,231,0.18)}
+  .comp-card .comp-tag{display:inline-block;background:var(--accent3);color:#fff;font-weight:700;font-size:0.82rem;padding:4px 14px;border-radius:20px;margin-bottom:10px}
+  .comp-card .comp-label{font-size:0.78rem;color:var(--accent3);opacity:0.7;margin-top:10px;font-weight:500}
+  .comp-card p{font-size:0.9rem;color:var(--text-light);line-height:1.65}
+  .keywords-list{display:flex;flex-wrap:wrap;gap:16px;margin-top:6px}
+  .keyword-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 22px;flex:1 1 260px;transition:transform .25s ease,box-shadow .25s ease}
+  .keyword-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(11,37,69,0.14)}
+  .keyword-card .kw-tag{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:0.85rem;padding:4px 14px;border-radius:20px;margin-bottom:8px}
+  .keyword-card p{font-size:0.9rem;color:var(--text-light)}
+  .sources{margin:44px 0 54px;background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 26px}
+  .sources h3{font-size:1rem;color:var(--primary);margin-bottom:10px}
+  .sources ul{list-style:none;padding:0}
+  .sources li{font-size:0.88rem;color:var(--text-light);padding:4px 0 4px 18px;position:relative}
+  .sources li::before{content:'';position:absolute;left:0;top:12px;width:8px;height:8px;background:var(--accent2);border-radius:50%}
+  .back-home{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(11,37,69,0.92);color:#fff;font-size:0.88rem;font-weight:600;padding:12px 22px;border-radius:40px;text-decoration:none;box-shadow:0 6px 24px rgba(11,37,69,0.35);backdrop-filter:blur(8px);transition:transform .2s ease,box-shadow .2s ease,background .2s ease;letter-spacing:0.5px}
+  .back-home:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(11,37,69,0.45);background:rgba(19,97,138,0.95)}
+  @media(max-width:520px){
+    .banner h1{font-size:1.55rem}
+    .banner .summary-pill{font-size:0.82rem;padding:8px 16px}
+    .cards-grid,.competitor-grid{grid-template-columns:1fr}
+    .card,.comp-card{padding:24px 18px 20px}
+    .section-title{font-size:1.25rem}
+    .back-home{bottom:16px;right:16px;padding:10px 18px;font-size:0.82rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="banner">
+  <h1>&#x1F697; 车圈一周速览</h1>
+  <div class="date">2026 / 06 / 08 — 2026 / 06 / 14</div>
+  <div class="summary-pill">外需走强、电混上新、座舱"软定义"加速</div>
+</div>
+
+<div class="container">
+
+  <!-- SIX NEWS -->
+  <div class="section-title">六大行业动态</div>
+  <div class="cards-grid">
+
+    <div class="card">
+      <div class="badge">1</div>
+      <h3>出口撑住盘面，5月内销仍偏弱</h3>
+      <p class="facts"><strong>核心内容：</strong>5月国内乘用车销量225.3万，同比-4.2%；乘用车出口80.9万，同比+73%。</p>
+      <div class="implication"><strong>行业含义：</strong>外需成为主要增量，主机厂加速海外本地化与CKD配套；线束/连接方案需提前完成海外法规与标准适配。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">2</div>
+      <h3>smart把电混打到聚光灯下</h3>
+      <p class="facts"><strong>核心内容：</strong>smart精灵#6 EHD上市/预售：1.5T+电机超级电混，20kWh / 41.46kWh两种电池，CLTC纯电135/285km，综合最高1810km。</p>
+      <div class="implication"><strong>行业含义：</strong>电混向中型跨界细分加速下沉，HV+LV并行线束与高压连接成标配；热管理与充配线束功率裕度需同步提升。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">3</div>
+      <h3>星途ES换新，激光雷达+8295P直冲高阶智驾</h3>
+      <p class="facts"><strong>核心内容：</strong>2026款星途ES发布/预售，车顶激光雷达+27枚传感器，升级高通8295P并引入AI大模型交互。</p>
+      <div class="implication"><strong>行业含义：</strong>中高端轿车把高阶感知硬件前置量产，EE架构与域控上车提速；摄像头/雷达线束与以太网架构复杂度上升，利好平台化模块供给。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">4</div>
+      <h3>国产车载DAB芯片取证</h3>
+      <p class="facts"><strong>核心内容：</strong>6/12 SIANO车载数字音频广播芯片通过中汽研（CAERI）认证，实现自研IP与国产化供应。</p>
+      <div class="implication"><strong>行业含义：</strong>信息娱乐域走向自主可控，车载射频/音频线束与屏蔽件需求稳中有升，对整车EMC一致性提出更高要求。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">5</div>
+      <h3>安波福用"纯视觉"做安全件</h3>
+      <p class="facts"><strong>核心内容：</strong>6/9安波福发布基于车内摄像头的高级乘员分类（AOC）系统，取消座椅压力垫，可扩展15+项座舱安全/舒适功能并支持OTA。</p>
+      <div class="implication"><strong>行业含义：</strong>视觉+AI让被动安全"软件定义"，车内摄像头线束/接口与带宽规范需同步升级；与域控协同上车速度将快于传统硬件堆叠方案。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">6</div>
+      <h3>新车周：广汽领衔密集上新</h3>
+      <p class="facts"><strong>核心内容：</strong>7款新车上市/发布，广汽独占4款新能源（传祺向往M8/E8、埃安i60 530宁德版、昊铂S600），覆盖10-40万SUV/MPV/轿车。</p>
+      <div class="implication"><strong>行业含义：</strong>平台化换代进入高峰，供应链需按SOP窗口锁定关键物料与产线节拍，前装软件/架构与车型年式并行迭代。</div>
+    </div>
+
+  </div>
+
+  <!-- COMPETITOR -->
+  <div class="section-title purple">友商速递</div>
+  <div class="competitor-grid">
+
+    <div class="comp-card">
+      <span class="comp-tag">安波福 × 楚能汽车</span>
+      <p>6/11在武汉签署战略合作协议，围绕智能座舱域控制器等产品开展联合开发与市场推进</p>
+      <div class="comp-label">近期动态</div>
+    </div>
+
+    <div class="comp-card">
+      <span class="comp-tag">立讯精密</span>
+      <p>披露汽车业务版图与产能规划，连接器/线束/域控并进，目标加快获取海外订单。</p>
+      <div class="comp-label">近期动态</div>
+    </div>
+    
+    <div class="comp-card">
+      <span class="comp-tag">OPmobility × 辉能科技</span>
+      <p>6/11签署MoU，共同开发下一代固态电池包（有望提升高压系统与热管理件需求）</p>
+      <div class="comp-label">近期动态</div>
+    </div>
+
+  </div>
+
+  <!-- KEYWORDS -->
+  <div class="section-title">本周关键词</div>
+  <div class="keywords-list">
+    <div class="keyword-card">
+      <span class="kw-tag">出口加速</span>
+      <p>新能源1-5月出口翻倍，海外本地化与法规适配成为交付前置项。</p>
+    </div>
+    <div class="keyword-card">
+      <span class="kw-tag">电混攻坚</span>
+      <p>本周多款PHEV集中亮相，主流价格带与配置下探，带动高压连接与热管理件需求释放。</p>
+    </div>
+    <div class="keyword-card">
+      <span class="kw-tag">座舱上新</span>
+      <p>摄像头+AI进入座舱安全/体验场景，软件定义能力通过OTA持续演进。</p>
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <h3>&#x1F4CE; 引用来源</h3>
+    <ul>
+      <li>中国汽车工业协会（2026/06/10）</li>
+      <li>工业和信息化部 装备工业一司（2026/06/10）</li>
+      <li>汽车之家（2026/06/07）</li>
+      <li>太平洋汽车（2026/06/08）</li>
+      <li>盖世汽车（2026/06/09）</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- BACK HOME -->
+<a class="back-home" href="index.html">
+  <span>&larr;</span> 返回首页
+</a>
+
+</body>
+</html>
