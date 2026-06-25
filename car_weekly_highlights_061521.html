@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>车圈一周速览 2026/06/15 - 2026/06/21</title>
+<style>
+  :root {
+    --primary:#0B2545; --secondary:#13618A; --accent:#F4811F; --accent2:#00B4D8; --accent3:#6C5CE7;
+    --bg:#F0F4F8; --card-bg:#FFFFFF; --text:#1A1A2E; --text-light:#5A6A7A;
+    --shadow:0 4px 20px rgba(11,37,69,0.10); --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.75}
+  .banner{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 60%,var(--accent2) 100%);color:#fff;padding:52px 24px 46px;text-align:center;position:relative;overflow:hidden}
+  .banner::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.04)}
+  .banner::after{content:'';position:absolute;bottom:-40px;left:-10%;width:120%;height:80px;background:var(--bg);border-radius:50% 50% 0 0}
+  .banner h1{font-size:2.4rem;font-weight:900;letter-spacing:2px;margin-bottom:6px}
+  .banner .date{font-size:1rem;opacity:0.85;margin-bottom:18px}
+  .banner .summary-pill{display:inline-block;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);padding:10px 28px;border-radius:30px;font-size:0.95rem;font-weight:500;max-width:820px;line-height:1.6}
+  .container{max-width:960px;margin:0 auto;padding:0 20px}
+  .section-title{font-size:1.5rem;font-weight:700;color:var(--primary);margin:44px 0 22px;padding-left:14px;border-left:5px solid var(--accent)}
+  .section-title.purple{border-left-color:var(--accent3)}
+  .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:24px}
+  .card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px 26px 24px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent)}
+  .card:hover{transform:translateY(-6px);box-shadow:0 14px 38px rgba(11,37,69,0.17)}
+  .card .badge{position:absolute;top:-16px;left:22px;width:36px;height:36px;background:var(--accent);color:#fff;font-weight:900;font-size:1.1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(244,129,31,0.4)}
+  .card h3{font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:10px}
+  .card .facts{font-size:0.92rem;color:var(--text);margin-bottom:14px}
+  .card .facts strong{color:var(--secondary)}
+  .card .implication{background:linear-gradient(135deg,#EBF5FB,#FDF2E9);border-left:4px solid var(--accent2);border-radius:8px;padding:12px 16px;font-size:0.88rem;color:var(--text-light)}
+  .card .implication strong{color:var(--secondary)}
+  .competitor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+  .comp-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 22px 20px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent3)}
+  .comp-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(108,92,231,0.18)}
+  .comp-card .comp-tag{display:inline-block;background:var(--accent3);color:#fff;font-weight:700;font-size:0.82rem;padding:4px 14px;border-radius:20px;margin-bottom:10px}
+  .comp-card .comp-label{font-size:0.78rem;color:var(--accent3);opacity:0.7;margin-top:10px;font-weight:500}
+  .comp-card p{font-size:0.9rem;color:var(--text-light);line-height:1.65}
+  .keywords-list{display:flex;flex-wrap:wrap;gap:16px;margin-top:6px}
+  .keyword-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 22px;flex:1 1 260px;transition:transform .25s ease,box-shadow .25s ease}
+  .keyword-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(11,37,69,0.14)}
+  .keyword-card .kw-tag{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:0.85rem;padding:4px 14px;border-radius:20px;margin-bottom:8px}
+  .keyword-card p{font-size:0.9rem;color:var(--text-light)}
+  .sources{margin:44px 0 54px;background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 26px}
+  .sources h3{font-size:1rem;color:var(--primary);margin-bottom:10px}
+  .sources ul{list-style:none;padding:0}
+  .sources li{font-size:0.88rem;color:var(--text-light);padding:4px 0 4px 18px;position:relative}
+  .sources li::before{content:'';position:absolute;left:0;top:12px;width:8px;height:8px;background:var(--accent2);border-radius:50%}
+  .back-home{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(11,37,69,0.92);color:#fff;font-size:0.88rem;font-weight:600;padding:12px 22px;border-radius:40px;text-decoration:none;box-shadow:0 6px 24px rgba(11,37,69,0.35);backdrop-filter:blur(8px);transition:transform .2s ease,box-shadow .2s ease,background .2s ease;letter-spacing:0.5px}
+  .back-home:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(11,37,69,0.45);background:rgba(19,97,138,0.95)}
+  @media(max-width:520px){
+    .banner h1{font-size:1.55rem}
+    .banner .summary-pill{font-size:0.82rem;padding:8px 16px}
+    .cards-grid,.competitor-grid{grid-template-columns:1fr}
+    .card,.comp-card{padding:24px 18px 20px}
+    .section-title{font-size:1.25rem}
+    .back-home{bottom:16px;right:16px;padding:10px 18px;font-size:0.82rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="banner">
+  <h1>&#x1F697; 车圈一周速览</h1>
+  <div class="date">2026 / 06 / 15 — 2026 / 06 / 21</div>
+  <div class="summary-pill">零跑三车上市、比亚迪唐EV登场、理想大模型上车、下乡政策加码，结构性机会更清晰</div>
+</div>
+
+<div class="container">
+
+  <!-- SIX NEWS -->
+  <div class="section-title">六大行业动态</div>
+  <div class="cards-grid">
+
+    <div class="card">
+      <div class="badge">1</div>
+      <h3>比亚迪旗舰纯电再上台阶</h3>
+      <p class="facts"><strong>核心内容：</strong>6/17唐EV上市，4款配置23.99–30.99万元；搭载第二代刀片电池与"闪充"，天神之眼5.0、后轮转向±7°等配置同步上车（7座）。</p>
+      <div class="implication"><strong>行业含义：</strong>比亚迪将30万级纯电SUV做厚，高压快充与后转向抬升线束/高压配套含量，利于头部自主高端渗透。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">2</div>
+      <h3>零跑C系三车齐发，把智驾"卷"成标配</h3>
+      <p class="facts"><strong>核心内容：</strong>6/16零跑全新C10/C11/C16上市，售价12.58–16.98万元；激光雷达版标配车位到车位高阶领航，纯电版支持250kW快充，续航最高630km。</p>
+      <div class="implication"><strong>行业含义：</strong>12–17万元主流带量区间被重塑，"智驾标配"加速普及，推动中端车型域控与线束架构上探，全年放量预期增强。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">3</div>
+      <h3>理想把大模型装进车</h3>
+      <p class="facts"><strong>核心内容：</strong>6/15发布自研基座大模型Mind&#x2011;Pro/Mind&#x2011;Edge，推VLA三季度大版本；Token平均消耗-38%、工具调用冗余-47%，TPS峰值208 token/s。</p>
+      <div class="implication"><strong>行业含义：</strong>自研模型落地提高端侧算力与数据带宽需求，利好高算力域控与高速线路布局，软件定义车辆进一步加速。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">4</div>
+      <h3>"下乡"政策再加码，直击县乡换车需求</h3>
+      <p class="facts"><strong>核心内容：</strong>6/18五部门通知：启动2026年新能源汽车下乡活动，设"以旧换新"专区，提供评估回收与补贴办理等一站式服务，农村消费者均可按政策申领补贴。</p>
+      <div class="implication"><strong>行业含义：</strong>释放三四线与县域换购增量，入门/走量车型短线受益，带动本土化线束与低压配套订单活跃。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">5</div>
+      <h3>新能源渗透站上"六成六"</h3>
+      <p class="facts"><strong>核心内容：</strong>乘联会6月首周零售渗透率66.7%、批发渗透率67.2%；新能源周零售15.2万辆，环比上月同期+8%。</p>
+      <div class="implication"><strong>行业含义：</strong>结构性分化加深，燃油车促销边际收窄，10–20万元新能源竞争力强化，全年高压/快充平台渗透具备支撑。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">6</div>
+      <h3>长安管理层换挡，智能电动再提速</h3>
+      <p class="facts"><strong>核心内容：</strong>6/16长安汽车高层调整：陈卓、翟智骏出任副总裁等管理岗位，聚焦新能源与智能化业务线。</p>
+      <div class="implication"><strong>行业含义：</strong>头部国企体系化强化智能电动组织力，新品/平台节奏或提速，供应链需在域控、电驱与线束平台化上提前对齐。</div>
+    </div>
+
+  </div>
+
+  <!-- COMPETITOR -->
+  <div class="section-title purple">友商速递</div>
+  <div class="competitor-grid">
+
+    <div class="comp-card">
+      <span class="comp-tag">李尔</span>
+      <p>6/15在成都注册设立分公司，补强西南制造与配套半径，利于靠近整车项目推进座椅/电气业务协同；对线束与座舱低压连接的本地化竞争有提升。</p>
+      <div class="comp-label">近期动态</div>
+    </div>
+
+    <div class="comp-card">
+      <span class="comp-tag">博世</span>
+      <p>获国内头部主机厂"下一代AI智能座舱"项目定点。座舱算力与感知上探，带动高速连接、域控线束与热管理件规格升级。</p>
+      <div class="comp-label">近期动态</div>
+    </div>
+
+  </div>
+
+  <!-- KEYWORDS -->
+  <div class="section-title">本周关键词</div>
+  <div class="keywords-list">
+    <div class="keyword-card">
+      <span class="kw-tag">智驾标配</span>
+      <p>零跑新C系将高阶领航下放到12–17万价位，合资/自主中端车型配置门槛被迫跟进。</p>
+    </div>
+    <div class="keyword-card">
+      <span class="kw-tag">大模型上车</span>
+      <p>理想发布Mind&#x2011;Pro/Edge与VLA升级，端侧智能与算力冗余成为新卖点，带动电子电气架构升级。</p>
+    </div>
+    <div class="keyword-card">
+      <span class="kw-tag">下乡加速</span>
+      <p>五部门启动2026年新能源汽车下乡，叠加以旧换新，县乡换购需求有望集中释放。</p>
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <h3>&#x1F4CE; 引用来源</h3>
+    <ul>
+      <li>新浪财经（2026/06/22）</li>
+      <li>盖世汽车（2026/06/11）</li>
+      <li>盖世汽车（2026/06/21）</li>
+      <li>中线网（2026/06/15）</li>
+      <li>太平洋汽车网（2026/04/28）</li>
+      <li>腾讯新闻（2026/05/02）</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- BACK HOME -->
+<a class="back-home" href="index.html">
+  <span>&larr;</span> 返回首页
+</a>
+
+</body>
+</html>

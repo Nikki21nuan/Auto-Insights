@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>让AI更聪明的5个技巧</title>
+<style>
+:root{
+  --primary:#00375A;--accent:#F4811F;--accent2:#00B4D8;--accent3:#6C5CE7;
+  --bg:#F0F4F8;--card:#fff;--text:#1A1A2E;--tl:#5A6A7A;--muted:#94A3B8;
+  --dark:#1E293B;--shadow:0 3px 14px rgba(0,55,90,.10);--r:12px;
+  --red:#E74C3C;--green:#27AE60;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+.tb{height:5px;background:var(--primary)}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--primary) 0%,#004F7C 55%,var(--accent2) 100%);color:#fff;padding:26px 20px 30px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-30px;left:-10%;width:120%;height:60px;background:var(--bg);border-radius:50% 50% 0 0}
+.hero h1{font-size:1.4rem;font-weight:900;margin-bottom:8px;line-height:1.35}
+.hero .pill{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);padding:3px 12px;border-radius:16px;font-size:.7rem;font-weight:600}
+
+.container{max-width:680px;margin:0 auto;padding:0 14px 20px}
+
+/* PREMISE */
+.premise{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:14px 16px;margin-top:14px;border-left:4px solid var(--accent2);font-size:.86rem;color:var(--tl);line-height:1.6}
+.premise strong{color:var(--primary)}
+.premise .formula{display:inline-block;background:#EBF5FB;color:var(--primary);font-size:.8rem;font-weight:700;padding:2px 10px;border-radius:8px;margin:4px 0}
+
+/* SECTION HEADER */
+.sec-hdr{font-size:.95rem;font-weight:800;color:var(--primary);margin:22px 0 10px;padding-left:10px;border-left:4px solid var(--accent);display:flex;align-items:center;gap:6px}
+
+/* TECHNIQUE ACCORDION */
+.tech{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);margin-bottom:12px;overflow:hidden}
+.tech-hdr{display:flex;align-items:center;gap:10px;padding:14px 16px;cursor:pointer;user-select:none;transition:background .15s}
+.tech-hdr:hover{background:#F8FAFC}
+.tech-hdr .t-num{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:.85rem;flex-shrink:0;letter-spacing:.5px}
+.t-num.c1{background:linear-gradient(135deg,var(--accent2),var(--primary))}
+.t-num.c2{background:linear-gradient(135deg,var(--accent),#FFA94D)}
+.t-num.c3{background:linear-gradient(135deg,var(--accent3),#A29BFE)}
+.t-num.c4{background:linear-gradient(135deg,var(--red),#FF7766)}
+.tech-hdr .t-title{flex:1;font-size:.94rem;font-weight:800;color:var(--primary);line-height:1.4}
+.tech-hdr .t-chev{font-size:.72rem;color:var(--muted);transition:transform .3s;font-weight:800}
+.tech.open .tech-hdr .t-chev{transform:rotate(180deg);color:var(--accent2)}
+.tech-body{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.tech-inner{padding:0 16px 16px}
+
+/* WHEN-TO-USE / CORE INTRO */
+.when-use{font-size:.85rem;color:var(--tl);line-height:1.55;background:#F8FAFC;border-radius:8px;padding:10px 12px;margin-bottom:12px;border-left:3px solid var(--accent2)}
+.when-use strong{color:var(--primary)}
+
+/* PROMPT BOX */
+.prompt-box{background:var(--dark);border-radius:8px;padding:14px 12px 12px;position:relative;margin-bottom:12px}
+.prompt-box .pl{display:inline-block;background:var(--accent);color:#fff;font-size:.62rem;font-weight:800;padding:2px 9px;border-radius:0 0 6px 0;position:absolute;top:0;left:0;letter-spacing:.3px}
+.prompt-box p{color:#E2E8F0;font-size:.82rem;line-height:1.6;margin-top:14px;font-family:'Menlo','Courier New',monospace}
+
+/* EFFECT */
+.effect{font-size:.82rem;color:var(--tl);line-height:1.6;margin-bottom:10px;padding-left:10px;border-left:2px solid var(--accent);font-style:italic}
+.effect::before{content:'\2192 ';color:var(--accent);font-weight:700;font-style:normal}
+
+/* PRINCIPLE (lightbulb) */
+.principle{background:linear-gradient(135deg,#FFF8F0,#FEF3E2);border-left:3px solid var(--accent);border-radius:8px;padding:10px 14px;font-size:.82rem;color:var(--tl);line-height:1.6;margin-top:10px}
+.principle::before{content:'\1F4A1 ';font-weight:700}
+.principle strong{color:var(--accent)}
+
+/* SUB-CARDS (技巧三) */
+.sub-card{background:#F8FAFC;border-radius:10px;padding:12px 14px;margin-bottom:10px;border-left:3px solid var(--accent3)}
+.sub-card .sub-head{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.sub-card .sub-num{width:24px;height:24px;border-radius:50%;background:var(--accent3);color:#fff;font-weight:900;font-size:.82rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sub-card .sub-title{font-size:.85rem;font-weight:700;color:var(--primary)}
+.sub-card .prompt-box{margin-bottom:6px}
+.sub-card .effect{margin-bottom:0;font-size:.78rem}
+
+/* LIMIT LIST (技巧四) */
+.limit-list{margin:10px 0}
+.limit-item{display:flex;gap:10px;padding:8px 0;border-bottom:1px dashed #E2E8F0}
+.limit-item:last-child{border-bottom:none}
+.limit-item .li-tag{background:var(--accent3);color:#fff;font-size:.65rem;font-weight:700;padding:3px 8px;border-radius:8px;flex-shrink:0;align-self:flex-start;line-height:1.3}
+.limit-item .li-text{flex:1;font-size:.82rem;color:var(--tl);line-height:1.55}
+.limit-item .li-text em{font-style:normal;background:#EBF5FB;color:var(--primary);padding:1px 6px;border-radius:4px;font-family:'Menlo','Courier New',monospace;font-size:.78rem}
+
+.combo-tip{font-size:.8rem;color:var(--primary);font-weight:600;text-align:center;margin:10px 0 6px}
+
+/* WHEN-TO-USE INSIDE TECH 3 */
+.when-section{background:#FFF8F0;border-radius:8px;padding:10px 12px;margin-top:10px;font-size:.8rem;color:var(--tl);line-height:1.55;border-left:3px solid var(--accent)}
+.when-section strong{color:var(--accent);display:block;margin-bottom:4px;font-size:.82rem}
+
+/* CLOSING */
+.closing{background:linear-gradient(135deg,var(--primary),#004F7C);border-radius:var(--r);padding:24px 20px;text-align:center;margin:24px 0 16px;color:#fff;box-shadow:var(--shadow)}
+.closing .label{font-size:.7rem;opacity:.7;letter-spacing:2px;margin-bottom:8px}
+.closing p{font-size:1.05rem;font-weight:700;line-height:1.5;background:linear-gradient(135deg,#FFB870,#FFE0B0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* BACK */
+.back-home{position:fixed;bottom:16px;right:16px;z-index:9999;display:flex;align-items:center;gap:5px;background:rgba(0,55,90,.92);color:#fff;font-size:.78rem;font-weight:600;padding:8px 14px;border-radius:30px;text-decoration:none;box-shadow:0 4px 18px rgba(0,55,90,.35)}
+.back-home:active{transform:translateY(1px)}
+
+.footer-tip{text-align:center;font-size:.7rem;color:var(--muted);padding:16px 14px;letter-spacing:.5px}
+</style>
+</head>
+<body>
+
+<div class="tb"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>让AI更聪明的5个技巧</h1>
+  <div class="pill">万能公式进阶版</div>
+</div>
+
+<div class="container">
+
+  <!-- PREMISE -->
+  <div class="premise">
+    <strong>前提：</strong>万能公式
+    <span class="formula">我是谁 + 要什么 + 给谁用 + 什么格式</span>
+    已经会了。下面教你怎么让AI"更聪明"。
+  </div>
+
+  <div class="sec-hdr">&#x1F9E0; 四个进阶技巧</div>
+
+  <!-- ===== 技巧 1 ===== -->
+  <div class="tech open" id="tech1">
+    <div class="tech-hdr" onclick="toggleTech('tech1')">
+      <div class="t-num c1">01</div>
+      <div class="t-title">让AI帮你写指令</div>
+      <span class="t-chev">&#x25BC;</span>
+    </div>
+    <div class="tech-body">
+      <div class="tech-inner">
+
+        <div class="when-use">
+          <strong>何时用：</strong>当你不知道怎么下指令时，让AI帮你写。
+        </div>
+
+        <div class="prompt-box">
+          <span class="pl">贴给AI</span>
+          <p>"我要【描述你要做的事】，请按万能公式帮我写一条完整指令。"</p>
+        </div>
+
+        <div class="effect">把AI生成的指令贴回去问，出来的东西直接能用。</div>
+
+        <div class="principle">
+          <strong>原理：</strong>AI比你更懂"怎么问才能拿到好答案"。它自动帮你补背景、细要求、定格式——你问不出来的，它能写出来。
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 技巧 2 ===== -->
+  <div class="tech" id="tech2">
+    <div class="tech-hdr" onclick="toggleTech('tech2')">
+      <div class="t-num c2">02</div>
+      <div class="t-title">喂案例，让AI模仿</div>
+      <span class="t-chev">&#x25BC;</span>
+    </div>
+    <div class="tech-body">
+      <div class="tech-inner">
+
+        <div class="when-use">
+          说一万个要求，<strong>不如甩一个例子</strong>。
+        </div>
+
+        <div class="prompt-box">
+          <span class="pl">贴给AI</span>
+          <p>"这是我以前写的一封邮件，请模仿这个风格和语气：____"</p>
+        </div>
+
+        <div class="effect">AI立刻按你的调性走，不跑偏。</div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 技巧 3 ===== -->
+  <div class="tech" id="tech3">
+    <div class="tech-hdr" onclick="toggleTech('tech3')">
+      <div class="t-num c3">03</div>
+      <div class="t-title">让AI主动问你 · 把"我不会问"变成"我来答"</div>
+      <span class="t-chev">&#x25BC;</span>
+    </div>
+    <div class="tech-body">
+      <div class="tech-inner">
+
+        <div class="when-use">
+          <strong>何时用：</strong>当你不知道要什么信息、不知道怎么下指令时，别硬撑。让AI反过来问你。
+        </div>
+
+        <div style="font-size:.84rem;color:var(--primary);font-weight:700;margin:10px 0 8px">两种用法：</div>
+
+        <!-- 子卡片 ① -->
+        <div class="sub-card">
+          <div class="sub-head">
+            <div class="sub-num">&#x2460;</div>
+            <div class="sub-title">大概知道要什么，但信息不全</div>
+          </div>
+          <div class="prompt-box">
+            <span class="pl">贴给AI</span>
+            <p>"我下周要拜访比亚迪，请先问我10个问题，帮你把拜访提纲写完整。"</p>
+          </div>
+          <div class="effect">AI会问："客户之前采购过同类产品吗？""决策人的关注点是什么？"……答完，AI直接出完整提纲。</div>
+        </div>
+
+        <!-- 子卡片 ② -->
+        <div class="sub-card">
+          <div class="sub-head">
+            <div class="sub-num">&#x2461;</div>
+            <div class="sub-title">完全不知道要什么</div>
+          </div>
+          <div class="prompt-box">
+            <span class="pl">贴给AI</span>
+            <p>"我要做一份客户画像，但我不知道需要提供什么信息，请反过来问我，我回答完你再出结果。"</p>
+          </div>
+        </div>
+
+        <div class="when-section">
+          <strong>什么时候用？</strong>
+          你脑子一团乱，理不清自己知道什么、该给什么信息的时候。让AI当"采访者"，你只需要回答问题——它问什么你答什么，最后它帮你把所有回答整理成完整输出。
+        </div>
+
+        <div class="principle">
+          <strong>原理：</strong>让AI"采访"你，把你没说出来的背景和需求挖掘出来，比你硬憋一条指令省力十倍。
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 技巧 4 ===== -->
+  <div class="tech" id="tech4">
+    <div class="tech-hdr" onclick="toggleTech('tech4')">
+      <div class="t-num c4">04</div>
+      <div class="t-title">加限制词，精准落点</div>
+      <span class="t-chev">&#x25BC;</span>
+    </div>
+    <div class="tech-body">
+      <div class="tech-inner">
+
+        <div class="when-use">
+          不给限制，AI容易发散。<strong>给限制，结果才可控</strong>。
+        </div>
+
+        <div style="font-size:.84rem;color:var(--primary);font-weight:700;margin:10px 0 4px">限制三件事：范围、长度、形式</div>
+
+        <div class="limit-list">
+          <div class="limit-item">
+            <span class="li-tag">范围</span>
+            <div class="li-text"><em>"只聚焦成本相关，其他不展开。"</em></div>
+          </div>
+          <div class="limit-item">
+            <span class="li-tag">长度</span>
+            <div class="li-text"><em>"用三句话说清楚，每句不超过20字。"</em></div>
+          </div>
+          <div class="limit-item">
+            <span class="li-tag">形式</span>
+            <div class="li-text"><em>"按优先级从高到低排。"</em></div>
+          </div>
+        </div>
+
+        <div class="combo-tip">&#x2728; 组合用效果更好</div>
+
+        <div class="prompt-box">
+          <span class="pl">贴给AI</span>
+          <p>"只聚焦成本，用三句话说清楚，按优先级从高到低排。"</p>
+        </div>
+
+        <div class="principle">
+          <strong>原理：</strong>AI不是猜心大师，你的约束越多，它的落点越准。
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="closing">
+    <div class="label">— 一句话总结 —</div>
+    <p>AI不是天生聪明，<br>是你用聪明的方法让它变聪明。</p>
+  </div>
+
+</div>
+
+<div class="footer-tip">— 把AI从"实习生"养成"得力助手" —</div>
+
+<a class="back-home" href="index.html"><span>&larr;</span> 返回首页</a>
+
+<script>
+function toggleTech(id) {
+  var t = document.getElementById(id);
+  var body = t.querySelector('.tech-body');
+  if (t.classList.contains('open')) {
+    t.classList.remove('open');
+    body.style.maxHeight = null;
+  } else {
+    t.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+  }
+}
+
+// Auto-open tech1 on load
+document.addEventListener('DOMContentLoaded', function() {
+  var t1 = document.getElementById('tech1');
+  var b1 = t1.querySelector('.tech-body');
+  b1.style.maxHeight = b1.scrollHeight + 'px';
+});
+</script>
+
+</body>
+</html>
