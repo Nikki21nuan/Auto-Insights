@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>车圈一周速览 2026/06/22 - 2026/06/28</title>
+<style>
+  :root {
+    --primary:#0B2545; --secondary:#13618A; --accent:#F4811F; --accent2:#00B4D8; --accent3:#6C5CE7;
+    --bg:#F0F4F8; --card-bg:#FFFFFF; --text:#1A1A2E; --text-light:#5A6A7A;
+    --shadow:0 4px 20px rgba(11,37,69,0.10); --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.75}
+  .banner{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 60%,var(--accent2) 100%);color:#fff;padding:52px 24px 46px;text-align:center;position:relative;overflow:hidden}
+  .banner::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.04)}
+  .banner::after{content:'';position:absolute;bottom:-40px;left:-10%;width:120%;height:80px;background:var(--bg);border-radius:50% 50% 0 0}
+  .banner h1{font-size:2.4rem;font-weight:900;letter-spacing:2px;margin-bottom:6px}
+  .banner .date{font-size:1rem;opacity:0.85;margin-bottom:18px}
+  .banner .summary-pill{display:inline-block;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);padding:10px 28px;border-radius:30px;font-size:0.95rem;font-weight:500;max-width:820px;line-height:1.6}
+  .container{max-width:960px;margin:0 auto;padding:0 20px}
+  .section-title{font-size:1.5rem;font-weight:700;color:var(--primary);margin:44px 0 22px;padding-left:14px;border-left:5px solid var(--accent)}
+  .section-title.purple{border-left-color:var(--accent3)}
+  .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:24px}
+  .card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px 26px 24px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent)}
+  .card:hover{transform:translateY(-6px);box-shadow:0 14px 38px rgba(11,37,69,0.17)}
+  .card .badge{position:absolute;top:-16px;left:22px;width:36px;height:36px;background:var(--accent);color:#fff;font-weight:900;font-size:1.1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(244,129,31,0.4)}
+  .card h3{font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:10px}
+  .card .facts{font-size:0.92rem;color:var(--text);margin-bottom:14px}
+  .card .facts strong{color:var(--secondary)}
+  .card .implication{background:linear-gradient(135deg,#EBF5FB,#FDF2E9);border-left:4px solid var(--accent2);border-radius:8px;padding:12px 16px;font-size:0.88rem;color:var(--text-light)}
+  .card .implication strong{color:var(--secondary)}
+  .competitor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+  .comp-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 22px 20px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent3)}
+  .comp-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(108,92,231,0.18)}
+  .comp-card .comp-tag{display:inline-block;background:var(--accent3);color:#fff;font-weight:700;font-size:0.82rem;padding:4px 14px;border-radius:20px;margin-bottom:10px}
+  .comp-card .comp-label{font-size:0.78rem;color:var(--accent3);opacity:0.7;margin-top:10px;font-weight:500}
+  .comp-card p{font-size:0.9rem;color:var(--text-light);line-height:1.65}
+  .keywords-list{display:flex;flex-wrap:wrap;gap:16px;margin-top:6px}
+  .keyword-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 22px;flex:1 1 260px;transition:transform .25s ease,box-shadow .25s ease}
+  .keyword-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(11,37,69,0.14)}
+  .keyword-card .kw-tag{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:0.85rem;padding:4px 14px;border-radius:20px;margin-bottom:8px}
+  .keyword-card p{font-size:0.9rem;color:var(--text-light)}
+  .sources{margin:44px 0 54px;background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 26px}
+  .sources h3{font-size:1rem;color:var(--primary);margin-bottom:10px}
+  .sources ul{list-style:none;padding:0}
+  .sources li{font-size:0.88rem;color:var(--text-light);padding:4px 0 4px 18px;position:relative}
+  .sources li::before{content:'';position:absolute;left:0;top:12px;width:8px;height:8px;background:var(--accent2);border-radius:50%}
+  .back-home{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(11,37,69,0.92);color:#fff;font-size:0.88rem;font-weight:600;padding:12px 22px;border-radius:40px;text-decoration:none;box-shadow:0 6px 24px rgba(11,37,69,0.35);backdrop-filter:blur(8px);transition:transform .2s ease,box-shadow .2s ease,background .2s ease;letter-spacing:0.5px}
+  .back-home:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(11,37,69,0.45);background:rgba(19,97,138,0.95)}
+  @media(max-width:520px){
+    .banner h1{font-size:1.55rem}
+    .banner .summary-pill{font-size:0.82rem;padding:8px 16px}
+    .cards-grid,.competitor-grid{grid-template-columns:1fr}
+    .card,.comp-card{padding:24px 18px 20px}
+    .section-title{font-size:1.25rem}
+    .back-home{bottom:16px;right:16px;padding:10px 18px;font-size:0.82rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="banner">
+  <h1>&#x1F697; 车圈一周速览</h1>
+  <div class="date">2026/06/22 - 2026/06/28</div>
+  <div class="summary-pill">智驾合规、猛士上市、MONA定档，6月零售回升在望</div>
+</div>
+
+<div class="container">
+
+  <!-- SIX NEWS -->
+  <div class="section-title">六大行业动态</div>
+  <div class="cards-grid">
+
+    <div class="card">
+      <div class="badge">1</div>
+      <h3>智驾强制国标落地在即</h3>
+      <p class="facts"><strong>核心内容：</strong>两项汽车安全/组合驾驶辅助强制性国家标准7月1日起实施，涉及AEB、车道保持等ADAS安全要求。</p>
+      <div class="implication"><strong>行业含义：</strong>整车智驾硬件冗余与线束/连接器接口标准化诉求增强，明后月新车切换将带来工程变更窗口。</div>
+    </div>
+    
+
+    <div class="card">
+      <div class="badge">2</div>
+      <h3>猛士M817上市，硬派电动再添一员</h3>
+      <p class="facts"><strong>核心内容：</strong>6/28东风猛士M817正式上市，起售价29.99万元，定位中大型新能源SUV，主打家庭+越野场景。</p>
+      <div class="implication"><strong>行业含义：</strong>越野新能源细分抬头，高压线束、热管理与底盘传感连接件单车价值进一步抬升。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">3</div>
+      <h3>小鹏子品牌MONA定档首秀</h3>
+      <p class="facts"><strong>核心内容：</strong>官方宣布MONA L03国内首秀定档7月2日，聚焦更高性价比与城市智驾。</p>
+      <div class="implication"><strong>行业含义：</strong>头部新势力加速下探，带动入门级智驾域控/线束平台化与成本优化。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">4</div>
+      <h3>后市场被点名做大</h3>
+      <p class="facts"><strong>核心内容：</strong>商务部等九部门联合发文，提出便利维修、配件循环、以旧换新等举措，培育壮大汽车后市场。</p>
+      <div class="implication"><strong>行业含义：</strong>售后线束、连接器与维修替换件需求有望抬升，渠道型客户机会增加。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">5</div>
+      <h3>乘联会预计6月零售回升到165万</h3>
+      <p class="facts"><strong>核心内容：</strong>乘联会月度预测显示，6月窄义乘用车零售约165万辆，结构上新能源占比维持高位。</p>
+      <div class="implication"><strong>行业含义：</strong>终端节奏趋稳，主机厂生产/库存更趋理性，供应链备货从短促转向均衡。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">6</div>
+      <h3>奇瑞开出“生活馆”，渠道继续下沉</h3>
+      <p class="facts"><strong>核心内容：</strong>6/22奇瑞生活馆首店在汕头开业，集品牌体验、交易与服务于一体。</p>
+      <div class="implication"><strong>行业含义：</strong>自主品牌深化县域体验阵地，上新频率加快，对标准化线束平台与柔性供货提出更高要求。</div>
+    </div>
+
+  </div>
+
+  <!-- COMPETITOR -->
+  <div class="section-title purple">友商速递</div>
+  <div class="competitor-grid">
+
+    <div class="comp-card">
+      <p>广濑电机：参展 Automate 2026（芝加哥，6/22-6/25），聚焦工业自动化/机器人高密度高速连接与线缆组件，推动车规连接方案向整车协同渗透。</p>
+      <div class="comp-label">近期动态</div>
+    </div>
+
+    
+  </div>
+
+  <!-- KEYWORDS -->
+  <div class="section-title">本周关键词</div>
+  <div class="keywords-list">
+
+    <div class="keyword-card">
+      <span class="kw-tag">智驾合规</span>
+      <p>强制国标落地，硬件冗余与接口标准化成为门槛。</p>
+    </div>
+
+    <div class="keyword-card">
+      <span class="kw-tag">硬派新能源</span>
+      <p>中大型新能源SUV上新密集，单车线束价值上移。</p>
+    </div>
+
+    <div class="keyword-card">
+      <span class="kw-tag">后市场加码</span>
+      <p>九部门发文促消费，售后件与维修渠道迎来增量。</p>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <h3>&#x1F4CE; 引用来源</h3>
+    <ul>
+      <li>中汽协（2026/06/27）</li><li>盖世汽车（2026/06/28）</li><li>乘联会（2026/06/24）</li><li>中汽协（2026/06/22）</li>
+    </ul>
+  </div>
+
+</div>
+<!-- BACK HOME -->
+<a class="back-home" href="index.html">
+  <span>&larr;</span> 返回首页
+</a>
+
+</body>
+</html>

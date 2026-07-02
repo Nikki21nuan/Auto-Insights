@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>销售系统操作指南 · TERP & MustWin</title>
+<style>
+:root{
+  --primary:#00375A;--accent:#F4811F;--accent2:#00B4D8;--accent3:#6C5CE7;
+  --bg:#F0F4F8;--card:#fff;--text:#1A1A2E;--tl:#5A6A7A;--muted:#94A3B8;
+  --dark:#1E293B;--shadow:0 3px 14px rgba(0,55,90,.10);--r:12px;
+  --red:#E74C3C;--green:#27AE60;--yellow:#F39C12;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;min-height:100vh}
+.tb{height:5px;background:var(--primary)}
+
+.hero{background:linear-gradient(135deg,var(--primary) 0%,#004F7C 55%,var(--accent2) 100%);color:#fff;padding:24px 20px 26px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-30px;left:-10%;width:120%;height:60px;background:var(--bg);border-radius:50% 50% 0 0}
+.hero h1{font-size:1.35rem;font-weight:900;margin-bottom:4px}
+.hero .sub{font-size:.78rem;opacity:.85;letter-spacing:.5px}
+
+.container{max-width:680px;margin:0 auto;padding:8px 14px 20px}
+
+.tabs{display:flex;gap:6px;background:var(--card);border-radius:30px;padding:5px;box-shadow:var(--shadow);margin:16px 0 14px;position:sticky;top:8px;z-index:50}
+.tab{flex:1;padding:10px 8px;text-align:center;font-size:.82rem;font-weight:700;color:var(--tl);border-radius:26px;cursor:pointer;transition:all .2s;user-select:none;white-space:nowrap}
+.tab.active{background:linear-gradient(135deg,var(--accent),#FF9F52);color:#fff;box-shadow:0 3px 10px rgba(244,129,31,.3)}
+.tab .cnt{display:inline-block;background:rgba(255,255,255,.3);padding:1px 7px;border-radius:10px;font-size:.68rem;margin-left:3px}
+.tab:not(.active) .cnt{background:#EBF5FB;color:var(--primary)}
+
+.tab-panel{display:none}
+.tab-panel.active{display:block;animation:fi .25s ease}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.qa{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);margin-bottom:10px;overflow:hidden;border-left:4px solid var(--red)}
+.qa.warn{border-left-color:var(--yellow)}
+.qa.m{border-left-color:var(--green)}
+.qa.m.flow-card{border-left-color:var(--accent3)}
+.qa-hdr{display:flex;align-items:center;gap:10px;padding:13px 14px;cursor:pointer;user-select:none;transition:background .15s}
+.qa-hdr:hover{background:#F8FAFC}
+.qa-hdr .q-num{width:36px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--red),#FF7766);color:#fff;font-weight:900;font-size:.72rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;letter-spacing:.3px;padding:0 6px}
+.qa.warn .qa-hdr .q-num{background:linear-gradient(135deg,var(--yellow),#F5B041);font-size:.65rem}
+.qa.m .qa-hdr .q-num{background:linear-gradient(135deg,var(--green),#5DBE7F)}
+.qa.m.flow-card .qa-hdr .q-num{background:linear-gradient(135deg,var(--accent3),#A29BFE);font-size:.7rem}
+.qa-hdr .q-title{flex:1;font-size:.9rem;font-weight:700;color:var(--primary);line-height:1.4}
+.qa-hdr .q-chev{font-size:.7rem;color:var(--muted);transition:transform .3s;font-weight:800}
+.qa.open .qa-hdr .q-chev{transform:rotate(180deg);color:var(--red)}
+.qa.warn.open .qa-hdr .q-chev{color:var(--yellow)}
+.qa.m.open .qa-hdr .q-chev{color:var(--green)}
+.qa.m.flow-card.open .qa-hdr .q-chev{color:var(--accent3)}
+.qa-body{max-height:0;overflow:hidden;transition:max-height .55s ease}
+.qa-inner{padding:0 14px 14px}
+
+.content{background:#F8FAFC;border-radius:8px;padding:12px 14px;font-size:.86rem;color:var(--text);line-height:1.75;border-left:3px solid var(--accent2);margin-bottom:10px}
+.content strong{color:var(--primary)}
+.content ul, .content ol{padding-left:20px;margin:4px 0}
+.content li{margin-bottom:3px}
+.content .warn-note{background:#FFF8F0;border-left:3px solid var(--yellow);padding:8px 10px;border-radius:6px;margin-bottom:8px;font-size:.82rem;color:var(--tl)}
+.content .warn-note::before{content:'⚠️ ';font-weight:700}
+.content .arrow-bullet{list-style:none;padding-left:0}
+.content .arrow-bullet li{padding-left:18px;position:relative}
+.content .arrow-bullet li::before{content:'➢';position:absolute;left:0;color:var(--accent2);font-weight:700}
+
+.formula{background:var(--dark);border-radius:8px;padding:10px 12px;text-align:center;margin:8px 0}
+.formula .f-label{font-size:.62rem;color:var(--accent);font-weight:800;letter-spacing:1px;margin-bottom:3px}
+.formula p{color:#E2E8F0;font-size:.82rem;font-family:'Menlo','Courier New',monospace;font-weight:700}
+.formula p span{color:var(--accent)}
+
+.example{background:#EBF5FB;border-radius:8px;padding:9px 12px;font-size:.78rem;color:var(--tl);line-height:1.55;border-left:3px solid var(--accent2);margin-top:6px;margin-bottom:8px}
+.example::before{content:'📝 ';font-weight:700}
+.example strong{color:var(--primary)}
+
+/* IMAGE STYLE */
+.img-block{margin:10px 0}
+.img-block img{width:100%;height:auto;border-radius:8px;box-shadow:0 3px 12px rgba(0,55,90,.12);cursor:zoom-in;border:1px solid #E2E8F0;transition:transform .2s}
+.img-block img:active{transform:scale(.98)}
+.img-cap{text-align:center;font-size:.7rem;color:var(--muted);margin-top:4px;font-style:italic}
+
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,.9);z-index:99999;align-items:center;justify-content:center;padding:20px;cursor:zoom-out}
+.lightbox.show{display:flex}
+.lightbox img{max-width:100%;max-height:100%;border-radius:6px;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.lightbox .close-hint{position:absolute;top:12px;right:16px;color:#fff;font-size:.85rem;opacity:.7}
+
+.btn-group{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.btn-tag{background:var(--accent2);color:#fff;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:10px}
+.btn-tag.orange{background:var(--accent)}
+.btn-tag.blue{background:var(--primary)}
+
+.back-home{position:fixed;bottom:16px;right:16px;z-index:9999;display:flex;align-items:center;gap:5px;background:rgba(0,55,90,.92);color:#fff;font-size:.78rem;font-weight:600;padding:8px 14px;border-radius:30px;text-decoration:none;box-shadow:0 4px 18px rgba(0,55,90,.35)}
+.back-home:active{transform:translateY(1px)}
+.footer-tip{text-align:center;font-size:.7rem;color:var(--muted);padding:16px 14px;letter-spacing:.5px}
+
+.link-btn{display:inline-block;background:var(--accent2);color:#fff;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:12px;text-decoration:none;margin-top:4px}
+</style>
+</head>
+<body>
+
+<div class="tb"></div>
+
+<div class="hero">
+  <h1>🛠️ 销售系统操作指南</h1>
+  <div class="sub">TERP · MustWin 手机速查手册</div>
+</div>
+
+<div class="container">
+
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab(0)">📋 TERP<span class="cnt">6</span></div>
+    <div class="tab" onclick="switchTab(1)">🚀 MustWin<span class="cnt">5</span></div>
+  </div>
+
+  <!-- ===== TAB 1: TERP ===== -->
+  <div class="tab-panel active" id="panel0">
+
+    <!-- Q1 -->
+    <div class="qa open" onclick="toggleQA(this,event)">
+      <div class="qa-hdr">
+        <div class="q-num">Q1</div>
+        <div class="q-title">I.H.S预测值为0，刷新不了</div>
+        <span class="q-chev">▼</span>
+      </div>
+      <div class="qa-body"><div class="qa-inner">
+        <div class="img-block">
+          <img src="assets/Q1_1.png" alt="Project Reference · IHS Volume 页面" onclick="openLB(this)">
+          <div class="img-cap">▲ IHS Production Volume 为 0 pc 的问题现象</div>
+        </div>
+        <div class="content">
+          <strong>解决方法：</strong>将 <strong>OEM，OEM Type，Brand，Platform，Program，Production，Nameplate</strong> 全部删除重新选择，刷新 <strong>Sales online</strong> 页面即可
+        </div>
+        <div class="img-block">
+          <img src="assets/Q1_2.png" alt="OEM 字段重新选择示例" onclick="openLB(this)">
+          <div class="img-cap">▲ 字段选择示例</div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qa" onclick="toggleQA(this,event)">
+      <div class="qa-hdr">
+        <div class="q-num">Q2</div>
+        <div class="q-title">Sales online 更新项目状态</div>
+        <span class="q-chev">▼</span>
+      </div>
+      <div class="qa-body"><div class="qa-inner">
+        <div class="content">
+          <div class="warn-note">如果料号 PN 区域是空白的，请随机填写料号信息再进行操作</div>
+          <strong>解决方法：</strong>
+          <ol style="margin-top:6px">
+            <li>点击项目下拉至料号 PN 区域 - 勾选 <strong>Select ALL PN</strong></li>
+            <li>更新状态，并 <strong>Save</strong></li>
+          </ol>
+        </div>
+        <div class="img-block">
+          <img src="assets/Q2_1.png" alt="Select All PN 勾选" onclick="openLB(this)">
+          <div class="img-cap">▲ 勾选 Select All PN</div>
+        </div>
+        <div class="img-block">
+          <img src="assets/Q2_2.png" alt="Edit Status 更新并 Save" onclick="openLB(this)">
+          <div class="img-cap">▲ 更新 Status（Lost / Closed - Customer Cancelled）→ Save</div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qa" onclick="toggleQA(this,event)">
+      <div class="qa-hdr">
+        <div class="q-num">Q3</div>
+        <div class="q-title">TERP 系统生成金额和实际计算金额不一致</div>
+        <span class="q-chev">▼</span>
+      </div>
+      <div class="qa-body"><div class="qa-inner">
+        <div class="content">
+          <strong>解决方法：</strong>
+          <ol style="margin-top:6px">
+            <li>点击 <strong>Export</strong> 导出 PN 表格</li>
+            <li>检查表格 <strong>E-M 列</strong>的数量是否乘 PN usage</li>
+          </ol>
+        </div>
+        <div class="example">
+          <strong>举例：</strong>项目对应的 IHS 车型预测是 20,000 辆/年，1-1718333-1 单车用量是 2 个，则 E-M 列所有 Qty 为 <strong>40,000</strong>
+        </div>
+        <div class="formula">
+          <div class="f-label">计算公式</div>
+          <p>PN Qty = <span>Vehicle Volume</span> × <span>PN Usage</span></p>
+        </div>
+        <div class="img-block">
+          <img src="assets/Q3_!.png" alt="TERP Billing $1,440,796 wrong · Export 按钮" onclick="openLB(this)">
+          <div class="img-cap">▲ TERP Billing $1,440,796（wrong）· 点击 Export 导出</div>
+        </div>
+        <div class="img-block">
+          <img src="assets/Q3_2.png" alt="导出 Excel · E-M 列 Qty 数据" onclick="openLB(this)">
+          <div class="img-cap">▲ 导出的 Excel · 检查 E-M 列 Qty</div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qa" onclick="toggleQA(this,event)">
+      <div class="qa-hdr">
+        <div class="q-num">Q4</div>
+        <div class="q-title">在新建项目时, 找不到 PN 批量上传"Template"按钮</div>
+        <span class="q-chev">▼</span>
+      </div>
+      <div class="qa-body"><div class="qa-inner">
+        <div class="content">
+          <strong>解决方法：</strong>
+          <ol style="margin-top:6px">
+            <li>点击 <strong>Save as Draft</strong> 后重新打开该项目</li>
+            <li>点击 <strong>"Template"</strong> 下载模板 - <strong>"Import"</strong> 上传模板 - <strong>"Export"</strong> 导出模板</li>
+          </ol>
+          <div class="btn-group">
+            <span class="btn-tag">Template 下载</span>
+            <span class="btn-tag">Import 上传</span>
+            <span class="btn-tag">Export 导出</span>
+          </div>
+        </div>
+        <div class="img-block">
+          <img src="assets/Q4_1.png" alt="Save as Draft 按钮位置" onclick="openLB(this)">
+          <div class="img-cap">▲ 步骤 1 · 点击 Save as Draft</div>
+        </div>
+        <div class="img-block">
+          <img src="assets/Q4_2.png" alt="Template / Import / Export 三按钮" onclick="openLB(this)">
+          <div class="img-cap">▲ 步骤 2 · 重开后显示 Template / Import / Export 三个按钮</div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- 注意1 -->
+    <div class="qa warn" onclick="toggleQA(this,event)">
+      <div class="qa-hdr">
+        <div class="q-num">▲1</div>
+        <div class="q-title">价格和 SAP 系统里填写的不一致</div>
+        <span class="q-chev">▼</span>
+      </div>
+      <div class="qa-body"><div class="qa-inner">
+        <div class="content">
+          <ul>
+            <li>料号价格要和 <strong>SAP 系统价格</strong>保持一致</li>
+            <li>请按照每年的<strong>固定汇率</strong>换算价格</li>
+          </ul>
+        </div>
+        <div class="img-block">
+          <img src="assets/N1.png" alt="TE Budget Rate 汇率表 FY20-FY26" onclick="openLB(this)">
+          <div class="img-cap">▲ TE Budget Rate 汇率表（FY26 用红框标注）</div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- 注意2 -->
+    <div class="qa warn" onclick="toggleQA(this,event)">
+      <div class="qa-hdr">
+        <div class="q-num">▲2</div>
+        <div class="q-title">项目审计要求</div>
+        <span class="q-chev">▼</span>
+      </div>
+      <div class="qa-body"><div class="qa-inner">
+        <div class="content">
+          <ul>
+            <li>签字无公章的定点函需附<strong>邮件往来</strong>证明；邮件里需要有定点函签名人的邮箱作为佐证。</li>
+            <li>函件抬头需打印日期或签字落款有日期；日期需要和系统 <strong>won date</strong> 对应上，不一定精确到日，但需要在同一个月或者同一个财年内。</li>
+          </ul>
+        </div>
+        <div class="img-block">
+          <img src="assets/N2.png" alt="Project Nomination Letter 示例" onclick="openLB(this)">
+          <div class="img-cap">▲ Project Nomination Letter 示例</div>
+        </div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <!-- ===== TAB 2: MustWin ===== -->
+  <div class="tab-panel" id="panel1">
+
+    <!-- M0 - 流程图 -->
+    <div class="qa m flow-card open" onclick="toggleQA(this,event)">
+      <div class="qa-hdr">
+        <div class="q-num">Flow</div>
+        <div class="q-title">MustWin 完整审批流程</div>
+        <span class="q-chev">▼</span>
+      </div>
+      <div class="qa-body"><div class="qa-inner">
+        <div class="img-block">
+          <img src="assets/FLOW.png" alt="MustWin 完整流程图" onclick="openLB(this)">
+          <div class="img-cap">▲ 点击图片可放大查看</div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- M1 -->
+    <div class="qa m" onclick="toggleQA(this,event)">
+      <div class="qa-hdr">
+        <div class="q-num">M1</div>
+        <div class="q-title">MustWin 系统页面</div>
+        <span class="q-chev">▼</span>
+      </div>
+      <div class="qa-body"><div class="qa-inner">
+        <div class="content">
+          <a href="https://aw03mgdappp001.tycoelectronics.net/app/bbdb6945-9e54-4175-9505-ae0992c8f04d/69830a21f21c217b45bef2a2/69830a613115803a7361615d?from=insite" target="_blank" class="link-btn">🔗 Project List - App</a>
+          <div style="margin-top:12px">
+            <span class="btn-tag orange">Won Submit（灰色 · 橙色框）</span>
+            <p style="margin-top:4px;font-size:.82rem">→ 有<strong>必填项</strong>需要补充</p>
+          </div>
+          <div style="margin-top:10px">
+            <span class="btn-tag blue">Lost Replace（蓝色框）</span>
+            <p style="margin-top:4px;font-size:.82rem">→ 原项目 lost 想替换时点击</p>
+          </div>
+        </div>
+        <div class="img-block">
+          <img src="assets/M1.png" alt="MustWin Project List 页面" onclick="openLB(this)">
+          <div class="img-cap">▲ Project List 页面 · Won Submit / Lost Replace 按钮列</div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- M2 -->
+    <div class="qa m" onclick="toggleQA(this,event)">
+      <div class="qa-hdr">
+        <div class="q-num">M2</div>
+        <div class="q-title">MustWin 上传方式1 – 关联 TERP Won project</div>
+        <span class="q-chev">▼</span>
+      </div>
+      <div class="qa-body"><div class="qa-inner">
+        <div class="content">
+          <ul class="arrow-bullet">
+            <li>关联本财年已经 <strong>Won</strong> 的项目</li>
+            <li>可以关联<strong>多个</strong> Terp project ID</li>
+          </ul>
+        </div>
+        <div class="img-block">
+          <img src="assets/M2_1.png" alt="Shanghai qingtum GWM Platform HVA280-2PHI" onclick="openLB(this)">
+          <div class="img-cap">▲ 项目详情页 · End OEM · Application · TERP Project Infor</div>
+        </div>
+        <div class="img-block">
+          <img src="assets/M2_2.png" alt="Won Submit 弹窗 · Confirm" onclick="openLB(this)">
+          <div class="img-cap">▲ Won Submit 弹窗 · 点 Confirm</div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- M3 -->
+    <div class="qa m" onclick="toggleQA(this,event)">
+      <div class="qa-hdr">
+        <div class="q-num">M3</div>
+        <div class="q-title">MustWin 上传方式1 – 不关联 TERP</div>
+        <span class="q-chev">▼</span>
+      </div>
+      <div class="qa-body"><div class="qa-inner">
+        <div class="content">
+          <p>直接在 Attachments 上传证明文件即可</p>
+        </div>
+        <div class="img-block">
+          <img src="assets/M3_1.png" alt="流媒体摄像头 SMB header spec-in" onclick="openLB(this)">
+          <div class="img-cap">▲ 项目页面 · End OEM · Application · Attachments 附件</div>
+        </div>
+        <div class="img-block">
+          <img src="assets/M3_2.png" alt="Won Submit 弹窗 · Confirm" onclick="openLB(this)">
+          <div class="img-cap">▲ Won Submit 弹窗 · 点 Confirm</div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- M4 -->
+    <div class="qa m" onclick="toggleQA(this,event)">
+      <div class="qa-hdr">
+        <div class="q-num">M4</div>
+        <div class="q-title">MustWin Deviation / Replace</div>
+        <span class="q-chev">▼</span>
+      </div>
+      <div class="qa-body"><div class="qa-inner">
+        <div class="content">
+          <ol>
+            <li>上传 <strong>Restatement for FY26 SIP</strong></li>
+            <li>上传<strong>替换项目</strong>的证明文件</li>
+          </ol>
+          </div>
+        <div class="img-block">
+          <img src="assets/M4_1.png" alt="Lost Replace 弹窗" onclick="openLB(this)">
+          <div class="img-cap">▲ Lost Replace 弹窗 · Fiscal Year / Attachments/..</div>
+        </div>
+        <p style="margin-top:8px;padding:6px 10px;background:#FFF8F0;border-radius:6px;font-size:.8rem;color:var(--accent);font-weight:600">Restatement for FY26 SIP 模板（excel 文件）</p>
+        
+        <div class="img-block">
+          <img src="assets/M4_2.png" alt="FY26 SIP Restatement 表格" onclick="openLB(this)">
+          <div class="img-cap">▲ FY26 SIP Restatement 表格 · 附 FY25 参考格式</div>
+        </div>
+      </div></div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="footer-tip">— 内部资料 · 仅供团队参考 —</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLB()">
+  <div class="close-hint">✕ 点击任意位置关闭</div>
+  <img id="lbImg" src="" alt="">
+</div>
+
+<a class="back-home" href="index.html"><span>←</span> 返回首页</a>
+
+<script>
+function switchTab(idx) {
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
+  document.querySelectorAll('.tab-panel').forEach((p,i)=>p.classList.toggle('active',i===idx));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function toggleQA(el, e) {
+  if(!e.target.closest('.qa-hdr')) return;
+  if(e.target.tagName==='IMG' || e.target.tagName==='A') return;
+  var body = el.querySelector('.qa-body');
+  if (el.classList.contains('open')) {
+    el.classList.remove('open');
+    body.style.maxHeight = null;
+  } else {
+    el.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+  }
+}
+
+function openLB(img) {
+  event.stopPropagation();
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lbImg');
+  lbImg.src = img.src;
+  lb.classList.add('show');
+}
+function closeLB() {
+  document.getElementById('lightbox').classList.remove('show');
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.qa.open').forEach(function(q){
+    var body = q.querySelector('.qa-body');
+    // Delay to wait for images to load
+    setTimeout(function(){
+      body.style.maxHeight = body.scrollHeight + 'px';
+    }, 100);
+  });
+  // Recalc after all images loaded
+  window.addEventListener('load', function(){
+    document.querySelectorAll('.qa.open').forEach(function(q){
+      var body = q.querySelector('.qa-body');
+      body.style.maxHeight = body.scrollHeight + 'px';
+    });
+  });
+});
+</script>
+
+</body>
+</html>
