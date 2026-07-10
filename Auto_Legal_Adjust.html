@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto法规合规速览</title>
+<style>
+:root{
+  --primary:#00375A;--accent:#F4811F;--accent2:#00B4D8;--accent3:#6C5CE7;
+  --bg:#F0F4F8;--card:#fff;--text:#1A1A2E;--tl:#5A6A7A;--muted:#94A3B8;
+  --dark:#1E293B;--shadow:0 3px 14px rgba(0,55,90,.10);--r:12px;
+  --red:#E74C3C;--green:#27AE60;--yellow:#F39C12;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+.tb{height:5px;background:var(--primary)}
+
+.hero{background:linear-gradient(135deg,var(--primary) 0%,#004F7C 55%,var(--accent2) 100%);color:#fff;padding:26px 20px 30px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-30px;left:-10%;width:120%;height:60px;background:var(--bg);border-radius:50% 50% 0 0}
+.hero h1{font-size:1.4rem;font-weight:900;margin-bottom:6px;letter-spacing:1px}
+.hero .pill{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);padding:3px 14px;border-radius:16px;font-size:.72rem;font-weight:600;margin-bottom:12px}
+.hero .keymsg{font-size:.8rem;opacity:.92;line-height:1.6;max-width:600px;margin:0 auto;text-align:left;background:rgba(255,255,255,.1);padding:10px 14px;border-radius:8px}
+
+.container{max-width:720px;margin:0 auto;padding:8px 14px 20px}
+
+.tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;background:var(--card);border-radius:14px;padding:6px;box-shadow:var(--shadow);margin:16px 0 14px;position:sticky;top:6px;z-index:50}
+.tab{display:flex;align-items:center;justify-content:center;min-height:44px;padding:10px 12px;text-align:center;font-size:.84rem;font-weight:700;color:var(--tl);border-radius:10px;cursor:pointer;transition:all .2s;user-select:none;white-space:nowrap;border:1px solid transparent}
+.tab:hover{background:#F8FAFC;border-color:#E2E8F0}
+.tab.active{background:linear-gradient(135deg,var(--accent),#FF9F52);color:#fff;box-shadow:0 3px 10px rgba(244,129,31,.3);border-color:transparent}
+
+.tab-panel{display:none}
+.tab-panel.active{display:block;animation:fi .25s ease}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.reg{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);margin-bottom:10px;overflow:visible;border-left:4px solid var(--red)}
+.reg.ov{border-left-color:var(--accent2)}
+.reg-hdr{display:flex;align-items:center;gap:10px;padding:13px 14px;user-select:none;transition:background .15s}
+.reg-hdr:hover{background:#F8FAFC}
+.reg-hdr .r-num{min-width:34px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--red),#FF7766);color:#fff;font-weight:900;font-size:.75rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:0 6px}
+.reg.ov .reg-hdr .r-num{background:linear-gradient(135deg,var(--accent2),var(--primary))}
+.reg-hdr .r-title{flex:1;font-size:.86rem;font-weight:700;color:var(--primary);line-height:1.4}
+.reg-hdr .region-tag{font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:8px;background:#EBF5FB;color:var(--primary);flex-shrink:0}
+.reg-hdr .r-chev{font-size:.7rem;color:var(--muted);transition:transform .3s;font-weight:800;flex-shrink:0}
+.reg.open .reg-hdr .r-chev{transform:rotate(180deg);color:var(--red)}
+.reg.ov.open .reg-hdr .r-chev{color:var(--accent2)}
+.reg-body{max-height:0;overflow:hidden;transition:max-height .5s ease}
+.reg-inner{padding:0 14px 14px}
+
+.time-chip{display:inline-block;background:#EBF5FB;color:var(--primary);font-size:.76rem;font-weight:700;padding:5px 12px;border-radius:8px;margin-bottom:10px;border-left:3px solid var(--accent2)}
+
+.impact{margin-bottom:10px}
+.impact .imp-title{font-size:.78rem;font-weight:800;color:var(--primary);margin-bottom:6px}
+.imp-row{display:flex;gap:8px;padding:7px 0;border-bottom:1px dashed #EDF2F7;font-size:.8rem;line-height:1.55}
+.imp-row:last-child{border-bottom:none}
+.imp-label{flex-shrink:0;font-size:.66rem;font-weight:700;padding:2px 7px;border-radius:6px;height:fit-content;color:#fff;white-space:nowrap}
+.imp-label.usage{background:var(--accent2)}
+.imp-label.safety{background:var(--red)}
+.imp-label.price{background:var(--yellow)}
+.imp-label.trade{background:var(--accent3)}
+.imp-text{flex:1;color:var(--tl)}
+
+.response{background:#E8F8EE;border-radius:8px;padding:9px 12px;border-left:3px solid var(--green);font-size:.8rem;color:var(--tl);line-height:1.6}
+.response .resp-label{font-size:.72rem;font-weight:800;color:var(--green);margin-bottom:3px}
+
+.gen-card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:16px 16px;margin-bottom:10px;border-top:3px solid var(--accent3)}
+.gen-card h3{font-size:.92rem;font-weight:800;color:var(--primary);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.gen-card h3 .dot{width:8px;height:8px;border-radius:50%;background:var(--accent3);flex-shrink:0}
+.gen-card p{font-size:.84rem;color:var(--tl);line-height:1.65}
+
+.advice-hdr{font-size:1.05rem;font-weight:800;color:var(--accent);margin:26px 0 12px;padding-left:12px;border-left:5px solid var(--accent);display:flex;align-items:center;gap:6px}
+.advice-card{background:linear-gradient(135deg,#FFF8F0,#FEF3E2);border-radius:var(--r);box-shadow:var(--shadow);padding:14px 16px;margin-bottom:10px;display:flex;gap:12px;border-left:4px solid var(--accent)}
+.advice-card .a-num{width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-weight:900;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.advice-card .a-body h4{font-size:.86rem;font-weight:800;color:var(--primary);margin-bottom:3px}
+.advice-card .a-body p{font-size:.8rem;color:var(--tl);line-height:1.55}
+
+.sources{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);margin:20px 0 10px;overflow:hidden}
+.sources-hdr{display:flex;align-items:center;gap:8px;padding:14px 16px;cursor:pointer;user-select:none}
+.sources-hdr:hover{background:#F8FAFC}
+.sources-hdr .s-title{flex:1;font-size:.88rem;font-weight:700;color:var(--primary)}
+.sources-hdr .s-chev{font-size:.7rem;color:var(--muted);transition:transform .3s;font-weight:800}
+.sources.open .sources-hdr .s-chev{transform:rotate(180deg)}
+.sources-body{max-height:none;overflow:visible;transition:none}
+.sources-inner{padding:0 16px 14px}
+.sources-inner li{font-size:.78rem;color:var(--tl);padding:4px 0 4px 16px;position:relative;line-height:1.5;list-style:none}
+.sources-inner li::before{content:'';position:absolute;left:0;top:11px;width:6px;height:6px;background:var(--accent2);border-radius:50%}
+
+.back-home{position:fixed;bottom:16px;right:16px;z-index:9999;display:flex;align-items:center;gap:5px;background:rgba(0,55,90,.92);color:#fff;font-size:.78rem;font-weight:600;padding:8px 14px;border-radius:30px;text-decoration:none;box-shadow:0 4px 18px rgba(0,55,90,.35)}
+.back-home:active{transform:translateY(1px)}
+.footer-tip{text-align:center;font-size:.7rem;color:var(--muted);padding:16px 14px;letter-spacing:.5px}
+
+@media(max-width:520px){
+  .hero h1{font-size:1.2rem}
+  .imp-row{flex-direction:column;gap:3px}
+}
+</style>
+</head>
+<body>
+
+<div class="tb"></div>
+
+<div class="hero">
+  <h1>⚖️ Auto法规合规速览</h1>
+  <div class="pill">2025/10 — 2026/07</div>
+  <div class="keymsg">安全与合规从“建议”变“门槛”。</br>中国侧重强制国标落地与结构性安全升级，欧美侧重可追溯、碳约束与本地化。</br>对连接器/线束的刚性要求与“含证量”显著上行。</div>
+</div>
+
+<div class="container">
+
+  <div class="tabs" role="tablist" aria-label="法规区域切换">
+    <button class="tab active" type="button" onclick="switchTab(0)" aria-selected="true">🇨🇳 中国</button>
+    <button class="tab" type="button" onclick="switchTab(1)" aria-selected="false">🌍 海外</button>
+  </div>
+
+  <div class="tab-panel active" id="panel0">
+
+    <div class="reg open" onclick="toggleReg(this,event)">
+      <div class="reg-hdr">
+        <div class="r-num">C1</div>
+        <div class="r-title">新一批强制国标集中实施（碰撞、电池安全、转向、制动、信息安全、OTA）</div>
+        <span class="r-chev">▼</span>
+      </div>
+      <div class="reg-body"><div class="reg-inner">
+        <div class="time-chip">📅 部分自 2026/01/01，更多自 2026/07/01 起实施</div>
+        <div class="impact">
+          <div class="imp-title">影响</div>
+          <div class="imp-row"><span class="imp-label usage">单车用量</span><span class="imp-text">物理断电装置、HVIL/二次锁止、底部防护与车外IP67/69K、热扩散监测接口等上量</span></div>
+          <div class="imp-row"><span class="imp-label safety">质量安全</span><span class="imp-text">热失控由“预警”升级为“不起火/不爆炸”；底部碰撞（刮底/托底）、介电/爬电、耐腐蚀+热-振耦合等测试前置到DV/PV</span></div>
+          <div class="imp-row"><span class="imp-label price">定价销量</span><span class="imp-text">验证与材料升级抬升BOM，中小厂承压、头部提前平台切换，带来结构性涨价信号</span></div>
+          <div class="imp-row"><span class="imp-label trade">进出口</span><span class="imp-text">与国际高标准接轨，降低出海“标准墙”风险</span></div>
+        </div>
+        <div class="response"><div class="resp-label">✅ 应对</div>标准化IP69K/HVIL/二次锁止平台；物理断电接口+序列化追溯随件；完善DV/PV测试矩阵与报告交付</div>
+      </div></div>
+    </div>
+
+    <div class="reg" onclick="toggleReg(this,event)">
+      <div class="reg-hdr">
+        <div class="r-num">C2</div>
+        <div class="r-title">转向与碰撞边界提升、线控转向安全边界明确</div>
+        <span class="r-chev">▼</span>
+      </div>
+      <div class="reg-body"><div class="reg-inner">
+        <div class="time-chip">📅 2026/07/01 起执行（含侧/后碰门槛提升、转向系统新要求）</div>
+        <div class="impact">
+          <div class="imp-title">影响</div>
+          <div class="imp-row"><span class="imp-label usage">单车用量</span><span class="imp-text">执行器冗余与电源/信号冗余线束增加，车外防水/抗振连接件需求上行</span></div>
+          <div class="imp-row"><span class="imp-label safety">质量安全</span><span class="imp-text">防误插、端子保压/防退针、屏蔽接地与机械锁止趋于“标配”</span></div>
+        </div>
+        <div class="response"><div class="resp-label">✅ 应对</div>冗余电源/信号线束包、车外高速同轴/以太网屏蔽方案、一体化密封壳体</div>
+      </div></div>
+    </div>
+
+    <div class="reg" onclick="toggleReg(this,event)">
+      <div class="reg-hdr">
+        <div class="r-num">C3</div>
+        <div class="r-title">整车信息安全与OTA强制化</div>
+        <span class="r-chev">▼</span>
+      </div>
+      <div class="reg-body"><div class="reg-inner">
+        <div class="time-chip">📅 2026/01/01 起实施</div>
+        <div class="impact">
+          <div class="imp-title">影响</div>
+          <div class="imp-row"><span class="imp-label usage">单车用量</span><span class="imp-text">以太网与网关连接密度与屏蔽等级上调，日志/追溯接口“标配”</span></div>
+          <div class="imp-row"><span class="imp-label safety">质量安全</span><span class="imp-text">ISO 21434/UN R155与功能安全并轨到E/E架构</span></div>
+        </div>
+        <div class="response"><div class="resp-label">✅ 应对</div>屏蔽/EMI/接地一体化；接口级序列化与数据留存策略</div>
+      </div></div>
+    </div>
+
+    <div class="reg" onclick="toggleReg(this,event)">
+      <div class="reg-hdr">
+        <div class="r-num">C4</div>
+        <div class="r-title">智驾（L3/NOA）准入与道路试点扩围（政策推进期）</div>
+        <span class="r-chev">▼</span>
+      </div>
+      <div class="reg-body"><div class="reg-inner">
+        <div class="time-chip">📅 2025-2026 推进窗口</div>
+        <div class="impact">
+          <div class="imp-title">影响</div>
+          <div class="imp-row"><span class="imp-label usage">单车用量</span><span class="imp-text">域控集中化与感知冗余上车，高速同轴/以太网点位与屏蔽规格上调</span></div>
+          <div class="imp-row"><span class="imp-label safety">质量安全</span><span class="imp-text">冗余供电/信号与网络安全要求同步抬升</span></div>
+        </div>
+        <div class="response"><div class="resp-label">✅ 应对</div>域控接口标准族、100/1000BASE-T1/同轴系列化与冗余供电方案</div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <div class="tab-panel" id="panel1">
+
+    <div class="reg ov open" onclick="toggleReg(this,event)">
+      <div class="reg-hdr">
+        <div class="r-num">O1</div>
+        <div class="r-title">电池法规(EU 2023/1542)与电池护照（DPP）</div>
+        <span class="region-tag">欧盟</span>
+        <span class="r-chev">▼</span>
+      </div>
+      <div class="reg-body"><div class="reg-inner">
+        <div class="time-chip">📅 2026起进入强制前准备与审查入场期，后续按品类分阶段强制</div>
+        <div class="impact">
+          <div class="imp-title">影响</div>
+          <div class="imp-row"><span class="imp-label usage">单车用量</span><span class="imp-text">本体件数增量有限，但要求零件层级“证据链”（EPD/材料合规/碳足迹/序列化追溯）随件</span></div>
+          <div class="imp-row"><span class="imp-label safety">质量安全</span><span class="imp-text">过程与数据合规纳入客户验收</span></div>
+          <div class="imp-row"><span class="imp-label price">定价销量</span><span class="imp-text">具备DPP对接与材料/碳核算能力的供应商更易中标与溢价</span></div>
+        </div>
+        <div class="response"><div class="resp-label">✅ 应对</div>DPP数据接口就绪；EPD/材料合规/碳核算一揽子包；欧盟第三方测试/认证前置</div>
+      </div></div>
+    </div>
+
+    <div class="reg ov" onclick="toggleReg(this,event)">
+      <div class="reg-hdr">
+        <div class="r-num">O2</div>
+        <div class="r-title">CBAM计价与贸易救济</div>
+        <span class="region-tag">欧盟</span>
+        <span class="r-chev">▼</span>
+      </div>
+      <div class="reg-body"><div class="reg-inner">
+        <div class="time-chip">📅 CBAM自2026/01进入计价期；对华电动乘用车反补贴措施在2025-2026持续执行</div>
+        <div class="impact">
+          <div class="imp-title">影响</div>
+          <div class="imp-row"><span class="imp-label price">定价销量</span><span class="imp-text">钢/铝等材料成本传导至金属壳体/支架；欧盟客户偏好本地低碳供货</span></div>
+          <div class="imp-row"><span class="imp-label trade">进出口</span><span class="imp-text">加速整车与零部件在欧本地化采购</span></div>
+        </div>
+        <div class="response"><div class="resp-label">✅ 应对</div>欧洲本地交付+低碳材料证明链路；CBAM对账/申报支持与供应链碳减排方案</div>
+      </div></div>
+    </div>
+
+    <div class="reg ov" onclick="toggleReg(this,event)">
+      <div class="reg-hdr">
+        <div class="r-num">O3</div>
+        <div class="r-title">NHTSA AEB强制规则导入期</div>
+        <span class="region-tag">美国/北美</span>
+        <span class="r-chev">▼</span>
+      </div>
+      <div class="reg-body"><div class="reg-inner">
+        <div class="time-chip">📅 最终规则已发布，2025-2026为乘用车提前量产导入窗口（全面强制分阶段至后续年度）</div>
+        <div class="impact">
+          <div class="imp-title">影响</div>
+          <div class="imp-row"><span class="imp-label usage">单车用量</span><span class="imp-text">摄像头/雷达/域控相关连接与车外防护上量</span></div>
+          <div class="imp-row"><span class="imp-label safety">质量安全</span><span class="imp-text">USCAR/EMC、车外IP等级与抗振要求趋严</span></div>
+        </div>
+        <div class="response"><div class="resp-label">✅ 应对</div>车外高速连接成套方案，EMC与USCAR试验与报告随件</div>
+      </div></div>
+    </div>
+
+    <div class="reg ov" onclick="toggleReg(this,event)">
+      <div class="reg-hdr">
+        <div class="r-num">O4</div>
+        <div class="r-title">IRA清洁车辆抵税的FEOC限制</div>
+        <span class="region-tag">美国/北美</span>
+        <span class="r-chev">▼</span>
+      </div>
+      <div class="reg-body"><div class="reg-inner">
+        <div class="time-chip">📅 关键矿物FEOC限制自2025起执行（电池组件FEOC更早）</div>
+        <div class="impact">
+          <div class="imp-title">影响</div>
+          <div class="imp-row"><span class="imp-label trade">进出口</span><span class="imp-text">北美本地化与原产地合规升级；不合规链路车型难获抵税</span></div>
+          <div class="imp-row"><span class="imp-label price">定价销量</span><span class="imp-text">具备合规链路与在地供货能力的车型配置优先导入</span></div>
+        </div>
+        <div class="response"><div class="resp-label">✅ 应对</div>北美产能/认证与原产地证明齐套；材料追溯与供应链可视化</div>
+      </div></div>
+    </div>
+
+    <div class="reg ov" onclick="toggleReg(this,event)">
+      <div class="reg-hdr">
+        <div class="r-num">O5</div>
+        <div class="r-title">301关税/欧盟贸易救济不确定性</div>
+        <span class="region-tag">贸易关税</span>
+        <span class="r-chev">▼</span>
+      </div>
+      <div class="reg-body"><div class="reg-inner">
+        <div class="time-chip">📅 2024以来维持高位，2025-2026不确定性仍高</div>
+        <div class="impact">
+          <div class="imp-title">影响</div>
+          <div class="imp-row"><span class="imp-label trade">进出口</span><span class="imp-text">直发路径受限，墨西哥/欧盟本地交付趋优</span></div>
+        </div>
+        <div class="response"><div class="resp-label">✅ 应对</div>NA/EU“工厂+第三方测试+合规文件”一揽子交付与库存前置</div>
+      </div></div>
+    </div>
+
+    <div class="reg ov" onclick="toggleReg(this,event)">
+      <div class="reg-hdr">
+        <div class="r-num">O6</div>
+        <div class="r-title">印度/东盟/中东：电池安全/本地化与原产地规则持续推进</div>
+        <span class="region-tag">其他海外</span>
+        <span class="r-chev">▼</span>
+      </div>
+      <div class="reg-body"><div class="reg-inner">
+        <div class="time-chip">📅 2025-2026 持续推进</div>
+        <div class="impact">
+          <div class="imp-title">影响</div>
+          <div class="imp-row"><span class="imp-label usage">影响</span><span class="imp-text">高等级IP/耐热材料偏好增强；在地认证与快速清关被优先</span></div>
+        </div>
+        <div class="response"><div class="resp-label">✅ 应对</div>区域库存与快速检测通道；材料与认证本地化包</div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <!-- <div class="tab-panel" id="panel2">
+    <div class="gen-card">
+      <h3><span class="dot"></span>高压侧</h3>
+      <p>800V/大电流趋势下，端子截面、耐电弧与HVIL“标配化”；液冷热管理强化带来温/压传感与泵阀接口增点</p>
+    </div>
+    <div class="gen-card">
+      <h3><span class="dot"></span>低压/高速数据</h3>
+      <p>AEB/L3推动同轴与车载以太网点位与屏蔽等级上调；域控集中降低部分线长但提升单点价值密度</p>
+    </div>
+    <div class="gen-card">
+      <h3><span class="dot"></span>防护材料</h3>
+      <p>IP67/69K、耐盐雾/腐蚀普及；PFAS/卤素限制推动材料替代与件数微增</p>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="panel3">
+    <div class="gen-card">
+      <h3><span class="dot"></span>设计门槛</h3>
+      <p>防误插、二次锁止、端子保压/防退针、360°屏蔽接地、触指防护(IPXXB)趋于“标配”</p>
+    </div>
+    <div class="gen-card">
+      <h3><span class="dot"></span>试验与认证</h3>
+      <p>IP67/69K、热-振耦合、介电耐压/爬电距离、热扩散、底部碰撞与环境腐蚀测试前置到DV/PV</p>
+    </div>
+    <div class="gen-card">
+      <h3><span class="dot"></span>体系合规</h3>
+      <p>ISO 26262、ISO 21434、UN R155/R156与17025实验室资质、批次追溯与数据留存年限成为审计重点</p>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="panel4">
+    <div class="gen-card">
+      <h3><span class="dot"></span>定价</h3>
+      <p>合规与测试带来结构性BOM抬升；能以“平台化+含证量”交付的供应商更易取得价值定价</p>
+    </div>
+    <div class="gen-card">
+      <h3><span class="dot"></span>销量/结构</h3>
+      <p>AEB/智驾“准标配”提升高阶连接件渗透；中小厂承压促使行业出清</p>
+    </div>
+    <div class="gen-card">
+      <h3><span class="dot"></span>进出口</h3>
+      <p>欧盟（CBAM+反补贴）与美国（FEOC+关税）共振，提升在地化与“低碳+可追溯”供货权重</p>
+    </div>
+  </div> -->
+
+  <!-- <div class="advice-hdr">💡 TE Connectivity 建议</div>
+
+  <div class="advice-card">
+    <div class="a-num">1</div>
+    <div class="a-body"><h4>把“证据链”做成交付件</h4><p>EPD/材料合规/碳核算+序列化追溯随件，打通客户PLM/DPP接口</p></div>
+  </div>
+  <div class="advice-card">
+    <div class="a-num">2</div>
+    <div class="a-body"><h4>产品族聚焦</h4><p>800V HV连接系统（耐电弧/HVIL/二次锁止）、车外IP69K高速同轴/以太网、底部防护连接方案</p></div>
+  </div>
+  <div class="advice-card">
+    <div class="a-num">3</div>
+    <div class="a-body"><h4>在地化一揽子</h4><p>EU/NA“工厂+第三方测试+认证文件”组合交付；墨西哥/欧盟本地快速供货</p></div>
+  </div>
+  <div class="advice-card">
+    <div class="a-num">4</div>
+    <div class="a-body"><h4>标准化工具包</h4><p>法规BOM模板+DV/PV测试计划+合规文件清单，缩短定点至SOP周期</p></div>
+  </div>
+  <div class="advice-card">
+    <div class="a-num">5</div>
+    <div class="a-body"><h4>客户共创</h4><p>围绕AEB/L3与电池安全，建立“法规更新—选型—验证”滚动机制，抢占前装定点</p></div>
+  </div> -->
+
+  <div class="sources" id="srcBox">
+    <div class="sources-hdr">
+      <span class="s-title">📎 引用来源</span>
+      <!-- <span class="s-chev">▼</span> -->
+    </div>
+    <div class="sources-body"><div class="sources-inner">
+      <li>中国乘用车相关新/修订国标实施综述（2026/07/03）</li>
+      <li>欧盟委员会：电池法规 EU 2023/1542 与电池护照（2026/上半年更新）</li>
+      <li>欧盟委员会：CBAM 从报告期过渡至计价期通知（2026/01）</li>
+      <li>NHTSA：自动紧急制动（AEB）最终规则与合规时间表（2024/04-05）</li>
+      <li>美国财政部：IRA 清洁车辆税收抵免与FEOC 实施细则（2024-2025）</li>
+      <li>工业和信息化部：2026年汽车标准化工作要点（2026/05）</li>
+    </div></div>
+  </div>
+
+</div>
+
+<div class="footer-tip">— 内部资料 · 仅供团队参考 —</div>
+
+<a class="back-home" href="index.html"><span>←</span> 返回首页</a>
+
+<script>
+function switchTab(idx) {
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
+  document.querySelectorAll('.tab-panel').forEach((p,i)=>p.classList.toggle('active',i===idx));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleReg(el, e) {
+  if(!e.target.closest('.reg-hdr')) return;
+  var body = el.querySelector('.reg-body');
+  if (el.classList.contains('open')) {
+    el.classList.remove('open');
+    body.style.maxHeight = null;
+  } else {
+    el.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+  }
+}
+function toggleSrc() {
+  return;
+}
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.reg.open').forEach(function(r){
+    var body = r.querySelector('.reg-body');
+    body.style.maxHeight = body.scrollHeight + 'px';
+  });
+});
+</script>
+
+</body>
+</html>
