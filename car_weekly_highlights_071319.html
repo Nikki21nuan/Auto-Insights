@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>车圈一周速览 2026/07/13-2026/07/19</title>
+<style>
+  :root {
+    --primary:#0B2545; --secondary:#13618A; --accent:#F4811F; --accent2:#00B4D8; --accent3:#6C5CE7;
+    --bg:#F0F4F8; --card-bg:#FFFFFF; --text:#1A1A2E; --text-light:#5A6A7A;
+    --shadow:0 4px 20px rgba(11,37,69,0.10); --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.75}
+  .banner{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 60%,var(--accent2) 100%);color:#fff;padding:52px 24px 46px;text-align:center;position:relative;overflow:hidden}
+  .banner::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.04)}
+  .banner::after{content:'';position:absolute;bottom:-40px;left:-10%;width:120%;height:80px;background:var(--bg);border-radius:50% 50% 0 0}
+  .banner h1{font-size:2.4rem;font-weight:900;letter-spacing:2px;margin-bottom:6px}
+  .banner .date{font-size:1rem;opacity:0.85;margin-bottom:18px}
+  .banner .summary-pill{display:inline-block;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);padding:10px 28px;border-radius:30px;font-size:0.95rem;font-weight:500;max-width:820px;line-height:1.6}
+  .container{max-width:960px;margin:0 auto;padding:0 20px}
+  .section-title{font-size:1.5rem;font-weight:700;color:var(--primary);margin:44px 0 22px;padding-left:14px;border-left:5px solid var(--accent)}
+  .section-title.purple{border-left-color:var(--accent3)}
+  .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:24px}
+  .card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px 26px 24px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent)}
+  .card:hover{transform:translateY(-6px);box-shadow:0 14px 38px rgba(11,37,69,0.17)}
+  .card .badge{position:absolute;top:-16px;left:22px;width:36px;height:36px;background:var(--accent);color:#fff;font-weight:900;font-size:1.1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(244,129,31,0.4)}
+  .card h3{font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:10px}
+  .card .facts{font-size:0.92rem;color:var(--text);margin-bottom:14px}
+  .card .facts strong{color:var(--secondary)}
+  .card .implication{background:linear-gradient(135deg,#EBF5FB,#FDF2E9);border-left:4px solid var(--accent2);border-radius:8px;padding:12px 16px;font-size:0.88rem;color:var(--text-light)}
+  .card .implication strong{color:var(--secondary)}
+  .competitor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+  .comp-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 22px 20px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent3)}
+  .comp-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(108,92,231,0.18)}
+  .comp-card .comp-tag{display:inline-block;background:var(--accent3);color:#fff;font-weight:700;font-size:0.82rem;padding:4px 14px;border-radius:20px;margin-bottom:10px}
+  .comp-card .comp-label{font-size:0.78rem;color:var(--accent3);opacity:0.7;margin-top:10px;font-weight:500}
+  .comp-card p{font-size:0.9rem;color:var(--text-light);line-height:1.65}
+  .keywords-list{display:flex;flex-wrap:wrap;gap:16px;margin-top:6px}
+  .keyword-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 22px;flex:1 1 260px;transition:transform .25s ease,box-shadow .25s ease}
+  .keyword-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(11,37,69,0.14)}
+  .keyword-card .kw-tag{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:0.85rem;padding:4px 14px;border-radius:20px;margin-bottom:8px}
+  .keyword-card p{font-size:0.9rem;color:var(--text-light)}
+  .sources{margin:44px 0 54px;background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 26px}
+  .sources h3{font-size:1rem;color:var(--primary);margin-bottom:10px}
+  .sources ul{list-style:none;padding:0}
+  .sources li{font-size:0.88rem;color:var(--text-light);padding:4px 0 4px 18px;position:relative}
+  .sources li::before{content:'';position:absolute;left:0;top:12px;width:8px;height:8px;background:var(--accent2);border-radius:50%}
+  .back-home{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(11,37,69,0.92);color:#fff;font-size:0.88rem;font-weight:600;padding:12px 22px;border-radius:40px;text-decoration:none;box-shadow:0 6px 24px rgba(11,37,69,0.35);backdrop-filter:blur(8px);transition:transform .2s ease,box-shadow .2s ease,background .2s ease;letter-spacing:0.5px}
+  .back-home:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(11,37,69,0.45);background:rgba(19,97,138,0.95)}
+  @media(max-width:520px){
+    .banner h1{font-size:1.55rem}
+    .banner .summary-pill{font-size:0.82rem;padding:8px 16px}
+    .cards-grid,.competitor-grid{grid-template-columns:1fr}
+    .card,.comp-card{padding:24px 18px 20px}
+    .section-title{font-size:1.25rem}
+    .back-home{bottom:16px;right:16px;padding:10px 18px;font-size:0.82rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="banner">
+  <h1>&#x1F697; 车圈一周速览</h1>
+  <div class="date">2026/07/13-2026/07/19</div>
+  <div class="summary-pill">新品扎堆+政策落地+智驾提速：3个赛道同频共振，关注10万元级800V的高压件机会与电池税对成本曲线的影响。</div>
+</div>
+
+<div class="container">
+
+  <!-- SIX NEWS -->
+  <div class="section-title">六大行业动态</div>
+  <div class="cards-grid">
+
+    <div class="card">
+      <div class="badge">1</div>
+      <h3>长安启源Q06 7/15发布</h3>
+      <p class="facts"><strong>核心内容：</strong>基于SDA天穹架构，提供800V碳化硅平台，单/双电机可选；电池63.18/66.02/72.54/80.02kWh，纯电里程最高标称700km。</p>
+      <div class="implication"><strong>行业含义：</strong>主流自主品牌把800V与中大电量下放至家用SUV，预计拉动高压线束与高压连接器配置占比提升。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">2</div>
+      <h3>零跑B01/B10上市，9万级上800V</h3>
+      <p class="facts"><strong>核心内容：</strong>7/16上市：B01指导价9.58–11.98万、B10指导价9.98–12.58万；全系800V+3C快充，30–80%最快16分钟，电池69.7kWh，CLTC 670/610km。</p>
+      <div class="implication"><strong>行业含义：</strong>高压平台快速下沉，带动整车高压线束与连接器价值显性化，入门级电驱配套需求放大。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">3</div>
+      <h3>三部门上调部分电池消费税</h3>
+      <p class="facts"><strong>核心内容：</strong>7/17公告：自2026/9/1起对无汞原电池、氢镍电池、锂原电池、锂离子电池、全钒液流电池按2%征收；自2027/9/1起调至4%。</p>
+      <div class="implication"><strong>行业含义：</strong>成本端边际上行，或触发车企价格体系微调与配置取舍，供应链议价与税负传导成下半年关键变量。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">4</div>
+      <h3>北京发L3测试牌照，智驾迈向常态化</h3>
+      <p class="facts"><strong>核心内容：</strong>7/14车型获批北京市L3道路测试牌照，覆盖夜间/高速等场景，最高支持120km/h并具备多种变道能力。</p>
+      <div class="implication"><strong>行业含义：</strong>高等级智驾验证走快车道，传感器、算力与线束/域控架构复杂度提升，软件付费具备现实土壤。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">5</div>
+      <h3>广汽用户达3000万，新能源与出口双增</h3>
+      <p class="facts"><strong>核心内容：</strong>7/16公布：上半年销量77.31万辆（+2.35%），新能源销量同比+68.8%；出口12万辆（+132%）。</p>
+      <div class="implication"><strong>行业含义：</strong>头部集团基本盘稳固，配套需求确定性提升，国产替代与本土协同进一步加强。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">6</div>
+      <h3>上半年新能源新注册占比近半</h3>
+      <p class="facts"><strong>核心内容：</strong>公安部：H1新能源新注册519.5万辆，占新注册49.42%；新能源保有量4897万辆，占比13.19%。</p>
+      <div class="implication"><strong>行业含义：</strong>终端保有量抬升，带动配套与售后机会，支撑下半年以旧换新与二手车置换。</div>
+    </div>
+
+  </div>
+
+  <!-- COMPETITOR -->
+  <div class="section-title purple">友商速递</div>
+  <div class="competitor-grid">
+
+    <div class="comp-card">
+      <p>立讯精密｜7月18日投研报告披露公司汽车电子板块2025年收入392.55亿元、同比+185.34%，并强调Leoni线束业务整合与乘用车域控/连接器布局持续推进。</p>
+      <div class="comp-label">近期动态</div>
+    </div>
+
+    <div class="comp-card">
+      <p>住友电工｜7月在链博会披露在华车载连接器近五年供货规模扩大5倍，并强调面向高压线束/高速连接的本地化协同与交付能力。</p>
+      <div class="comp-label">近期动态</div>
+    </div>
+
+  </div>
+
+  <!-- KEYWORDS -->
+  <div class="section-title">本周关键词</div>
+  <div class="keywords-list">
+
+    <div class="keyword-card">
+      <span class="kw-tag">9–12万的800V</span>
+      <p>零跑B01/B10把高压平台拉到10万元区间，端到端高压件价值显性化，充电体验成为入门级购车决策点。</p>
+    </div>
+
+    <div class="keyword-card">
+      <span class="kw-tag">电池税的价格传导</span>
+      <p>2%→4%阶梯税率确定，车企与供应链围绕成本/配置展开再平衡，可能出现小幅“去权益、保毛利”的组合。</p>
+    </div>
+
+    <div class="keyword-card">
+      <span class="kw-tag">L3路测加速</span>
+      <p>一线城市开放测试，域控集中化与线束轻量化需求并行，智驾付费的场景价值更易被用户感知。</p>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <h3>&#x1F4CE; 引用来源</h3>
+    <ul>
+      <li>中国质量新闻网（2026/07/20）</li><li>盖世汽车（2026/07/17）</li><li>财政部/海关总署/税务总局（2026/07/17）</li><li>公安部（2026/07/15）</li><li>盖世汽车（2026/07/19）</li>
+    </ul>
+  </div>
+
+</div>
+<!-- BACK HOME -->
+<a class="back-home" href="index.html">
+  <span>&larr;</span> 返回首页
+</a>
+
+</body>
+</html>
