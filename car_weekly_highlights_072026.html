@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>车圈一周速览 2026/07/20-2026/07/26</title>
+<style>
+  :root {
+    --primary:#0B2545; --secondary:#13618A; --accent:#F4811F; --accent2:#00B4D8; --accent3:#6C5CE7;
+    --bg:#F0F4F8; --card-bg:#FFFFFF; --text:#1A1A2E; --text-light:#5A6A7A;
+    --shadow:0 4px 20px rgba(11,37,69,0.10); --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.75}
+  .banner{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 60%,var(--accent2) 100%);color:#fff;padding:52px 24px 46px;text-align:center;position:relative;overflow:hidden}
+  .banner::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.04)}
+  .banner::after{content:'';position:absolute;bottom:-40px;left:-10%;width:120%;height:80px;background:var(--bg);border-radius:50% 50% 0 0}
+  .banner h1{font-size:2.4rem;font-weight:900;letter-spacing:2px;margin-bottom:6px}
+  .banner .date{font-size:1rem;opacity:0.85;margin-bottom:18px}
+  .banner .summary-pill{display:inline-block;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);padding:10px 28px;border-radius:30px;font-size:0.95rem;font-weight:500;max-width:820px;line-height:1.6}
+  .container{max-width:960px;margin:0 auto;padding:0 20px}
+  .section-title{font-size:1.5rem;font-weight:700;color:var(--primary);margin:44px 0 22px;padding-left:14px;border-left:5px solid var(--accent)}
+  .section-title.purple{border-left-color:var(--accent3)}
+  .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:24px}
+  .card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px 26px 24px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent)}
+  .card:hover{transform:translateY(-6px);box-shadow:0 14px 38px rgba(11,37,69,0.17)}
+  .card .badge{position:absolute;top:-16px;left:22px;width:36px;height:36px;background:var(--accent);color:#fff;font-weight:900;font-size:1.1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(244,129,31,0.4)}
+  .card h3{font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:10px}
+  .card .facts{font-size:0.92rem;color:var(--text);margin-bottom:14px}
+  .card .facts strong{color:var(--secondary)}
+  .card .implication{background:linear-gradient(135deg,#EBF5FB,#FDF2E9);border-left:4px solid var(--accent2);border-radius:8px;padding:12px 16px;font-size:0.88rem;color:var(--text-light)}
+  .card .implication strong{color:var(--secondary)}
+  .competitor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+  .comp-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 22px 20px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent3)}
+  .comp-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(108,92,231,0.18)}
+  .comp-card .comp-tag{display:inline-block;background:var(--accent3);color:#fff;font-weight:700;font-size:0.82rem;padding:4px 14px;border-radius:20px;margin-bottom:10px}
+  .comp-card .comp-label{font-size:0.78rem;color:var(--accent3);opacity:0.7;margin-top:10px;font-weight:500}
+  .comp-card p{font-size:0.9rem;color:var(--text-light);line-height:1.65}
+  .keywords-list{display:flex;flex-wrap:wrap;gap:16px;margin-top:6px}
+  .keyword-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 22px;flex:1 1 260px;transition:transform .25s ease,box-shadow .25s ease}
+  .keyword-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(11,37,69,0.14)}
+  .keyword-card .kw-tag{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:0.85rem;padding:4px 14px;border-radius:20px;margin-bottom:8px}
+  .keyword-card p{font-size:0.9rem;color:var(--text-light)}
+  .sources{margin:44px 0 54px;background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 26px}
+  .sources h3{font-size:1rem;color:var(--primary);margin-bottom:10px}
+  .sources ul{list-style:none;padding:0}
+  .sources li{font-size:0.88rem;color:var(--text-light);padding:4px 0 4px 18px;position:relative}
+  .sources li::before{content:'';position:absolute;left:0;top:12px;width:8px;height:8px;background:var(--accent2);border-radius:50%}
+  .back-home{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(11,37,69,0.92);color:#fff;font-size:0.88rem;font-weight:600;padding:12px 22px;border-radius:40px;text-decoration:none;box-shadow:0 6px 24px rgba(11,37,69,0.35);backdrop-filter:blur(8px);transition:transform .2s ease,box-shadow .2s ease,background .2s ease;letter-spacing:0.5px}
+  .back-home:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(11,37,69,0.45);background:rgba(19,97,138,0.95)}
+  @media(max-width:520px){
+    .banner h1{font-size:1.55rem}
+    .banner .summary-pill{font-size:0.82rem;padding:8px 16px}
+    .cards-grid,.competitor-grid{grid-template-columns:1fr}
+    .card,.comp-card{padding:24px 18px 20px}
+    .section-title{font-size:1.25rem}
+    .back-home{bottom:16px;right:16px;padding:10px 18px;font-size:0.82rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="banner">
+  <h1>&#x1F697; 车圈一周速览</h1>
+  <div class="date">2026/07/20-2026/07/26</div>
+  <div class="summary-pill">合资续约与消费端换新并行，政策与标准同步加码，本周对高压与以太网连接的需求边际增强，供应链本土化与合规化机会并进。</div>
+</div>
+
+<div class="container">
+
+  <!-- SIX NEWS -->
+  <div class="section-title">六大行业动态</div>
+  <div class="cards-grid">
+
+    <div class="card">
+      <div class="badge">1</div>
+      <h3>广汽本田续约至2038｜合资夯实中国阵地</h3>
+      <p class="facts"><strong>核心内容：</strong>7/20 广汽与Honda签署战略续约，广汽本田合资期限延至2038，股比不变。</p>
+      <div class="implication"><strong>行业含义：</strong>合资反攻周期延续，车型国产与本土供应链更深，线束/连接器新增配套窗口。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">2</div>
+      <h3>以旧换新走实｜上半年换新交易370.7万</h3>
+      <p class="facts"><strong>核心内容：</strong>商务部披露：2026年上半年汽车以旧换新370.7万辆，带动相关商品销售额约1.1万亿元。</p>
+      <div class="implication"><strong>行业含义：</strong>换购推动中端车型更新，售后高压端子与低压连接器替换量将现阶段性峰值。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">3</div>
+      <h3>北汽越野泰钽700开售｜越野NOA+激光雷达上车</h3>
+      <p class="facts"><strong>核心内容：</strong>7/21 预售价29.98-38.98万元，标配华为896线激光雷达与越野NOA；“北京越野×华为引望联合越野中心”挂牌。</p>
+      <div class="implication"><strong>行业含义：</strong>复杂工况催化高防护连接方案（高IP等级、抗振）与高带宽车以太连接渗透。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">4</div>
+      <h3>领克07 GT上市｜快充14分钟触达30-80%</h3>
+      <p class="facts"><strong>核心内容：</strong>7/23 限时价14.58-19.68万元，28.3kWh电池，支持75kW直流快充，30%-80%约14分钟；可选700TOPS智驾平台。</p>
+      <div class="implication"><strong>行业含义：</strong>混动+高压快充普及，800V端子、液冷插针与高压线束BOM上移。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">5</div>
+      <h3>新能源维修国标落地在即｜8/1起高压作业更严</h3>
+      <p class="facts"><strong>核心内容：</strong>GB/T 47439-2026《新能源维修作业安全要求》8/1实施，针对高压安全、作业流程与人员资质提出更严规范。</p>
+      <div class="implication"><strong>行业含义：</strong>高压零部件涉及的绝缘、防护、锁止与互锁检测等将刚性合规，利好具备系统级设计验证与过程管控能力的供应商。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">6</div>
+      <h3>工信部定调稳增长｜“车路云一体化”试点扩围</h3>
+      <p class="facts"><strong>核心内容：</strong>7/20 新闻发布会称上半年乘用车搭载组合辅助渗透约70%；下阶段扩大有效需求，推进“车路云”试点。</p>
+      <div class="implication"><strong>行业含义：</strong>城市NOA与V2X提速，域控集中化与以太网背板连接器需求放量，利好高密度连接产品。</div>
+    </div>
+
+  </div>
+
+  <!-- COMPETITOR -->
+  <div class="section-title purple">友商速递</div>
+  <div class="competitor-grid">
+
+    <div class="comp-card">
+      <p>中航光电｜亮相“2026长安汽车创新技术与生态合作展”，集中展示高压互连、充换电、Busbar及智能网联系列整车互连方案，并与长安研发团队开展技术对接与落地讨论。</p>
+      <div class="comp-label">近期动态</div>
+    </div>
+
+    <!-- <div class="comp-card">
+      <p>7/24 推出新一代车载以太网小型化连接方案（更高带宽/更小外形），面向域控与摄像头布设。</p>
+      <div class="comp-label">近期动态</div>
+    </div>
+
+    <div class="comp-card">
+      <p>竞对速递2｜立讯精密</p>
+      <div class="comp-label">近期动态</div>
+    </div> -->
+
+  </div>
+
+  <!-- KEYWORDS -->
+  <div class="section-title">本周关键词</div>
+  <div class="keywords-list">
+
+    <div class="keyword-card">
+      <span class="kw-tag">合资续约</span>
+      <p>7/22 宣布扩充新能源汽车高压线束产能（国内基地），对800V平台与快充需求作产能侧回应。</p>
+    </div>
+
+    <div class="keyword-card">
+      <span class="kw-tag">换购窗口</span>
+      <p>合资延长期限与策略升级，配套更本土化，定点窗口更清晰。</p>
+    </div>
+
+    <div class="keyword-card">
+      <span class="kw-tag">高压安全合规</span>
+      <p>以旧换新释放结构性需求，高频部件与售后连接器迎来替换潮。</p>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <h3>&#x1F4CE; 引用来源</h3>
+    <ul>
+      <li>中国质量新闻网（2026/07/27）</li><li>工信部（2026/07/20）</li><li>商务部（2026/07/22）</li><li>中汽协（2026/07/24）</li><li>乘联会（2026/07/26）</li>
+    </ul>
+  </div>
+
+</div>
+<!-- BACK HOME -->
+<a class="back-home" href="index.html">
+  <span>&larr;</span> 返回首页
+</a>
+
+</body>
+</html>

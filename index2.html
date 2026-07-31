@@ -59,10 +59,7 @@
   .dropdown.open .dropdown-header .dh-chevron{transform:rotate(180deg);color:var(--accent2)}
   .dropdown.open .dropdown-header.tool-hdr .dh-chevron{transform:rotate(180deg);color:var(--accent3)}
   .dropdown-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
-  .dropdown-inner{padding:0 18px 18px;display:flex;flex-direction:column;gap:14px;max-height:72vh;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-  .dropdown-inner::-webkit-scrollbar{width:6px}
-  .dropdown-inner::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:6px}
-  .dropdown-inner::-webkit-scrollbar-track{background:transparent}
+  .dropdown-inner{padding:0 18px 18px;display:flex;flex-direction:column;gap:14px}
   .past-card{display:flex;align-items:flex-start;gap:14px;padding:16px 14px;background:#F8FAFC;border-radius:10px;border-left:4px solid var(--accent2);text-decoration:none;color:inherit;transition:background .2s,transform .15s}
   .past-card:hover{background:#EDF2F7;transform:translateX(3px)}
   .past-card .p-week{flex-shrink:0;background:linear-gradient(135deg,var(--secondary),var(--accent2));color:#fff;border-radius:8px;padding:6px 10px;text-align:center;font-weight:700}
@@ -95,13 +92,8 @@
     .featured .f-summary{font-size:.95rem}
     .featured .f-top{gap:10px}
     .dropdown-header{padding:14px 16px}
-    /* 手机端：列表固定高度、内部滚动，避免整页越拉越长 */
-    .dropdown-inner{padding:8px 12px 12px;gap:10px;max-height:56vh}
-    /* 手机端保持横向紧凑卡片（不再纵向堆叠，减少高度） */
-    .past-card{flex-direction:row;align-items:center;gap:12px;padding:12px 12px}
-    .past-card .p-week{padding:6px 8px}
-    .past-card .p-summary{-webkit-line-clamp:2}
-    .tool-item{padding:12px 12px}
+    .dropdown-inner{padding:0 14px 14px}
+    .past-card{flex-direction:column;gap:10px;padding:14px 12px}
     .sec-title{font-size:1.15rem}
   }
 </style>
@@ -295,7 +287,7 @@
       <div class="dropdown-inner">
         <a class="tool-item searchable" href="ExerciseTips.html"
            data-content="最佳运动时段清晨6点半到8点半或傍晚18点半后室内恒温避开10点到16点 爬坡参数新手坡度8到10速度3.5到4时长20到30分钟进阶坡度10到12速度4到4.2时长不超40分钟心率上限220减年龄乘0.7 姿势核心收紧臀部主导全脚掌落地手臂摆动 补水运动前300到500毫升温水运动中每15到20分钟150毫升温水或淡电解质水运动后分次补钾禁忌冰水 饮食运动前1小时清淡七分饱运动后30分钟内蛋白碳水全天少盐多祛湿食材 预警头晕心慌胸闷立即停止运动后不立即进空调房冷水澡或躺卧擦汗闭眼休息 特殊调整经期前三天暂停尾声轻坡慢走眼部不适缩短时长降坡度恢复后正常训练">
-          <div class="ti-icon">🔅</div>
+          <div class="ti-icon">&#xF185;</div>
           <div class="ti-body">
             <h3>三伏天爬坡避暑锻炼指南</h3>
             <p>健康专题</p>
