@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>车圈一周速览 2026/07/27-2026/08/02</title>
+<style>
+  :root {
+    --primary:#0B2545; --secondary:#13618A; --accent:#F4811F; --accent2:#00B4D8; --accent3:#6C5CE7;
+    --bg:#F0F4F8; --card-bg:#FFFFFF; --text:#1A1A2E; --text-light:#5A6A7A;
+    --shadow:0 4px 20px rgba(11,37,69,0.10); --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.75}
+  .banner{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 60%,var(--accent2) 100%);color:#fff;padding:52px 24px 46px;text-align:center;position:relative;overflow:hidden}
+  .banner::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.04)}
+  .banner::after{content:'';position:absolute;bottom:-40px;left:-10%;width:120%;height:80px;background:var(--bg);border-radius:50% 50% 0 0}
+  .banner h1{font-size:2.4rem;font-weight:900;letter-spacing:2px;margin-bottom:6px}
+  .banner .date{font-size:1rem;opacity:0.85;margin-bottom:18px}
+  .banner .summary-pill{display:inline-block;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);padding:10px 28px;border-radius:30px;font-size:0.95rem;font-weight:500;max-width:820px;line-height:1.6}
+  .container{max-width:960px;margin:0 auto;padding:0 20px}
+  .section-title{font-size:1.5rem;font-weight:700;color:var(--primary);margin:44px 0 22px;padding-left:14px;border-left:5px solid var(--accent)}
+  .section-title.purple{border-left-color:var(--accent3)}
+  .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:24px}
+  .card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px 26px 24px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent)}
+  .card:hover{transform:translateY(-6px);box-shadow:0 14px 38px rgba(11,37,69,0.17)}
+  .card .badge{position:absolute;top:-16px;left:22px;width:36px;height:36px;background:var(--accent);color:#fff;font-weight:900;font-size:1.1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(244,129,31,0.4)}
+  .card h3{font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:10px}
+  .card .facts{font-size:0.92rem;color:var(--text);margin-bottom:14px}
+  .card .facts strong{color:var(--secondary)}
+  .card .implication{background:linear-gradient(135deg,#EBF5FB,#FDF2E9);border-left:4px solid var(--accent2);border-radius:8px;padding:12px 16px;font-size:0.88rem;color:var(--text-light)}
+  .card .implication strong{color:var(--secondary)}
+  .competitor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+  .comp-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 22px 20px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent3)}
+  .comp-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(108,92,231,0.18)}
+  .comp-card .comp-tag{display:inline-block;background:var(--accent3);color:#fff;font-weight:700;font-size:0.82rem;padding:4px 14px;border-radius:20px;margin-bottom:10px}
+  .comp-card .comp-label{font-size:0.78rem;color:var(--accent3);opacity:0.7;margin-top:10px;font-weight:500}
+  .comp-card p{font-size:0.9rem;color:var(--text-light);line-height:1.65}
+  .keywords-list{display:flex;flex-wrap:wrap;gap:16px;margin-top:6px}
+  .keyword-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 22px;flex:1 1 260px;transition:transform .25s ease,box-shadow .25s ease}
+  .keyword-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(11,37,69,0.14)}
+  .keyword-card .kw-tag{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:0.85rem;padding:4px 14px;border-radius:20px;margin-bottom:8px}
+  .keyword-card p{font-size:0.9rem;color:var(--text-light)}
+  .sources{margin:44px 0 54px;background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 26px}
+  .sources h3{font-size:1rem;color:var(--primary);margin-bottom:10px}
+  .sources ul{list-style:none;padding:0}
+  .sources li{font-size:0.88rem;color:var(--text-light);padding:4px 0 4px 18px;position:relative}
+  .sources li::before{content:'';position:absolute;left:0;top:12px;width:8px;height:8px;background:var(--accent2);border-radius:50%}
+  .back-home{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(11,37,69,0.92);color:#fff;font-size:0.88rem;font-weight:600;padding:12px 22px;border-radius:40px;text-decoration:none;box-shadow:0 6px 24px rgba(11,37,69,0.35);backdrop-filter:blur(8px);transition:transform .2s ease,box-shadow .2s ease,background .2s ease;letter-spacing:0.5px}
+  .back-home:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(11,37,69,0.45);background:rgba(19,97,138,0.95)}
+  @media(max-width:520px){
+    .banner h1{font-size:1.55rem}
+    .banner .summary-pill{font-size:0.82rem;padding:8px 16px}
+    .cards-grid,.competitor-grid{grid-template-columns:1fr}
+    .card,.comp-card{padding:24px 18px 20px}
+    .section-title{font-size:1.25rem}
+    .back-home{bottom:16px;right:16px;padding:10px 18px;font-size:0.82rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="banner">
+  <h1>&#x1F697; 车圈一周速览</h1>
+  <div class="date">2026/07/27-2026/08/02</div>
+  <div class="summary-pill">本周看点：基础设施与法规双推进，叠加新势力7月交付出炉，行业在淡季继续围绕“高功率、去安全员、平台化”推进，配套端需关注高压/高速与一致性验证压力上行。</div>
+</div>
+
+<div class="container">
+
+  <!-- SIX NEWS -->
+  <div class="section-title">六大行业动态</div>
+  <div class="cards-grid">
+
+    <div class="card">
+      <div class="badge">1</div>
+      <h3>充电桩破2300万｜大功率铺开带动热管理与液冷件需求</h3>
+      <p class="facts"><strong>核心内容：</strong>国家能源局发布上半年数据：截至6月底，全国充电设施总数达2305.7万个，同比增长43.2%；公共桩500.9万个、额定总功率2.47亿千瓦。</p>
+      <div class="implication"><strong>行业含义：</strong>大功率直流占比提升，线束/连接器向更高电流、更高防护等级升级，液冷散热与高可靠端子渗透加快。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">2</div>
+      <h3>新势力7月交付出炉｜理想3.05万稳居第一梯队</h3>
+      <p class="facts"><strong>核心内容：</strong>8/1多家车企发布7月交付数据：理想汽车交付30,468辆。</p>
+      <div class="implication"><strong>行业含义：</strong>新品切换期叠加淡季，头部凭平台化与配置升级稳量；Tier1需准备分段供货与成本优化方案以应对波动。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">3</div>
+      <h3>“小蓝灯”被点名｜GB 4785将启动修订</h3>
+      <p class="facts"><strong>核心内容：</strong>中国汽车标准化研究院称，部分车型加装“蓝色辅助灯”存在安全风险；现行GB 4785暂未明确该类装置，相关修订工作在主管部门指导下已启动（7/29）。</p>
+      <div class="implication"><strong>行业含义：</strong>灯具与车身电气将面临一致性审核与法规验证加严；供应链需尽快完成光电参数与标识整改，预留法规升级接口。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">4</div>
+      <h3>Robotaxi再进一程｜曹操出行杭州开放主驾无安全员测试</h3>
+      <p class="facts"><strong>核心内容：</strong>曹操出行宣布在杭州滨江开展主驾无安全员的Robotaxi小规模可控测试，并接入远程安全平台进行全程监控与异常处置（7/27）。</p>
+      <div class="implication"><strong>行业含义：</strong>去安全员推动系统与线束冗余、车端高速数据连接与远程通信可靠性定级上移，域控与电源冗余需求增强。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">5</div>
+      <h3>小米澎湃N70/N90 Max开启预售｜新能源产品序列扩张</h3>
+      <p class="facts"><strong>核心内容：</strong>7月30日，小米汽车开启澎湃N70 Max（25.99万元）、N90 Max（29.99万元）预售，定位差异化细分市场，采用增程与大电池方案。</p>
+      <div class="implication"><strong>行业含义：</strong>新平台车型上量预期增强，高压线束/连接器与热管理接口潜在导入窗口期打开。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">6</div>
+      <h3>比亚迪“大汉”官宣成都车展首秀｜王朝旗舰矩阵再扩</h3>
+      <p class="facts"><strong>核心内容：</strong>7/27，比亚迪王朝网销售负责人披露，“大汉”将于8月成都车展亮相，定位王朝系旗舰车型（具体配置未公布）。</p>
+      <div class="implication"><strong>行业含义：</strong>旗舰化拉高价位带与技术栈，或带动高压快充线束、NVH与热管理等高规格部件上探。</div>
+    </div>
+
+  </div>
+
+  <!-- COMPETITOR -->
+  <!-- <div class="section-title purple">友商速递</div>
+  <div class="competitor-grid">
+
+    <div class="comp-card">
+      <p>本周未检索到可验证的竞对动态（Aptiv/Amphenol/Molex/Yazaki/Sumitomo/立讯/中航光电等）。</p>
+      <div class="comp-label">近期动态</div>
+    </div>
+
+    <div class="comp-card">
+      <p>暂无</p>
+      <div class="comp-label">近期动态</div>
+    </div>
+
+    <div class="comp-card">
+      <p>暂无</p>
+      <div class="comp-label">近期动态</div>
+    </div>
+
+  </div> -->
+
+  <!-- KEYWORDS -->
+  <div class="section-title">本周关键词</div>
+  <div class="keywords-list">
+
+    <div class="keyword-card">
+      <span class="kw-tag">大功率直流充电</span>
+      <p>公共充电枪功率与覆盖率提升，液冷、高防护端子与高压线束渗透随之上行。</p>
+    </div>
+
+    <div class="keyword-card">
+      <span class="kw-tag">“小蓝灯”标准修订</span>
+      <p>围绕外部照明与光信号装置的法规边界被明确与收紧，灯具与车身电气件需完成一致性整改。</p>
+    </div>
+
+    <div class="keyword-card">
+      <span class="kw-tag">Robotaxi去安全员</span>
+      <p>主驾无安全员测试开启，车端冗余、电源与高速数据连接定级上探。</p>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <h3>&#x1F4CE; 引用来源</h3>
+    <ul>
+      <li>中国质量新闻网（2026/08/03）</li><li>盖世汽车（2026/08/01）</li><li>新浪汽车（2026/08/01）</li>
+    </ul>
+  </div>
+
+</div>
+<!-- BACK HOME -->
+<a class="back-home" href="index.html">
+  <span>&larr;</span> 返回首页
+</a>
+
+</body>
+</html>
