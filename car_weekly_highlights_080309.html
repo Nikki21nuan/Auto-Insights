@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>车圈一周速览 2026/08/03 - 2026/08/09</title>
+<style>
+  :root {
+    --primary:#0B2545; --secondary:#13618A; --accent:#F4811F; --accent2:#00B4D8; --accent3:#6C5CE7;
+    --bg:#F0F4F8; --card-bg:#FFFFFF; --text:#1A1A2E; --text-light:#5A6A7A;
+    --shadow:0 4px 20px rgba(11,37,69,0.10); --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.75}
+  .banner{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 60%,var(--accent2) 100%);color:#fff;padding:52px 24px 46px;text-align:center;position:relative;overflow:hidden}
+  .banner::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.04)}
+  .banner::after{content:'';position:absolute;bottom:-40px;left:-10%;width:120%;height:80px;background:var(--bg);border-radius:50% 50% 0 0}
+  .banner h1{font-size:2.4rem;font-weight:900;letter-spacing:2px;margin-bottom:6px}
+  .banner .date{font-size:1rem;opacity:0.85;margin-bottom:18px}
+  .banner .summary-pill{display:inline-block;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);padding:10px 28px;border-radius:30px;font-size:0.95rem;font-weight:500;max-width:820px;line-height:1.6}
+  .container{max-width:960px;margin:0 auto;padding:0 20px}
+  .section-title{font-size:1.5rem;font-weight:700;color:var(--primary);margin:44px 0 22px;padding-left:14px;border-left:5px solid var(--accent)}
+  .section-title.purple{border-left-color:var(--accent3)}
+  .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:24px}
+  .card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px 26px 24px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent)}
+  .card:hover{transform:translateY(-6px);box-shadow:0 14px 38px rgba(11,37,69,0.17)}
+  .card .badge{position:absolute;top:-16px;left:22px;width:36px;height:36px;background:var(--accent);color:#fff;font-weight:900;font-size:1.1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(244,129,31,0.4)}
+  .card h3{font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:10px}
+  .card .facts{font-size:0.92rem;color:var(--text);margin-bottom:14px}
+  .card .facts strong{color:var(--secondary)}
+  .card .implication{background:linear-gradient(135deg,#EBF5FB,#FDF2E9);border-left:4px solid var(--accent2);border-radius:8px;padding:12px 16px;font-size:0.88rem;color:var(--text-light)}
+  .card .implication strong{color:var(--secondary)}
+  .competitor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+  .comp-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 22px 20px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent3)}
+  .comp-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(108,92,231,0.18)}
+  .comp-card .comp-tag{display:inline-block;background:var(--accent3);color:#fff;font-weight:700;font-size:0.82rem;padding:4px 14px;border-radius:20px;margin-bottom:10px}
+  .comp-card .comp-label{font-size:0.78rem;color:var(--accent3);opacity:0.7;margin-top:10px;font-weight:500}
+  .comp-card p{font-size:0.9rem;color:var(--text-light);line-height:1.65}
+  .keywords-list{display:flex;flex-wrap:wrap;gap:16px;margin-top:6px}
+  .keyword-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 22px;flex:1 1 260px;transition:transform .25s ease,box-shadow .25s ease}
+  .keyword-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(11,37,69,0.14)}
+  .keyword-card .kw-tag{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:0.85rem;padding:4px 14px;border-radius:20px;margin-bottom:8px}
+  .keyword-card p{font-size:0.9rem;color:var(--text-light)}
+  .sources{margin:44px 0 54px;background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 26px}
+  .sources h3{font-size:1rem;color:var(--primary);margin-bottom:10px}
+  .sources ul{list-style:none;padding:0}
+  .sources li{font-size:0.88rem;color:var(--text-light);padding:4px 0 4px 18px;position:relative}
+  .sources li::before{content:'';position:absolute;left:0;top:12px;width:8px;height:8px;background:var(--accent2);border-radius:50%}
+  .back-home{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(11,37,69,0.92);color:#fff;font-size:0.88rem;font-weight:600;padding:12px 22px;border-radius:40px;text-decoration:none;box-shadow:0 6px 24px rgba(11,37,69,0.35);backdrop-filter:blur(8px);transition:transform .2s ease,box-shadow .2s ease,background .2s ease;letter-spacing:0.5px}
+  .back-home:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(11,37,69,0.45);background:rgba(19,97,138,0.95)}
+  @media(max-width:520px){
+    .banner h1{font-size:1.55rem}
+    .banner .summary-pill{font-size:0.82rem;padding:8px 16px}
+    .cards-grid,.competitor-grid{grid-template-columns:1fr}
+    .card,.comp-card{padding:24px 18px 20px}
+    .section-title{font-size:1.25rem}
+    .back-home{bottom:16px;right:16px;padding:10px 18px;font-size:0.82rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="banner">
+  <h1>&#x1F697; 车圈一周速览</h1>
+  <div class="date">2026/08/03 - 2026/08/09</div>
+  <div class="summary-pill">上旬零售承压、渗透率创高，政策与合资两端同时加码。</br>本周看点：8月上旬零售同比-22%、新能源渗透破六成；《自动驾驶系统安全要求》国标发布，2027年实施；上汽通用续约20年至2047年；长城/极氪等多款新车集中上市。</div>
+</div>
+
+<div class="container">
+
+  <!-- SIX NEWS -->
+  <div class="section-title">六大行业动态</div>
+  <div class="cards-grid">
+
+    <div class="card">
+      <div class="badge">1</div>
+      <h3>8月上旬零售骤降22%｜燃油车跌约三成</h3>
+      <p class="facts"><strong>核心内容：</strong>乘联会口径，8月1-9日乘用车零售31.7万辆，同比-22%，环比-3%；新能源零售19.5万辆，渗透61.6%，批发端渗透70.9%（购车网汇总）。据此估算燃油车同比跌幅约30%。</p>
+      <div class="implication"><strong>行业含义：</strong>终端淡季叠加观望，油价走高加速用户向新能源转移，传统燃油车型压力加剧，线束与热管理需求继续向电动化配套倾斜。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">2</div>
+      <h3>7月零售146.1万｜新能源渗透65.1%创新高</h3>
+      <p class="facts"><strong>核心内容：</strong>乘联会：7月全国乘用车零售146.1万辆，同比-20.9%；当月新能源零售95.1万辆，渗透率65.1%；自主品牌国内份额71%。</p>
+      <div class="implication"><strong>行业含义：</strong>新能源成为销量下行中的主支撑，自主龙头份额上行；合资在电驱/智驾国产化上需加速，本土供应链机会继续向头部集中。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">3</div>
+      <h3>上汽通用续约20年至2047｜合资绑定再加深</h3>
+      <p class="facts"><strong>核心内容：</strong>8月5日，上汽集团与通用汽车就“上汽通用”合资项目签署续约协议，合作期限延长20年至2047年（汽车之家报道）。</p>
+      <div class="implication"><strong>行业含义：</strong>合资模型进入长期再平衡阶段，通用在华电动化/智驾本土化预计提速，线束/连接器国产替代窗口延长。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">4</div>
+      <h3>自动驾驶强制国标发布｜2027年实施</h3>
+      <p class="facts"><strong>核心内容：</strong>8月4日，《智能网联汽车 自动驾驶系统安全要求》强制性国家标准正式发布，拟自2027年7月1日起实施（汽车之家梳理）。</p>
+      <div class="implication"><strong>行业含义：</strong>智驾从“功能竞争”转向“合规竞争”，感知/线控/冗余与功能安全验证将成为必配，Tier1合规与验证能力成为新门槛。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">5</div>
+      <h3>长城H10上市｜20.18万起配激光雷达/城市NOA</h3>
+      <p class="facts"><strong>核心内容：</strong>8月5日，长城H10正式上市，限时权益价20.18-22.38万元，标配激光雷达与Coffee Pilot 3全场景辅助（汽车之家报道）。</p>
+      <div class="implication"><strong>行业含义：</strong>智能化下沉至20万级SUV，线束/高压连接与感知布局复杂度提升，成本控制与平台化将成车企关键。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">6</div>
+      <h3>极氪纵横F700上市｜29.99万起主打高阶智驾</h3>
+      <p class="facts"><strong>核心内容：</strong>8月6日，极氪纵横F700正式上市，限时权益价29.99万元起，配备全域感知与高阶智驾能力（汽车之家报道）。</p>
+      <div class="implication"><strong>行业含义：</strong>高端新能源SUV竞争加剧，豪华配置堆料带来线束重量/热管理挑战，供应链需支撑定制化快速量产。</div>
+    </div>
+
+  </div>
+
+  <!-- COMPETITOR -->
+  <!-- <div class="section-title purple">友商速递</div>
+  <div class="competitor-grid">
+
+    <div class="comp-card">
+      <p>暂无</p>
+      <div class="comp-label">近期动态</div>
+    </div>
+
+    <div class="comp-card">
+      <p>暂无</p>
+      <div class="comp-label">近期动态</div>
+    </div>
+
+    <div class="comp-card">
+      <p>暂无</p>
+      <div class="comp-label">近期动态</div>
+    </div>
+
+  </div> -->
+
+  <!-- KEYWORDS -->
+  <div class="section-title">本周关键词</div>
+  <div class="keywords-list">
+
+    <div class="keyword-card">
+      <span class="kw-tag">自动驾驶强制国标</span>
+      <p>《智能网联汽车 自动驾驶系统安全要求》发布，2027/07/01起实施，测试与功能安全门槛显著抬升。</p>
+    </div>
+
+    <div class="keyword-card">
+      <span class="kw-tag">合资再平衡</span>
+      <p>上汽通用续约20年，合资深度绑定、在华电动/智驾本土化有望提速。</p>
+    </div>
+
+    <div class="keyword-card">
+      <span class="kw-tag">上旬零售承压</span>
+      <p>8月上旬零售同比-22%，新能源渗透破六成，燃油车压力加大，结构性机会向新能源侧集中。</p>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <h3>&#x1F4CE; 引用来源</h3>
+    <ul>
+      <li><a href="https://news.yiche.com/xiaoliangshuju/20260811/16112201140.html" target="_blank">易车（2026/08/11）</a></li><li><a href="http://www.ecar168.com.cn/content/1055997.html" target="_blank">购车网（2026/08/13）</a></li><li><a href="https://chejiahao.autohome.com.cn/info/26160467" target="_blank">汽车之家（2026/08/10）</a></li><li><a href="https://auto.gasgoo.com/news/202608/3I70468344C110.shtml" target="_blank">盖世汽车（2026/08/03）</a></li>
+    </ul>
+  </div>
+
+</div>
+<!-- BACK HOME -->
+<a class="back-home" href="index.html">
+  <span>&larr;</span> 返回首页
+</a>
+
+</body>
+</html>

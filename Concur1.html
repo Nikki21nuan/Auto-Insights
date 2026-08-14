@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>销售工具箱 · 报销专题①发票小程序上传指南</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:linear-gradient(160deg,#eef7f2 0%,#d7ecdf 100%);color:#22302a;line-height:1.7;padding-bottom:40px;}
+  .wrap{max-width:560px;margin:0 auto;padding:0 12px;}
+  .hero{text-align:center;padding:28px 18px 22px;background:linear-gradient(150deg,#0f9d58 0%,#2fb86e 100%);
+    color:#effbf4;border-radius:0 0 22px 22px;box-shadow:0 6px 18px rgba(15,120,70,.22);position:relative;overflow:hidden;}
+  .hero::after{content:"🧾";position:absolute;font-size:118px;opacity:.12;top:-12px;right:-6px;}
+  .hero .series{display:inline-block;font-size:11px;letter-spacing:2px;background:rgba(255,255,255,.24);padding:4px 14px;border-radius:16px;margin-bottom:10px;font-weight:700;}
+  .hero h1{font-size:20px;letter-spacing:.5px;margin-bottom:6px;font-weight:800;}
+  .hero p{font-size:12px;opacity:.92;}
+  .intro{background:#fff;border-radius:14px;padding:14px 16px;margin:16px 0;font-size:13.5px;color:#3c4c44;
+    box-shadow:0 3px 12px rgba(15,120,70,.09);border-left:4px solid #0f9d58;}
+  .intro b{color:#0b8043;}
+  .nav{display:flex;gap:7px;overflow-x:auto;padding:2px 4px 6px;margin:0 -4px;scrollbar-width:none;}
+  .nav::-webkit-scrollbar{display:none;}
+  .nav a{flex:0 0 auto;font-size:12px;font-weight:700;text-decoration:none;color:#0b8043;background:#fff;
+    padding:7px 13px;border-radius:16px;border:1px solid #c6e6d3;box-shadow:0 2px 6px rgba(15,120,70,.08);white-space:nowrap;}
+  details{background:#fff;border-radius:14px;margin-bottom:11px;overflow:hidden;box-shadow:0 3px 12px rgba(15,120,70,.09);}
+  summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:11px;padding:14px 16px;font-weight:800;}
+  summary::-webkit-details-marker{display:none;}
+  .num{flex:0 0 40px;height:40px;border-radius:11px;color:#fff;display:flex;align-items:center;justify-content:center;
+    font-size:13px;font-weight:800;background:linear-gradient(145deg,#0f9d58,#2fb86e);box-shadow:0 2px 6px rgba(15,120,70,.28);text-align:center;line-height:1.1;}
+  .stit{flex:1;font-size:15px;color:#0b8043;}
+  .stit small{display:block;font-size:11px;color:#6f8a7e;font-weight:400;margin-top:1px;}
+  .arw{color:#9dc6b1;font-size:13px;transition:.25s;}
+  details[open] .arw{transform:rotate(90deg);}
+  .body{padding:4px 16px 16px;border-top:1px dashed #e0efe7;max-height:none;}
+  .step{padding:12px 0;border-bottom:1px dashed #eef5f1;}
+  .step:last-child{border-bottom:none;}
+  .step .lbl{display:inline-block;background:#e7f6ee;color:#0b8043;font-size:12px;font-weight:800;
+    padding:2px 10px;border-radius:10px;margin-bottom:7px;}
+  .step p{font-size:13.8px;color:#3c4c44;margin-bottom:9px;}
+  .step p b{color:#0b8043;}
+  .shot{width:100%;max-width:300px;border-radius:10px;border:1px solid #e0efe7;box-shadow:0 2px 8px rgba(15,120,70,.10);margin:4px auto 0;display:block;}
+  .foot{text-align:center;margin-top:16px;padding:20px;background:#fff;border-radius:14px;box-shadow:0 3px 12px rgba(15,120,70,.09);}
+  .foot .q{font-size:13.5px;color:#0b8043;font-weight:700;line-height:1.85;}
+  .foot .src{font-size:10.5px;color:#8ba99a;margin-top:12px;}
+  /* BACK BTN */
+  .back-home{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(0,55,90,.92);color:#fff;font-size:.88rem;font-weight:600;padding:12px 22px;border-radius:40px;text-decoration:none;box-shadow:0 6px 24px rgba(0,55,90,.35);backdrop-filter:blur(8px);transition:transform .2s,box-shadow .2s,background .2s}
+  .back-home:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,55,90,.45);background:rgba(0,180,216,.95)}
+
+   @media(max-width:520px){
+    
+    .back-home{bottom:16px;right:16px;padding:10px 18px;font-size:0.82rem}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <span class="series">💼 报销专题 · 第 ① 期</span>
+    <h1>发票小程序（Fapiaoforce）上传指南</h1>
+    <p>点标题展开 · 发票 + 水单，两步全搞定 👇</p>
+  </div>
+
+  <div class="intro">
+    通过 <b>发票小程序（Fapiaoforce）</b> 上传发票和水单，全程手机操作、无需电脑。</br>本期拆成两部分：<b>① 聊天记录批量传发票</b> ＋ <b>② 录入水单（行程单/小票）</b>，跟着截图一步步来即可。
+  </div>
+
+  <div class="nav">
+    <a href="#s1">① 聊天记录传发票</a>
+    <a href="#s2">② 录入水单</a>
+  </div>
+
+  <details id="s1" open>
+    <summary><span class="num">Part<br>1</span><span class="stit">聊天记录上传发票<small>微信批量导入，最省事</small></span><span class="arw">▶</span></summary>
+    <div class="body">
+      <div class="step">
+        <span class="lbl">步骤一</span>
+        <p>收到开好的<b>电子发票</b>后，先发到微信聊天里；打开小程序，点击<b>“聊天记录导入”</b></p>
+        <img class="shot" src="assets/Concur1.png" alt="点击聊天记录导入">
+      </div>
+      <div class="step">
+        <span class="lbl">步骤二</span>
+        <p>点击有发票的<b>聊天记录</b></p>
+        <img class="shot" src="assets/Concur2.png" alt="选择聊天记录">
+      </div>
+      <div class="step">
+        <span class="lbl">步骤三</span>
+        <p>选择需要上传的发票，<b>可批量选择</b></p>
+        <img class="shot" src="assets/Concur3.png" alt="批量选择发票">
+      </div>
+      <div class="step">
+        <span class="lbl">步骤四</span>
+        <p>点击<b>“发票夹”</b>查看上传情况，或可继续录入发票</p>
+        <img class="shot" src="assets/Concur4.png" alt="点击发票夹查看">
+      </div>
+    </div>
+  </details>
+
+  <details id="s2">
+    <summary><span class="num">Part<br>2</span><span class="stit">录入水单（行程单/小票）<small>发票与凭证一一对应</small></span><span class="arw">▶</span></summary>
+    <div class="body">
+      <div class="step">
+        <span class="lbl">步骤一</span>
+        <p>在发票夹对应发票右侧，点击<b>“▶️”</b></p>
+        <img class="shot" src="assets/Concur5.png" alt="点击展开按钮">
+      </div>
+      <div class="step">
+        <span class="lbl">步骤二</span>
+        <p>选择<b>图片上传</b></p>
+        <img class="shot" src="assets/Concur6.png" alt="选择图片上传">
+      </div>
+      <div class="step">
+        <span class="lbl">步骤三</span>
+        <p>可选择<b>直接拍照上传</b> / 通过<b>手机文件上传</b></p>
+        <img class="shot" src="assets/Concur7.png" alt="拍照或选择文件">
+      </div>
+      <div class="step">
+        <span class="lbl">步骤四</span>
+        <p>选择水单<b>保存位置</b>（拍照可在上一步直接拍照上传）</p>
+        <img class="shot" src="assets/Concur8.png" alt="选择保存位置">
+      </div>
+      <div class="step">
+        <span class="lbl">步骤五</span>
+        <p>选择对应发票金额的<b>行程单 / 水单 / 小票</b>，或其他证明文件/影像</p>
+        <img class="shot" src="assets/Concur9.png" alt="选择对应行程单">
+      </div>
+      <div class="step">
+        <span class="lbl">步骤六</span>
+        <p>点击<b>“上传”</b></p>
+        <img class="shot" src="assets/Concur10.png" alt="点击上传">
+      </div>
+      <div class="step">
+        <span class="lbl">步骤七</span>
+        <p>上传好后点击<b>保存</b>，或继续上传支持文件</p>
+        <img class="shot" src="assets/Concur11.png" alt="点击保存">
+      </div>
+    </div>
+  </details>
+
+  <div class="foot">
+    <div class="q">✅ 这样发票和水单都通过小程序上传好啦<br>发票批量导入 · 水单逐笔对应 · 全程手机搞定</div>
+    <div class="src">报销专题第一期 · 仅供内部参考</div>
+  </div>
+
+</div>
+<!-- BACK HOME -->
+<a class="back-home" href="index.html">
+  <span>&larr;</span> 返回首页
+</a>
+</body>
+</html>
