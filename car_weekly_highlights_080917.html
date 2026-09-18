@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>车圈一周速览 2026/08/17-2026/09/17</title>
+<style>
+  :root {
+    --primary:#0B2545; --secondary:#13618A; --accent:#F4811F; --accent2:#00B4D8; --accent3:#6C5CE7;
+    --bg:#F0F4F8; --card-bg:#FFFFFF; --text:#1A1A2E; --text-light:#5A6A7A;
+    --shadow:0 4px 20px rgba(11,37,69,0.10); --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.75}
+  .banner{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 60%,var(--accent2) 100%);color:#fff;padding:52px 24px 46px;text-align:center;position:relative;overflow:hidden}
+  .banner::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.04)}
+  .banner::after{content:'';position:absolute;bottom:-40px;left:-10%;width:120%;height:80px;background:var(--bg);border-radius:50% 50% 0 0}
+  .banner h1{font-size:2.4rem;font-weight:900;letter-spacing:2px;margin-bottom:6px}
+  .banner .date{font-size:1rem;opacity:0.85;margin-bottom:18px}
+  .banner .summary-pill{display:inline-block;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);padding:10px 28px;border-radius:30px;font-size:0.95rem;font-weight:500;max-width:820px;line-height:1.6}
+  .container{max-width:960px;margin:0 auto;padding:0 20px}
+  .section-title{font-size:1.5rem;font-weight:700;color:var(--primary);margin:44px 0 22px;padding-left:14px;border-left:5px solid var(--accent)}
+  .section-title.purple{border-left-color:var(--accent3)}
+  .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:24px}
+  .card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px 26px 24px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent)}
+  .card:hover{transform:translateY(-6px);box-shadow:0 14px 38px rgba(11,37,69,0.17)}
+  .card .badge{position:absolute;top:-16px;left:22px;width:36px;height:36px;background:var(--accent);color:#fff;font-weight:900;font-size:1.1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(244,129,31,0.4)}
+  .card h3{font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:10px}
+  .card .facts{font-size:0.92rem;color:var(--text);margin-bottom:14px}
+  .card .facts strong{color:var(--secondary)}
+  .card .implication{background:linear-gradient(135deg,#EBF5FB,#FDF2E9);border-left:4px solid var(--accent2);border-radius:8px;padding:12px 16px;font-size:0.88rem;color:var(--text-light)}
+  .card .implication strong{color:var(--secondary)}
+  .competitor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+  .comp-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 22px 20px;position:relative;transition:transform .25s ease,box-shadow .25s ease;border-top:4px solid var(--accent3)}
+  .comp-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(108,92,231,0.18)}
+  .comp-card .comp-tag{display:inline-block;background:var(--accent3);color:#fff;font-weight:700;font-size:0.82rem;padding:4px 14px;border-radius:20px;margin-bottom:10px}
+  .comp-card .comp-label{font-size:0.78rem;color:var(--accent3);opacity:0.7;margin-top:10px;font-weight:500}
+  .comp-card p{font-size:0.9rem;color:var(--text-light);line-height:1.65}
+  .keywords-list{display:flex;flex-wrap:wrap;gap:16px;margin-top:6px}
+  .keyword-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 22px;flex:1 1 260px;transition:transform .25s ease,box-shadow .25s ease}
+  .keyword-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(11,37,69,0.14)}
+  .keyword-card .kw-tag{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:0.85rem;padding:4px 14px;border-radius:20px;margin-bottom:8px}
+  .keyword-card p{font-size:0.9rem;color:var(--text-light)}
+  .sources{margin:44px 0 54px;background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 26px}
+  .sources h3{font-size:1rem;color:var(--primary);margin-bottom:10px}
+  .sources ul{list-style:none;padding:0}
+  .sources li{font-size:0.88rem;color:var(--text-light);padding:4px 0 4px 18px;position:relative}
+  .sources li::before{content:'';position:absolute;left:0;top:12px;width:8px;height:8px;background:var(--accent2);border-radius:50%}
+  .back-home{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(11,37,69,0.92);color:#fff;font-size:0.88rem;font-weight:600;padding:12px 22px;border-radius:40px;text-decoration:none;box-shadow:0 6px 24px rgba(11,37,69,0.35);backdrop-filter:blur(8px);transition:transform .2s ease,box-shadow .2s ease,background .2s ease;letter-spacing:0.5px}
+  .back-home:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(11,37,69,0.45);background:rgba(19,97,138,0.95)}
+
+  @media(max-width:520px){
+    .banner h1{font-size:1.55rem}
+    .banner .summary-pill{font-size:0.82rem;padding:8px 16px}
+    .cards-grid,.competitor-grid{grid-template-columns:1fr}
+    .card,.comp-card{padding:24px 18px 20px}
+    .section-title{font-size:1.25rem}
+    .back-home{bottom:16px;right:16px;padding:10px 18px;font-size:0.82rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="banner">
+  <h1>&#x1F697; 车圈一周速览</h1>
+  <div class="date">2026/08/17-2026/09/17</div>
+  <div class="summary-pill">政策密集落地与新品密集上市并行，合资与本土的本地化研发与功能下探同步加速；机器人产业链开始显性拉动高密度连接与柔性布线需求。
+</div>
+</div>
+
+<div class="container">
+
+  <!-- SIX NEWS -->
+  <div class="section-title">六大行业动态</div>
+  <div class="cards-grid">
+
+    <div class="card">
+      <div class="badge">1</div>
+      <h3>软件国标落地｜GB/T 48140发布，汽车OTA召回有章可循</h3>
+      <p class="facts"><strong>核心内容：</strong>GB/T 48140-2026《汽车软件质量与缺陷管理规范》已于8/28发布、将于12/1实施，市监总局召回中心牵头起草，明确全生命周期质量管控、关键过程评审与OTA召回闭环等要求。</p>
+      <div class="implication"><strong>行业含义：</strong>车企与供应商需完善软件质量体系与缺陷前控；对E/E架构、ECU和线束变更管理提出更严合规与验证要求。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">2</div>
+      <h3>奥迪在沪设立AITC｜与上汽基于ADP2.0共研四款新车</h3>
+      <p class="facts"><strong>核心内容：</strong>9/3奥迪创新技术中心（AITC）在上海成立，首批四款车型将基于ADP2.0平台联合开发，首款量产车计划2028年问世。</p>
+      <div class="implication"><strong>行业含义：</strong>豪华合资本地化研发提速，智能化与电动化模块国产化窗口扩大；高压配电、连接与智驾域控配套迎来机会。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">3</div>
+      <h3>京沪车展维持错峰｜单双年格局继续执行</h3>
+      <p class="facts"><strong>核心内容：</strong>9/7京沪贸促会与中汽贸促联合说明：北京国际车展与上海国际汽车工业展将继续维持“单双年错峰”格局；2027年北京以“专业主题展”呈现，2028年上海定档4/23-5/2。</p>
+      <div class="implication"><strong>行业含义：</strong>行业大展节奏明确，有利车企排产与新品营销节拍；配套厂商展陈与客户拜访可提前锁档。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">4</div>
+      <h3>吉利银河TT上市｜全系800V+高阶NOA，限时12.99万起</h3>
+      <p class="facts"><strong>核心内容：</strong>9/10上市，推5款车型，标配800V高压平台与激光雷达硬件，支持高速/城区NOA与5C快充。</p>
+      <div class="implication"><strong>行业含义：</strong>主流价位段功能下探将带动中端车型线束与传感器配置升级，BOM与集成方案竞争加剧。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">5</div>
+      <h3>小米澎程N70/N90发布｜家用大空间+电动升降顶舱</h3>
+      <p class="facts"><strong>核心内容：</strong>9/7发布，售价20.99-29.99万；N90/N90 Max提供双层Loft空间、长行程滑轨与可升降顶舱等配置。</p>
+      <div class="implication"><strong>行业含义：</strong>家用场景创新推动电源/控制/座舱布线方案变化，长滑轨走线与插拔可靠性要求提升。</div>
+    </div>
+
+    <div class="card">
+      <div class="badge">6</div>
+      <h3>人形机器人上产线｜小鹏机器人产线启动、年内转量产</h3>
+      <p class="facts"><strong>核心内容：</strong>9/8小鹏宣布人形机器人生产线启用，首款高阶通用人形机器人完成自动化总装并自主下线，计划年内进入规模化生产、2027年交付。</p>
+      <div class="implication"><strong>行业含义：</strong>机器人产业化提速，柔性线束、轻量材料与高循环插拔接插件需求显性化，跨域协同与交付能力成为核心。</div>
+    </div>
+
+  </div>
+
+  <!-- COMPETITOR -->
+  <div class="section-title purple">友商速递</div>
+  <div class="competitor-grid">
+
+    <div class="comp-card">
+      <p>Molex｜战略投资CAEPlus</br>发力数据中心主动式液冷“BoundaryCool”平台，提升高热负载散热能力与兼容性。</p>
+      <div class="comp-label">近期动态 2026/09/15</div>
+    </div>
+
+    <div class="comp-card">
+      <p>Amphenol｜旗下Times Microwave纳入EZ Form Cable产品销售</br>整合射频同轴与连接方案渠道，扩大全球覆盖。</p>
+      <div class="comp-label">近期动态 2026/09/15</div>
+    </div>
+
+    <div class="comp-card">
+      <p>WireMasters｜加码非洲航天与国防市场</br>与TE、Amphenol等供方协作，扩展MIL线缆/连接器供应与增值服务。</p>
+      <div class="comp-label">近期动态 2026/09/15</div>
+    </div>
+
+  </div>
+
+  <!-- KEYWORDS -->
+  <div class="section-title">本周关键词</div>
+  <div class="keywords-list">
+
+    <div class="keyword-card">
+      <span class="kw-tag">汽车软件国标</span>
+      <p>GB/T 48140-2026发布并将实施，缺陷管理与OTA召回闭环前移，软件质量体系建设提速。</p>
+    </div>
+
+    <div class="keyword-card">
+      <span class="kw-tag">800V高压平台下沉</span>
+      <p>银河TT等中端车型上车，带动高压连接、热管理与线束轻量化需求扩容。</p>
+    </div>
+
+    <div class="keyword-card">
+      <span class="kw-tag">机器人接插件</span>
+      <p>小鹏机器人产线启动，国内外接插件与柔性布线需求进入验证-量产通道，关注高循环插拔与抗振方案。</p>
+    </div>
+
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <h3>&#x1F4CE; 引用来源</h3>
+    <ul>
+      <li>市场监管总局（2026/09/14）</li><li>中国质量新闻网（2026/09/07、09/14）</li><li>太平洋汽车（2026/09/14）</li><li>EE Times China（2026/09/15）</li>
+    </ul>
+  </div>
+
+</div>
+<!-- BACK HOME -->
+<a class="back-home" href="index.html">
+  <span>&larr;</span> 返回首页
+</a>
+
+
+</body>
+</html>
