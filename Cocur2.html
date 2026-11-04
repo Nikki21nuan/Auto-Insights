@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>销售工具箱｜网约车开票新规</title>
+    <style>
+        :root {
+            --navy: #0b3155;
+            --blue: #176b9b;
+            --cyan: #31a9c6;
+            --orange: #f58220;
+            --red: #d83a32;
+            --bg: #eef4f8;
+            --ink: #17324a;
+            --muted: #687d8f
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: var(--ink);
+            line-height: 1.6
+        }
+
+        .wrap {
+            max-width: 620px;
+            margin: auto;
+            padding: 0 13px 34px
+        }
+
+        .hero {
+            margin: 0 -13px 14px;
+            padding: 31px 22px 25px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(140deg, var(--navy), var(--blue) 68%, var(--cyan));
+            border-radius: 0 0 26px 26px;
+            box-shadow: 0 7px 22px #0b31552b;
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero:after {
+            content: "🧾";
+            position: absolute;
+            right: -12px;
+            top: -15px;
+            font-size: 125px;
+            opacity: .09
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 4px 13px;
+            border: 1px solid #ffffff55;
+            background: #ffffff20;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px
+        }
+
+        .hero h1 {
+            font-size: 23px;
+            margin: 11px 0 5px
+        }
+
+        .hero p {
+            font-size: 13px;
+            margin: 0;
+            opacity: .92
+        }
+
+        .alert {
+            background: #fff;
+            border-radius: 16px;
+            padding: 16px 17px;
+            margin: 14px 0;
+            box-shadow: 0 3px 14px #123c5a12;
+            border-left: 5px solid var(--orange)
+        }
+
+        .alert strong {
+            color: var(--red)
+        }
+
+        .date {
+            display: inline-block;
+            color: white;
+            background: var(--red);
+            padding: 2px 9px;
+            border-radius: 8px;
+            font-weight: 800
+        }
+
+        .key {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 13px
+        }
+
+        .key div {
+            text-align: center;
+            background: #f6f9fc;
+            border-radius: 10px;
+            padding: 9px 4px;
+            font-size: 11px;
+            color: var(--muted)
+        }
+
+        .key b {
+            display: block;
+            color: var(--navy);
+            font-size: 13px
+        }
+
+        .section {
+            background: white;
+            border-radius: 16px;
+            margin: 12px 0;
+            box-shadow: 0 3px 14px #123c5a12;
+            overflow: hidden
+        }
+
+        summary {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            padding: 15px 16px;
+            cursor: pointer;
+            font-weight: 800;
+            color: var(--navy)
+        }
+
+        summary::-webkit-details-marker {
+            display: none
+        }
+
+        .n {
+            width: 37px;
+            height: 37px;
+            flex: 0 0 37px;
+            border-radius: 11px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(145deg, var(--navy), var(--blue));
+            color: #fff
+        }
+
+        .sub {
+            font-size: 11px;
+            color: var(--muted);
+            font-weight: 400;
+            display: block
+        }
+
+        .chev {
+            margin-left: auto;
+            color: #90a4b7
+        }
+
+        details[open] .chev {
+            transform: rotate(90deg)
+        }
+
+        .body {
+            border-top: 1px dashed #dce6ee;
+            padding: 13px 15px 17px
+        }
+
+        .step {
+            padding: 10px 0 13px;
+            border-bottom: 1px dashed #e5edf3
+        }
+
+        .step:last-child {
+            border: 0
+        }
+
+        .tag {
+            display: inline-block;
+            background: #eaf3fa;
+            color: var(--blue);
+            font-size: 12px;
+            font-weight: 800;
+            border-radius: 10px;
+            padding: 2px 9px;
+            margin-bottom: 6px
+        }
+
+        .step p {
+            font-size: 14px;
+            margin: 0 0 8px
+        }
+
+        .shot {
+            display: block;
+            max-width: 100%;
+            max-height: 520px;
+            margin: 8px auto 0;
+            border: 1px solid #dce6ee;
+            border-radius: 10px;
+            box-shadow: 0 2px 9px #163e5b14
+        }
+
+        .policy {
+            width: 100%;
+            max-height: none
+        }
+
+        .result {
+            width: 100%;
+            max-height: none
+        }
+
+        .notice {
+            background: #fff5eb;
+            color: #7d4b18;
+            padding: 10px 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            margin-top: 10px
+        }
+
+        .footer {
+            text-align: center;
+            background: #fff;
+            border-radius: 16px;
+            padding: 17px;
+            margin-top: 13px;
+            box-shadow: 0 3px 14px #123c5a12;
+            color: var(--navy);
+            font-size: 13px;
+            font-weight: 700
+        }
+
+        .source {
+            font-size: 10.5px;
+            color: #8a9aa8;
+            margin-top: 8px;
+            font-weight: 400
+        }
+        .back-home {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0, 55, 90, .92);
+            color: #fff;
+            font-size: .88rem;
+            font-weight: 600;
+            padding: 12px 22px;
+            border-radius: 40px;
+            text-decoration: none;
+        }
+
+        @media(max-width:390px) {
+            .hero h1 {
+                font-size: 21px
+            }
+
+            .key div {
+                font-size: 10px
+            }
+
+            .shot {
+                max-height: 450px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="wrap">
+        <header class="hero"><span class="pill">🧰 销售工具箱 · 报销/开票提醒</span>
+            <h1>网约车开票新规</h1>
+            <p>乘客信息成为必填项｜手机端操作速查</p>
+        </header>
+        <section class="alert"><span class="date">10月21日起</span>
+            <p style="margin:9px 0 0">开具网约车发票时，需填写<strong>乘客信息</strong>。开票后，发票将显示<strong>乘客信息、出发地点和到达地点</strong>。</p>
+            <div class="key">
+                <div><b>乘客信息</b>需填写</div>
+                <div><b>出发 / 到达</b>发票显示</div>
+                <div><b>开票前</b>先完成认证</div>
+            </div>
+        </section>
+        <details class="section">
+            <summary><span class="n">新规</span><span>政策要点<span class="sub">截图以滴滴平台为例</span></span><span
+                    class="chev">▶</span></summary>
+            <div class="body"><img class="shot policy"
+                    src="assets/c1.png " alt="开票新规说明">
+                <div class="notice">附件还提示：乘客信息仅需在同一个平台首次添加，后续开票可直接调用，无需重复录入。</div>
+            </div>
+        </details>
+        <details class="section" open>
+            <summary><span class="n">4步</span><span>网约车开票操作 - 以高德为例<span class="sub">按附件顺序操作</span></span><span
+                    class="chev">▶</span></summary>
+            <div class="body">
+                <div class="step"><span class="tag">步骤一</span>
+                    <p>在行程订单中找到需要开票的订单，点击<strong>“开发票”</strong>。</p><img class="shot"
+                        src="assets/c2.png " alt="点击开发票">
+                </div>
+                <div class="step"><span class="tag">步骤二</span>
+                    <p>选择对应行程订单，并点击<strong>“去开票”</strong>。</p><img class="shot"
+                        src="assets/c3.png " alt="选择订单去开票">
+                </div>
+                <div class="step"><span class="tag">步骤三</span>
+                    <p>进入开票详情，在<strong>“出行人信息（选填）”</strong>区域点击<strong>“添加出行人信息”</strong>。按照新规要求，网约车开票需补充乘客信息。</p><img
+                        class="shot"
+                        src="assets/c4.png " alt="添加出行人信息">
+                </div>
+                <div class="step"><span class="tag">步骤四</span>
+                    <p>进入<strong>“常用旅客”</strong>页面，按要求完成乘客实名信息认证并选择乘客；之后提交电子发票。</p><img class="shot"
+                        src="assets/c5.png " alt="常用旅客认证">
+                </div>
+            </div>
+        </details>
+        <details class="section">
+            <summary><span class="n">结果</span><span>开票后长什么样<span class="sub">核对乘客、出发地与到达地</span></span><span
+                    class="chev">▶</span></summary>
+            <div class="body">
+                <p style="font-size:14px;margin:0 0 9px">开具后的电子发票会增加行程相关信息区域，可看到<strong>出行人信息、出发地点、到达地点</strong>等内容。</p>
+                <img class="shot result"
+                    src="assets/c6.png " alt="电子发票乘客及行程信息示例">
+            </div>
+        </details>
+        <footer class="footer">✅ 10月21日起：网约车开票先补乘客信息，再提交发票<div class="source">仅供团队内部操作参考</div>
+        </footer>
+    </main>
+    <a class="back-home" href="index.html"><span>←</span> 返回首页</a>
+</body>
+
+</html>
