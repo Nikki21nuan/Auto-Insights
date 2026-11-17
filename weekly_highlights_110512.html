@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TE 产业一周速览 2026/11/05 — 2026/11/12</title>
+<style>
+  :root{--primary:#0B2545;--secondary:#13618A;--accent:#F4811F;--accent2:#00B4D8;--accent3:#6C5CE7;
+        --bg:#EFF3F8;--card:#FFFFFF;--text:#1A2533;--muted:#5F7183;--line:#E3EBF3;
+        --shadow:0 2px 10px rgba(11,37,69,.07),0 12px 30px rgba(11,37,69,.06);}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',-apple-system,sans-serif;
+        background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .banner{background:radial-gradient(120% 160% at 82% 0%,#0E7FA8 0%,#0B2545 58%);color:#fff;
+           padding:46px 24px 58px;position:relative;overflow:hidden}
+  .banner::after{content:'';position:absolute;right:-60px;top:-90px;width:280px;height:280px;border-radius:50%;
+                  border:1px solid rgba(255,255,255,.13)}
+  .banner .inner{max-width:1000px;margin:0 auto;position:relative}
+  .banner .kicker{font-size:.7rem;letter-spacing:3.5px;opacity:.62;text-transform:uppercase;margin-bottom:12px}
+  .banner h1{font-size:2rem;font-weight:900;letter-spacing:1px;line-height:1.25}
+  .banner .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:.78rem}
+  .banner .meta span{background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.16);
+                      padding:5px 13px;border-radius:20px;letter-spacing:.5px}
+  .container{max-width:1000px;margin:0 auto;padding:0 20px 40px}
+
+  .takeaways{margin:-34px 0 4px;position:relative;z-index:2}
+  .take-card{background:var(--card);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+  .take-card summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;
+                      padding:15px 20px;user-select:none}
+  .take-card summary::-webkit-details-marker{display:none}
+  .take-card summary:hover{background:#F7FAFD}
+  .take-title{font-size:.95rem;font-weight:800;color:var(--primary);letter-spacing:.5px}
+  .take-count{font-size:.7rem;font-weight:700;color:var(--secondary);background:#E8F2F8;
+               padding:2px 10px;border-radius:20px;letter-spacing:.5px}
+  .take-hint{font-size:.72rem;color:#93A1B0;margin-left:auto}
+  .chev{width:9px;height:9px;border-right:2px solid #8FA3B6;border-bottom:2px solid #8FA3B6;
+         transform:rotate(45deg);transition:transform .25s;margin-left:6px;flex:none;margin-top:-3px}
+  .take-card[open] .chev{transform:rotate(-135deg);margin-top:3px}
+  .take-list{padding:2px 20px 8px}
+  .take-row{display:flex;align-items:baseline;gap:10px;padding:11px 2px;
+             border-top:1px dashed #EDF2F7;font-size:.85rem;line-height:1.7}
+  .take-row:first-child{border-top:none}
+  .dot{flex:none;width:8px;height:8px;border-radius:50%;background:var(--tc);position:relative;top:-1px}
+  .take-track{flex:none;font-size:.8rem;font-weight:800;color:var(--tc);letter-spacing:.5px;width:74px}
+  .take-text{color:#41546A}
+
+  .section-title{font-size:1.22rem;font-weight:800;color:var(--primary);margin:40px 0 6px;
+                  padding-left:13px;border-left:5px solid var(--accent);letter-spacing:.3px}
+  .section-sub{font-size:.79rem;color:var(--muted);margin:0 0 22px 18px}
+
+  .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(430px,1fr));gap:20px;align-items:stretch}
+  .card{display:flex;flex-direction:column}
+  .src-line{margin-top:auto}
+  .card{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:22px 24px 18px;
+         position:relative;transition:transform .22s,box-shadow .22s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(11,37,69,.14)}
+  .card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:14px 0 0 14px;background:var(--tc)}
+  .card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .num{font-size:1.5rem;font-weight:900;color:var(--tc);opacity:.9;letter-spacing:-1px;line-height:1}
+  .track{font-size:.7rem;font-weight:700;color:var(--tc);background:var(--tint);
+          border:1px solid var(--edge);padding:3px 11px;border-radius:20px;letter-spacing:.5px}
+  .card h3{font-size:1.02rem;font-weight:800;color:var(--primary);line-height:1.5;margin-bottom:16px;letter-spacing:.2px}
+
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);background:#F6F9FC;border-radius:10px;
+            padding:13px 0;margin-bottom:16px}
+  .metric{text-align:center;padding:0 8px}
+  .metric + .metric{border-left:1px solid #E1EAF3}
+  .metric b{display:block;font-size:1.12rem;font-weight:900;color:var(--primary);line-height:1.2;
+             font-variant-numeric:tabular-nums;letter-spacing:-.3px}
+  .metric b i{font-style:normal;font-size:.7rem;font-weight:700;color:var(--tc);margin-left:2px}
+  .metric span{display:block;font-size:.68rem;color:var(--muted);margin-top:4px;line-height:1.45}
+
+  .eyebrow{font-size:.68rem;font-weight:800;color:var(--secondary);letter-spacing:2px;margin-bottom:5px}
+  .block p{font-size:.85rem;color:#2A3A4C;line-height:1.85}
+  .implication{margin-top:14px;background:var(--tint);border-left:3px solid var(--tc);
+                border-radius:8px;padding:12px 14px}
+  .eyebrow2{font-size:.68rem;font-weight:800;color:var(--tc);letter-spacing:2px;margin-bottom:5px}
+  .implication p{font-size:.82rem;color:#3C4E60;line-height:1.8}
+  .src-line{font-size:.7rem;color:#93A1B0;margin-top:13px;border-top:1px dashed #EAF0F6;padding-top:9px}
+  .src-line a{color:var(--secondary);text-decoration:none}
+
+  .competitor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+  .comp-card{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:20px 22px;
+              border-top:3px solid var(--accent3);transition:transform .22s,box-shadow .22s}
+  .comp-card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(108,92,231,.15)}
+  .comp-tag{display:inline-block;background:var(--accent3);color:#fff;font-weight:700;font-size:.76rem;
+             padding:3px 12px;border-radius:20px;margin-bottom:10px}
+  .comp-card h4{font-size:.92rem;color:var(--primary);line-height:1.5;margin-bottom:8px;font-weight:800}
+  .comp-card p{font-size:.82rem;color:#4A5B6C;line-height:1.78}
+  .comp-label{font-size:.7rem;color:#93A1B0;margin-top:12px}
+  .comp-label a{color:var(--secondary);text-decoration:none}
+
+  .keywords-list{display:flex;flex-wrap:wrap;gap:14px}
+  .keyword-card{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:18px 20px;flex:1 1 280px}
+  .kw-tag{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:.78rem;
+           padding:4px 13px;border-radius:20px;margin-bottom:9px}
+  .keyword-card p{font-size:.82rem;color:#4A5B6C;line-height:1.75}
+
+  .sources{margin:38px 0 24px;background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:22px 24px}
+  .sources h3{font-size:.95rem;color:var(--primary);margin-bottom:10px;font-weight:800}
+  .sources ul{list-style:none}
+  .sources li{font-size:.76rem;color:var(--muted);padding:7px 0 7px 16px;position:relative;
+               border-bottom:1px dashed #EDF2F7;line-height:1.6}
+  .sources li:last-child{border-bottom:none}
+  .sources li::before{content:'';position:absolute;left:0;top:14px;width:6px;height:6px;background:var(--accent2);border-radius:50%}
+  .s-title{color:#2A3A4C}
+  .s-date{color:#9AA8B6;margin:0 8px}
+  .sources a{color:var(--secondary);text-decoration:none;word-break:break-all}
+  .sources a:hover{text-decoration:underline}
+  .back-home{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(11,37,69,0.92);color:#fff;font-size:0.88rem;font-weight:600;padding:12px 22px;border-radius:40px;text-decoration:none;box-shadow:0 6px 24px rgba(11,37,69,0.35);backdrop-filter:blur(8px);transition:transform .2s ease,box-shadow .2s ease,background .2s ease;letter-spacing:0.5px}
+  .back-home:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(11,37,69,0.45);background:rgba(19,97,138,0.95)}
+
+  footer{text-align:center;font-size:.74rem;color:#93A1B0;padding:8px 20px 46px;line-height:1.9}
+  @media(max-width:900px){.take-track{width:64px}}
+  @media(max-width:560px){
+    .banner h1{font-size:1.45rem} .banner .meta{font-size:.72rem}
+    .takeaways{margin-top:-14px}
+    .cards-grid,.competitor-grid{grid-template-columns:1fr} .card,.comp-card{padding:20px 18px 16px}
+    .section-title{font-size:1.08rem} .metric b{font-size:1rem}
+    .back-home{bottom:16px;right:16px;padding:10px 18px;font-size:0.82rem}
+  }
+</style>
+</head>
+<body>
+<header class="banner">
+  <div class="inner">
+    <div class="kicker">Industry Weekly · TE Connectivity</div>
+    <h1>产业动态一周速览</h1>
+    <div class="meta"><span>2026/11/05 — 2026/11/12</span><span>6 条产业动态</span><span>3 家友商</span><span>3 个关键词</span><span>17 条来源</span></div>
+  </div>
+</header>
+
+<main class="container">
+  <div class="takeaways">
+    <details class="take-card" open>
+      <summary>
+        <span class="take-title">本周要点</span>
+        <span class="take-count">5 大赛道</span>
+        <span class="take-hint">点击收起 / 展开</span>
+        <span class="chev"></span>
+      </summary>
+      <div class="take-list">
+      <div class="take-row" style="--tc:#F4811F">
+        <i class="dot"></i><b class="take-track">乘用车</b>
+        <span class="take-text">智己把全线控底盘+800V压到25万级全系标配，线控冗余连接成新刚需</span>
+      </div>
+      <div class="take-row" style="--tc:#0E9AB8">
+        <i class="dot"></i><b class="take-track">储能</b>
+        <span class="take-text">1.2GWh大储框采落地、单价探至0.64元/Wh，集成度抬升压缩单Wh连接价值</span>
+      </div>
+      <div class="take-row" style="--tc:#17A673">
+        <i class="dot"></i><b class="take-track">光伏</b>
+        <span class="take-text">反内卷进入刚性出清倒计时，BC份额一年三倍、光储涨价5–15%</span>
+      </div>
+      <div class="take-row" style="--tc:#6C5CE7">
+        <i class="dot"></i><b class="take-track">具身智能</b>
+        <span class="take-text">首批国标发布、本土与特斯拉同步冲量，连接需求迈入万台—百万台级</span>
+      </div>
+      <div class="take-row" style="--tc:#D6427A">
+        <i class="dot"></i><b class="take-track">电动两轮车</b>
+        <span class="take-text">新国标合规收紧+销量筑底，定位/通信连接点位增加、尾部出清加速</span>
+      </div>
+      </div>
+    </details>
+  </div>
+
+  <h2 class="section-title">一、六大产业动态</h2>
+  <p class="section-sub">按 TE 相关性、连接器价值影响、行业权重与新鲜度综合排序</p>
+  <div class="cards-grid">
+    <article class="card" style="--tc:#F4811F;--tint:#FEF0E4;--edge:#FCDEC5">
+      <div class="card-head"><span class="num">01</span><span class="track">乘用车</span></div>
+      <h3>智己LS8 NEO正式上市｜全线控底盘+800V全系标配，起售23.98万降1万</h3>
+      <div class="metrics"><div class="metric"><b>23.98<i>万元</i></b><span>93Max+起售价/降1万</span></div><div class="metric"><b>800<i>V</i></b><span>全域高压平台</span></div><div class="metric"><b>4.85<i>米</i></b><span>5米大车转弯半径</span></div></div>
+      <div class="block"><div class="eyebrow">核心事实</div><p>11月5日智己LS8 NEO纯电上市，权益价23.98/25.98万元（较预售降1万）；全系标配全线控灵蜥底盘（取消机械转向柱、双冗余线控转向+制动）与全域800V，15分钟补能529km。</p></div>
+      <div class="implication"><div class="eyebrow2">产业含义</div><p>全线控以冗余电源+通信替代机械/液压通路，新增双路供电连接器、EPS/EMB线束与域控接口，失效可运行成硬指标；800V下探25万级放大高压连接器TAM，本土掌握标准话语权，利好国产定点。</p></div>
+      <div class="src-line">来源：<a href="https://www.pcauto.com.cn/hj/article/3613836.html" target="_blank" rel="noopener">太平洋汽车网</a> · <a href="https://c.m.163.com/news/a/LB1R7R3R0527D0EQ.html" target="_blank" rel="noopener">网易</a></div>
+    </article>
+    <article class="card" style="--tc:#0E9AB8;--tint:#E2F3F7;--edge:#C0E5ED">
+      <div class="card-head"><span class="num">02</span><span class="track">储能</span></div>
+      <h3>龙源1.2GWh储能系统框采落地｜宁德时代/智光中标，单价探至0.64元/Wh</h3>
+      <div class="metrics"><div class="metric"><b>1.2<i>GWh</i></b><span>框采总规模</span></div><div class="metric"><b>0.6402<i>元/Wh</i></b><span>标段一单价</span></div><div class="metric"><b>5<i>MWh</i></b><span>单舱门槛/≥314Ah</span></div></div>
+      <div class="block"><div class="eyebrow">核心事实</div><p>龙源电力1.2GWh储能系统框采落定：宁德时代中标500MWh跟网型（0.6402元/Wh），智光储能中标500MWh构网型+200MWh组串式；电池舱要求≥5MWh、314Ah液冷。</p></div>
+      <div class="implication"><div class="eyebrow2">产业含义</div><p>单价探至0.64元/Wh，单Wh连接价值（高压连接器/快插/BMS线束/铜排）随集成度提升被压缩；构网型占比升抬升PCS与互连规格，宜以“少接点、大电流、液冷快插+安全验证”差异化应对年降。</p></div>
+      <div class="src-line">来源：<a href="https://news.bjx.com.cn/html/20261109/1519485.shtml" target="_blank" rel="noopener">北极星电力网</a> · <a href="https://cn.solarbe.com/news/20261106/50031542.html" target="_blank" rel="noopener">碳索储能网</a></div>
+    </article>
+    <article class="card" style="--tc:#17A673;--tint:#E2F3EE;--edge:#C1E6E1">
+      <div class="card-head"><span class="num">03</span><span class="track">光伏</span></div>
+      <h3>光伏反内卷进入刚性出清倒计时｜BC份额一年三倍、光储涨价5–15%</h3>
+      <div class="metrics"><div class="metric"><b>13.0<i>%</i></b><span>BC组件国内中标份额(2026年1-8月)</span></div><div class="metric"><b>58.7<i>万吨</i></b><span>多晶硅库存(10月底)</span></div><div class="metric"><b>5–15<i>%</i></b><span>华为/科华光储产品涨价幅度</span></div></div>
+      <div class="block"><div class="eyebrow">核心事实</div><p>Q3龙头减亏——隆基亏10.29亿环比-41.66%、晶科亏2.9亿环比-83%、爱旭单季转正0.45亿；BC组件国内中标份额由2025年4.1%升至2026年1-8月13.0%。三项强制国标（硅料/硅片/组件能耗能效）2027.1.1实施，硅料三级线或出清约50%产能；华为/科华等光储涨价5%–15%。</p></div>
+      <div class="implication"><div class="eyebrow2">产业含义</div><p>BC全线达标、效率门槛更高，接线盒通流/散热/绝缘要求高于TOPCon，单块组件连接价值上行；逆变器涨价由芯片成本驱动，连接需适配更高功率密度与EMC；刚性出清临近，头部连接器份额集中。</p></div>
+      <div class="src-line">来源：<a href="https://finance.sina.com.cn/stock/fxsdt/2026-11-06/doc-inixtnve8500681.shtml" target="_blank" rel="noopener">上海证券报/新浪</a> · <a href="http://www.senn.com.cn/dz/2026/11/06/25385.html" target="_blank" rel="noopener">中国网</a></div>
+    </article>
+    <article class="card" style="--tc:#6C5CE7;--tint:#EDEBFC;--edge:#D9D2F1">
+      <div class="card-head"><span class="num">04</span><span class="track">具身智能</span></div>
+      <h3>首批人形机器人国标发布｜启元万台下线、优必选签约10万台</h3>
+      <div class="metrics"><div class="metric"><b>6<i>项</i></b><span>首批人形机器人国标</span></div><div class="metric"><b>10,000<i>台</i></b><span>启元个人机器人下线(11/8)</span></div><div class="metric"><b>100,000<i>台</i></b><span>优必选×天翼终端合作规模</span></div></div>
+      <div class="block"><div class="eyebrow">核心事实</div><p>首批6项人形机器人国标发布（2027.4.1实施）；11月8日启元第10000台下线（14天由5000跃至1万）；11月9日优必选×天翼终端签协议，推进10万台规模销售。</p></div>
+      <div class="implication"><div class="eyebrow2">产业含义</div><p>国标将安全/感知/运动控制纳入强制框架，关节、灵巧手、电池包与线束连接需更严可靠性与一致性；万台级部署推入批量一致性竞争，宜以汽车级量产换份额。</p></div>
+      <div class="src-line">来源：<a href="https://www.jiemian.com/article/15315197.html" target="_blank" rel="noopener">界面新闻</a> · <a href="https://embodiedaifrontier.com/articles/wBGHxP.html" target="_blank" rel="noopener">Embodied AI Frontier</a></div>
+    </article>
+    <article class="card" style="--tc:#D6427A;--tint:#FAE8EF;--edge:#F3D7DC">
+      <div class="card-head"><span class="num">05</span><span class="track">电动两轮车</span></div>
+      <h3>两轮车新国标合规收紧｜CCC扩至112项、撤销5.08万张，销量筑底</h3>
+      <div class="metrics"><div class="metric"><b>112<i>项</i></b><span>CCC认证试验项目(由38扩至)</span></div><div class="metric"><b>5.08<i>万张</i></b><span>累计撤销证书(截至10月底)</span></div><div class="metric"><b>4.8<i>%</i></b><span>前三季度内销同比/ Q3 +9%</span></div></div>
+      <div class="block"><div class="eyebrow">核心事实</div><p>前三季度内销4837.8万辆（同比-4.8%，Q3 +9%）；新版CCC 11.1执行（“一车一池一充一码”），试验项目由38扩至112项，累计撤销证书5.08万张；雅迪/爱玛Q3出货转正，九号收入+14.1%但净利-37.18%。</p></div>
+      <div class="implication"><div class="eyebrow2">产业含义</div><p>北斗定位、通信与防篡改叠加CCC扩项，定位模组/T-Box/仪表/BMS通信带来单车连接点位增加；合规成本抬升加速尾部出清，头部集中度提升利好车规级连接方案。</p></div>
+      <div class="src-line">来源：<a href="https://news.mydrivers.com/1/1165/1165030.htm" target="_blank" rel="noopener">快科技</a> · <a href="https://cfi.net.cn/p20261108000286.html" target="_blank" rel="noopener">中财网</a></div>
+    </article>
+    <article class="card" style="--tc:#6C5CE7;--tint:#EDEBFC;--edge:#D9D2F1">
+      <div class="card-head"><span class="num">06</span><span class="track">具身智能</span></div>
+      <h3>特斯拉Optimus量产倒计时｜只租不卖、弗里蒙特早期量产，年产能规划100万台</h3>
+      <div class="metrics"><div class="metric"><b>100<i>万台</i></b><span>弗里蒙特产线年产能规划</span></div><div class="metric"><b>3→2<i>万美元</i></b><span>初期成本→目标成本</span></div><div class="metric"><b>5<i>倍</i></b><span>工作效率 vs 普通人</span></div></div>
+      <div class="block"><div class="eyebrow">核心事实</div><p>马斯克11月7日称Optimus“只租不卖”，初期成本约3万、后续降至2万美元，效率达常人5倍；特斯拉10月已在弗里蒙特启动早期量产，目标2027年底外供，产线年产能规划100万台。</p></div>
+      <div class="implication"><div class="eyebrow2">产业含义</div><p>人形机器人TAM走向十万—百万台级，关节电机、灵巧手、电池包与线束连接需求量级跃升；租赁锁定长期用量，供应商宜绑定头部做好车规级量产准备。</p></div>
+      <div class="src-line">来源：<a href="https://www.163.com/dy/article/LB52D51905568W0A.html" target="_blank" rel="noopener">网易</a> · <a href="https://www.jiemian.com/article/15315197.html" target="_blank" rel="noopener">界面新闻</a></div>
+    </article>
+  </div>
+
+  <h2 class="section-title" style="border-left-color:var(--accent3)">二、友商速递</h2>
+  <p class="section-sub">同期公开披露的连接器 / 互连同业动作</p>
+  <div class="competitor-grid">
+    <article class="comp-card">
+      <div class="comp-tag">Aptiv / 安波福</div>
+      <h4>Q3 EPS $1.42超预期、营收$3.20B；进博嘉定连接器新项目落地</h4>
+      <p>Q3调整后EPS $1.42（超预期6.8%）、营收$3.20B；年内新签订单约$40亿，非汽车订单同比翻倍，获中国人形机器人、数据中心与储能连接定点；进博期间嘉定连接器新项目落地，布局机器人/数据中心/储能。</p>
+      <div class="comp-label">2026/11/08 · <a href="https://finance.sina.cn/2026-11-08/detail-inixzapa7353727.d.html" target="_blank" rel="noopener">来源</a></div>
+    </article>
+    <article class="comp-card">
+      <div class="comp-tag">中航光电</div>
+      <h4>11/09中标空空导弹研究院235.40万；新能源定点量产+数据中心较快增长</h4>
+      <p>密集披露多项中标（含11/09中国空空导弹研究院235.40万元）；互动易确认受益于新能源前期定点陆续量产、AI算力需求释放，新能源与数据中心业务较快增长。</p>
+      <div class="comp-label">2026/11/11 · <a href="https://www.eeo.com.cn/2026/1111/1089901.shtml" target="_blank" rel="noopener">来源</a></div>
+    </article>
+    <article class="comp-card">
+      <div class="comp-tag">Molex（莫仕）</div>
+      <h4>11/07演示业界首款100Gb/s以上高速互连产品，瞄准AI/HPC 400G-800G</h4>
+      <p>演示业界首款单通道100Gb/s以上互连产品，面向400G-800G交换、AI/HPC GPU-TPU互连与光模块电接口，强调插拔寿命、抗振与散热；OIF/IEEE正规划相应电气接口规范。</p>
+      <div class="comp-label">2026/11/07 · <a href="https://www.elinquan.com/product/52.html" target="_blank" rel="noopener">来源</a></div>
+    </article>
+  </div>
+
+  <h2 class="section-title">三、本周关键词</h2>
+  <p class="section-sub">三个决定连接器价值量变化的技术与合规变量</p>
+  <div class="keywords-list">
+    <div class="keyword-card"><span class="kw-tag">全线控底盘</span><p>以电信号替代转向/制动的机械液压通路，需冗余电源+通信与失效可运行设计；直接新增双路供电连接器与域控高速接口，是L3+智驾底盘基础。</p></div>
+    <div class="keyword-card"><span class="kw-tag">强制国标出清（光伏/机器人）</span><p>光伏三项能耗能效国标2027.1.1实施、硅料三级线或出清约50%产能；人形机器人首批6项国标2027.4.1实施，倒逼低效产能与低可靠连接方案退出。</p></div>
+    <div class="keyword-card"><span class="kw-tag">一车一池一充一码（两轮车）</span><p>新版CCC 11.1执行，整车—电池—充电器—编码强制绑定，叠加北斗定位/通信/防篡改，单车连接与通信点位增加、合规成本抬升。</p></div>
+  </div>
+
+  <section class="sources">
+    <h3>四、信息来源</h3>
+    <ul>
+      <li><span class="s-title">太平洋汽车网《23.98万起 智己LS8 NEO纯电上市》</span><span class="s-date">2026-11-06</span><a href="https://www.pcauto.com.cn/hj/article/3613836.html" target="_blank" rel="noopener">https://www.pcauto.com.cn/hj/article/3613836.html</a></li>
+      <li><span class="s-title">网易《智己LS8 NEO纯电上市 权益价23.98-25.98万》</span><span class="s-date">2026-11-05</span><a href="https://c.m.163.com/news/a/LB1R7R3R0527D0EQ.html" target="_blank" rel="noopener">https://c.m.163.com/news/a/LB1R7R3R0527D0EQ.html</a></li>
+      <li><span class="s-title">北极星电力网《0.64-0.651元/Wh!宁德时代/智光储能中标龙源1.2GWh储能系统框采》</span><span class="s-date">2026-11-09</span><a href="https://news.bjx.com.cn/html/20261109/1519485.shtml" target="_blank" rel="noopener">https://news.bjx.com.cn/html/20261109/1519485.shtml</a></li>
+      <li><span class="s-title">碳索储能网《龙源电力储能系统集成设备框采中标候选人公示》</span><span class="s-date">2026-11-06</span><a href="https://cn.solarbe.com/news/20261106/50031542.html" target="_blank" rel="noopener">https://cn.solarbe.com/news/20261106/50031542.html</a></li>
+      <li><span class="s-title">上海证券报/新浪《光储产业链景气度边际回暖 供需拐点尚待明晰》</span><span class="s-date">2026-11-06</span><a href="https://finance.sina.com.cn/stock/fxsdt/2026-11-06/doc-inixtnve8500681.shtml" target="_blank" rel="noopener">https://finance.sina.com.cn/stock/fxsdt/2026-11-06/doc-inixtnve8500681.shtml</a></li>
+      <li><span class="s-title">中国网《光储产业链景气度边际回暖》</span><span class="s-date">2026-11-06</span><a href="http://www.senn.com.cn/dz/2026/11/06/25385.html" target="_blank" rel="noopener">http://www.senn.com.cn/dz/2026/11/06/25385.html</a></li>
+      <li><span class="s-title">界面新闻《机器人ETF…量产提速 人形机器人产业商业化进程加速》</span><span class="s-date">2026-11-10</span><a href="https://www.jiemian.com/article/15315197.html" target="_blank" rel="noopener">https://www.jiemian.com/article/15315197.html</a></li>
+      <li><span class="s-title">Embodied AI Frontier《Tianyi Telecom Terminal, UBTECH Sign Strategic Pact to Scale 100,000 Humanoid Robots》</span><span class="s-date">2026-11-09</span><a href="https://embodiedaifrontier.com/articles/wBGHxP.html" target="_blank" rel="noopener">https://embodiedaifrontier.com/articles/wBGHxP.html</a></li>
+      <li><span class="s-title">网易《马斯克：特斯拉Optimus机器人只租不卖 干活效率抵得上5个人》</span><span class="s-date">2026-11-07</span><a href="https://www.163.com/dy/article/LB52D51905568W0A.html" target="_blank" rel="noopener">https://www.163.com/dy/article/LB52D51905568W0A.html</a></li>
+      <li><span class="s-title">快科技《双重暴击！小电驴巨头销量集体下滑：部分车型还上不了牌》</span><span class="s-date">2026-11-11</span><a href="https://news.mydrivers.com/1/1165/1165030.htm" target="_blank" rel="noopener">https://news.mydrivers.com/1/1165/1165030.htm</a></li>
+      <li><span class="s-title">中财网《两轮车需求触底回升 利润修复预期催化龙头估值修复》</span><span class="s-date">2026-11-08</span><a href="https://cfi.net.cn/p20261108000286.html" target="_blank" rel="noopener">https://cfi.net.cn/p20261108000286.html</a></li>
+      <li><span class="s-title">腾讯新闻《2026新国标抬高成本，存量竞争加剧，小电驴靠啥赚钱》</span><span class="s-date">2026-11-10</span><a href="https://view.inews.qq.com/wxn/20261110A057A300" target="_blank" rel="noopener">https://view.inews.qq.com/wxn/20261110A057A300</a></li>
+      <li><span class="s-title">Zacks《Aptiv Q3 Earnings Surpass Estimates Amid Non-Auto Growth》</span><span class="s-date">2026-11-06</span><a href="https://www.zacks.com/stock/news/3022102/aptiv-q3-earnings-surpass-estimates-amid-non-auto-growth" target="_blank" rel="noopener">https://www.zacks.com/stock/news/3022102/aptiv-q3-earnings-surpass-estimates-amid-non-auto-growth</a></li>
+      <li><span class="s-title">新浪财经《借力进博！安波福加码嘉定，布局机器人、储能等新兴产业》</span><span class="s-date">2026-11-08</span><a href="https://finance.sina.cn/2026-11-08/detail-inixzapa7353727.d.html" target="_blank" rel="noopener">https://finance.sina.cn/2026-11-08/detail-inixzapa7353727.d.html</a></li>
+      <li><span class="s-title">中金在线《中航光电中标中国空空导弹研究院采购项目235.40万元》</span><span class="s-date">2026-11-09</span><a href="http://mp.cnfol.com/57306/article/1794200296-142782580" target="_blank" rel="noopener">http://mp.cnfol.com/57306/article/1794200296-142782580</a></li>
+      <li><span class="s-title">经济观察网《中航光电近期披露多项中标项目 新能源与数据中心业务较快增长》</span><span class="s-date">2026-11-11</span><a href="https://www.eeo.com.cn/2026/1111/1089901.shtml" target="_blank" rel="noopener">https://www.eeo.com.cn/2026/1111/1089901.shtml</a></li>
+      <li><span class="s-title">苏州德泉《高速互连新里程碑 Molex演示业界首款100Gb/s以上速率互连产品》</span><span class="s-date">2026-11-07</span><a href="https://www.elinquan.com/product/52.html" target="_blank" rel="noopener">https://www.elinquan.com/product/52.html</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  本报告基于公开信息整理，仅用于产业跟踪与内部研讨，不构成投资建议；涉及预测的数据已标注口径来源。<br>
+  TE Connectivity · Confidential &amp; Proprietary · 2026-11-12
+</footer>
+<!-- BACK HOME -->
+<a class="back-home" href="index.html">
+  <span>&larr;</span> 返回首页
+</a>
+</body>
+</html>
