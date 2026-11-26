@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TE 产业一周速览 2026/11/19 — 2026/11/26</title>
+<style>
+  :root{--primary:#0B2545;--secondary:#13618A;--accent:#F4811F;--accent2:#00B4D8;--accent3:#6C5CE7;
+        --bg:#EFF3F8;--card:#FFFFFF;--text:#1A2533;--muted:#5F7183;--line:#E3EBF3;
+        --shadow:0 2px 10px rgba(11,37,69,.07),0 12px 30px rgba(11,37,69,.06);}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',-apple-system,sans-serif;
+        background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .banner{background:radial-gradient(120% 160% at 82% 0%,#0E7FA8 0%,#0B2545 58%);color:#fff;
+           padding:46px 24px 58px;position:relative;overflow:hidden}
+  .banner::after{content:'';position:absolute;right:-60px;top:-90px;width:280px;height:280px;border-radius:50%;
+                  border:1px solid rgba(255,255,255,.13)}
+  .banner .inner{max-width:1000px;margin:0 auto;position:relative}
+  .banner .kicker{font-size:.7rem;letter-spacing:3.5px;opacity:.62;text-transform:uppercase;margin-bottom:12px}
+  .banner h1{font-size:2rem;font-weight:900;letter-spacing:1px;line-height:1.25}
+  .banner .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:.78rem}
+  .banner .meta span{background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.16);
+                      padding:5px 13px;border-radius:20px;letter-spacing:.5px}
+  .container{max-width:1000px;margin:0 auto;padding:0 20px 40px}
+
+  .takeaways{margin:-34px 0 4px;position:relative;z-index:2}
+  .take-card{background:var(--card);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+  .take-card summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;
+                      padding:15px 20px;user-select:none}
+  .take-card summary::-webkit-details-marker{display:none}
+  .take-card summary:hover{background:#F7FAFD}
+  .take-title{font-size:.95rem;font-weight:800;color:var(--primary);letter-spacing:.5px}
+  .take-count{font-size:.7rem;font-weight:700;color:var(--secondary);background:#E8F2F8;
+               padding:2px 10px;border-radius:20px;letter-spacing:.5px}
+  .take-hint{font-size:.72rem;color:#93A1B0;margin-left:auto}
+  .chev{width:9px;height:9px;border-right:2px solid #8FA3B6;border-bottom:2px solid #8FA3B6;
+         transform:rotate(45deg);transition:transform .25s;margin-left:6px;flex:none;margin-top:-3px}
+  .take-card[open] .chev{transform:rotate(-135deg);margin-top:3px}
+  .take-list{padding:2px 20px 8px}
+  .take-row{display:flex;align-items:baseline;gap:10px;padding:11px 2px;
+             border-top:1px dashed #EDF2F7;font-size:.85rem;line-height:1.7}
+  .take-row:first-child{border-top:none}
+  .dot{flex:none;width:8px;height:8px;border-radius:50%;background:var(--tc);position:relative;top:-1px}
+  .take-track{flex:none;font-size:.8rem;font-weight:800;color:var(--tc);letter-spacing:.5px;width:74px}
+  .take-text{color:#41546A}
+
+  .section-title{font-size:1.22rem;font-weight:800;color:var(--primary);margin:40px 0 6px;
+                  padding-left:13px;border-left:5px solid var(--accent);letter-spacing:.3px}
+  .section-sub{font-size:.79rem;color:var(--muted);margin:0 0 22px 18px}
+
+  .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(430px,1fr));gap:20px;align-items:stretch}
+  .card{display:flex;flex-direction:column}
+  .src-line{margin-top:auto}
+  .card{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:22px 24px 18px;
+         position:relative;transition:transform .22s,box-shadow .22s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(11,37,69,.14)}
+  .card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:14px 0 0 14px;background:var(--tc)}
+  .card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .num{font-size:1.5rem;font-weight:900;color:var(--tc);opacity:.9;letter-spacing:-1px;line-height:1}
+  .track{font-size:.7rem;font-weight:700;color:var(--tc);background:var(--tint);
+          border:1px solid var(--edge);padding:3px 11px;border-radius:20px;letter-spacing:.5px}
+  .card h3{font-size:1.02rem;font-weight:800;color:var(--primary);line-height:1.5;margin-bottom:16px;letter-spacing:.2px}
+
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);background:#F6F9FC;border-radius:10px;
+            padding:13px 0;margin-bottom:16px}
+  .metric{text-align:center;padding:0 8px}
+  .metric + .metric{border-left:1px solid #E1EAF3}
+  .metric b{display:block;font-size:1.12rem;font-weight:900;color:var(--primary);line-height:1.2;
+             font-variant-numeric:tabular-nums;letter-spacing:-.3px}
+  .metric b i{font-style:normal;font-size:.7rem;font-weight:700;color:var(--tc);margin-left:2px}
+  .metric span{display:block;font-size:.68rem;color:var(--muted);margin-top:4px;line-height:1.45}
+
+  .eyebrow{font-size:.68rem;font-weight:800;color:var(--secondary);letter-spacing:2px;margin-bottom:5px}
+  .block p{font-size:.85rem;color:#2A3A4C;line-height:1.85}
+  .implication{margin-top:14px;background:var(--tint);border-left:3px solid var(--tc);
+                border-radius:8px;padding:12px 14px}
+  .eyebrow2{font-size:.68rem;font-weight:800;color:var(--tc);letter-spacing:2px;margin-bottom:5px}
+  .implication p{font-size:.82rem;color:#3C4E60;line-height:1.8}
+  .src-line{font-size:.7rem;color:#93A1B0;margin-top:13px;border-top:1px dashed #EAF0F6;padding-top:9px}
+  .src-line a{color:var(--secondary);text-decoration:none}
+
+  .competitor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+  .comp-card{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:20px 22px;
+              border-top:3px solid var(--accent3);transition:transform .22s,box-shadow .22s}
+  .comp-card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(108,92,231,.15)}
+  .comp-tag{display:inline-block;background:var(--accent3);color:#fff;font-weight:700;font-size:.76rem;
+             padding:3px 12px;border-radius:20px;margin-bottom:10px}
+  .comp-card h4{font-size:.92rem;color:var(--primary);line-height:1.5;margin-bottom:8px;font-weight:800}
+  .comp-card p{font-size:.82rem;color:#4A5B6C;line-height:1.78}
+  .comp-label{font-size:.7rem;color:#93A1B0;margin-top:12px}
+  .comp-label a{color:var(--secondary);text-decoration:none}
+
+  .keywords-list{display:flex;flex-wrap:wrap;gap:14px}
+  .keyword-card{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:18px 20px;flex:1 1 280px}
+  .kw-tag{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:.78rem;
+           padding:4px 13px;border-radius:20px;margin-bottom:9px}
+  .keyword-card p{font-size:.82rem;color:#4A5B6C;line-height:1.75}
+
+  .sources{margin:38px 0 24px;background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:22px 24px}
+  .sources h3{font-size:.95rem;color:var(--primary);margin-bottom:10px;font-weight:800}
+  .sources ul{list-style:none}
+  .sources li{font-size:.76rem;color:var(--muted);padding:7px 0 7px 16px;position:relative;
+               border-bottom:1px dashed #EDF2F7;line-height:1.6}
+  .sources li:last-child{border-bottom:none}
+  .sources li::before{content:'';position:absolute;left:0;top:14px;width:6px;height:6px;background:var(--accent2);border-radius:50%}
+  .s-title{color:#2A3A4C}
+  .s-date{color:#9AA8B6;margin:0 8px}
+  .sources a{color:var(--secondary);text-decoration:none;word-break:break-all}
+  .sources a:hover{text-decoration:underline}
+  .back-home{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;align-items:center;gap:6px;background:rgba(11,37,69,0.92);color:#fff;font-size:0.88rem;font-weight:600;padding:12px 22px;border-radius:40px;text-decoration:none;box-shadow:0 6px 24px rgba(11,37,69,0.35);backdrop-filter:blur(8px);transition:transform .2s ease,box-shadow .2s ease,background .2s ease;letter-spacing:0.5px}
+  .back-home:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(11,37,69,0.45);background:rgba(19,97,138,0.95)}
+
+  footer{text-align:center;font-size:.74rem;color:#93A1B0;padding:8px 20px 46px;line-height:1.9}
+  @media(max-width:900px){.take-track{width:64px}}
+  @media(max-width:560px){
+    .banner h1{font-size:1.45rem} .banner .meta{font-size:.72rem}
+    .takeaways{margin-top:-14px}
+    .cards-grid,.competitor-grid{grid-template-columns:1fr} .card,.comp-card{padding:20px 18px 16px}
+    .section-title{font-size:1.08rem} .metric b{font-size:1rem}
+    .back-home{bottom:16px;right:16px;padding:10px 18px;font-size:0.82rem}
+  }
+</style>
+</head>
+<body>
+<header class="banner">
+  <div class="inner">
+    <div class="kicker">Industry Weekly · TE Connectivity</div>
+    <h1>产业动态一周速览</h1>
+    <div class="meta"><span>2026/11/19 — 2026/11/26</span><span>6 条产业动态</span><span>3 家友商</span><span>3 个关键词</span><span>17 条来源</span></div>
+  </div>
+</header>
+
+<main class="container">
+  <div class="takeaways">
+    <details class="take-card" open>
+      <summary>
+        <span class="take-title">本周要点</span>
+        <span class="take-count">5 大赛道</span>
+        <span class="take-hint">点击收起 / 展开</span>
+        <span class="chev"></span>
+      </summary>
+      <div class="take-list">
+      <div class="take-row" style="--tc:#F4811F">
+        <i class="dot"></i><b class="take-track">乘用车</b>
+        <span class="take-text">钛9折叠方向盘量产，线控冗余进30万级</span>
+      </div>
+      <div class="take-row" style="--tc:#0E9AB8">
+        <i class="dot"></i><b class="take-track">储能</b>
+        <span class="take-text">星辰10GWh框采，587Ah大电芯提速</span>
+      </div>
+      <div class="take-row" style="--tc:#17A673">
+        <i class="dot"></i><b class="take-track">光伏</b>
+        <span class="take-text">美国232最低价生效，组件价三月涨35%</span>
+      </div>
+      <div class="take-row" style="--tc:#6C5CE7">
+        <i class="dot"></i><b class="take-track">具身智能</b>
+        <span class="take-text">灵巧手力控降本35%，连接进入可验证订单</span>
+      </div>
+      <div class="take-row" style="--tc:#D6427A">
+        <i class="dot"></i><b class="take-track">电动两轮车</b>
+        <span class="take-text">CCC出清叠加净利普跌，合规成本抬升</span>
+      </div>
+      </div>
+    </details>
+  </div>
+
+  <h2 class="section-title">一、六大产业动态</h2>
+  <p class="section-sub">按 TE 相关性、连接器价值影响、行业权重与新鲜度综合排序</p>
+  <div class="cards-grid">
+    <article class="card" style="--tc:#F4811F;--tint:#FEF0E4;--edge:#FCDEC5">
+      <div class="card-head"><span class="num">01</span><span class="track">乘用车</span></div>
+      <h3>方程豹钛9上市｜折叠方向盘量产，线控底盘下探30万级</h3>
+      <div class="metrics"><div class="metric"><b>27.99<i>万元</i></b><span>钛9起售价</span></div><div class="metric"><b>8万<i>次</i></b><span>折叠方向盘寿命</span></div><div class="metric"><b>1,630<i>km</i></b><span>满油满电综合续航</span></div></div>
+      <div class="block"><div class="eyebrow">核心事实</div><p>11月19日钛9上市，27.99万元起；首搭量产折叠方向盘（0—180°、8万次寿命）与线控数字底盘，为L3/L4储备。</p></div>
+      <div class="implication"><div class="eyebrow2">产业含义</div><p>折叠方向盘+线控底盘需冗余供电与通信，抬升车载高速连接器与线束价值；宜绑定比亚迪平台定点。</p></div>
+      <div class="src-line">来源：<a href="http://www.chinaautotrends.com/xincheMes.aspx?id=19720&t=5" target="_blank" rel="noopener">中国汽车趋势网</a></div>
+    </article>
+    <article class="card" style="--tc:#0E9AB8;--tint:#E2F3F7;--edge:#C0E5ED">
+      <div class="card-head"><span class="num">02</span><span class="track">储能</span></div>
+      <h3>星辰新能10GWh电芯框采开标｜587Ah大电芯占半壁</h3>
+      <div class="metrics"><div class="metric"><b>10<i>GWh</i></b><span>框采总规模</span></div><div class="metric"><b>5<i>GWh</i></b><span>587Ah及以上电芯</span></div><div class="metric"><b>3<i>家</i></b><span>入围候选人</span></div></div>
+      <div class="block"><div class="eyebrow">核心事实</div><p>11月24日星辰新能2027首批10GWh储能电芯框采公示：海辰、楚能、中创新航入围；314Ah与587Ah及以上各5GWh。</p></div>
+      <div class="implication"><div class="eyebrow2">产业含义</div><p>电芯从314Ah升至587Ah，串并联接点与铜排用量下降、单Wh连接价值承压；转向大电流母排与液冷快插。</p></div>
+      <div class="src-line">来源：<a href="https://chuneng.in-en.com/html/chunengy-60337.shtml" target="_blank" rel="noopener">国际储能网</a> · <a href="https://stock.10jqka.com.cn/hks/20261125/c682194382.shtml" target="_blank" rel="noopener">同花顺财经</a></div>
+    </article>
+    <article class="card" style="--tc:#17A673;--tint:#E2F3EE;--edge:#C1E6E1">
+      <div class="card-head"><span class="num">03</span><span class="track">光伏</span></div>
+      <h3>美国232最低进口价12月4日生效｜组件三月涨35%</h3>
+      <div class="metrics"><div class="metric"><b>0.385<i>美元/W</i></b><span>美国组件中位价</span></div><div class="metric"><b>+35.1<i>%</i></b><span>7—10月涨幅</span></div><div class="metric"><b>0.38<i>美元/W</i></b><span>232最低进口价</span></div></div>
+      <div class="block"><div class="eyebrow">核心事实</div><p>11月20日Anza：美国组件价3个月涨35.1%至0.385美元/W；232条款12月4日设0.38美元/W最低进口价。</p></div>
+      <div class="implication"><div class="eyebrow2">产业含义</div><p>美国市场与全球成本脱钩，合规溯源成门槛；组件接线盒与直流互连需本地配套，短期是清关窗口机会。</p></div>
+      <div class="src-line">来源：<a href="https://www.gessey.com/h-nd-52494.html" target="_blank" rel="noopener">盖锡新能源</a> · <a href="https://www.infolink-group.com/energy-article/cn/solar-topic-us-solar-pv-section232-market-insights-re-2026" target="_blank" rel="noopener">InfoLink</a></div>
+    </article>
+    <article class="card" style="--tc:#6C5CE7;--tint:#EDEBFC;--edge:#D9D2F1">
+      <div class="card-head"><span class="num">04</span><span class="track">具身智能</span></div>
+      <h3>知行机器人获柯力投资｜灵巧手力觉模组三年降本35%</h3>
+      <div class="metrics"><div class="metric"><b>-35<i>%</i></b><span>力觉模组BOM目标</span></div><div class="metric"><b>21<i>家</i></b><span>头部客户订单</span></div><div class="metric"><b>+217<i>%</i></b><span>2025年营收增速</span></div></div>
+      <div class="block"><div class="eyebrow">核心事实</div><p>11月19日知行机器人获柯力传感战略投资，启动国产替代加速器，目标三年将力觉模组BOM降35%；已获宁德时代等21家客户订单。</p></div>
+      <div class="implication"><div class="eyebrow2">产业含义</div><p>力控降本推动灵巧手规模化，力传感器与关节互连需求放大；宜卡位微型连接器与线束方案。</p></div>
+      <div class="src-line">来源：<a href="https://www.cameta.org.cn/index.php?a=show&catid=238&id=3927" target="_blank" rel="noopener">世界机器人产业周刊</a> · <a href="https://finance.sina.com.cn/roll/2026-11-24/doc-inizvzhz2150060.shtml" target="_blank" rel="noopener">新浪财经</a></div>
+    </article>
+    <article class="card" style="--tc:#D6427A;--tint:#FAE8EF;--edge:#F3D7DC">
+      <div class="card-head"><span class="num">05</span><span class="track">电动两轮车</span></div>
+      <h3>CCC新规落地叠加三季报普跌｜两轮车合规出清提速</h3>
+      <div class="metrics"><div class="metric"><b>-4.8<i>%</i></b><span>前三季内销同比</span></div><div class="metric"><b>-42<i>%</i></b><span>爱玛净利同比</span></div><div class="metric"><b>-24<i>%</i></b><span>九号净利同比</span></div></div>
+      <div class="block"><div class="eyebrow">核心事实</div><p>11月23日新华财经：CCC新规施行致多车型上牌受阻；前三季内销同比-4.8%，爱玛净利-42%、九号-24%。</p></div>
+      <div class="implication"><div class="eyebrow2">产业含义</div><p>合规抬高门槛，一车一池一充一码推高定位与BMS通信点位；用平台化方案对冲年降。</p></div>
+      <div class="src-line">来源：<a href="https://www.cnfin.com/gs-lb/detail/20261123/4498899_1.html" target="_blank" rel="noopener">新华财经</a> · <a href="https://finance.eastmoney.com/a/202611233937475577.html" target="_blank" rel="noopener">东方财富</a></div>
+    </article>
+    <article class="card" style="--tc:#6C5CE7;--tint:#EDEBFC;--edge:#D9D2F1">
+      <div class="card-head"><span class="num">06</span><span class="track">具身智能</span></div>
+      <h3>宇树投6.24亿建机器人基地｜达产年产19万台</h3>
+      <div class="metrics"><div class="metric"><b>6.24<i>亿元</i></b><span>募投制造基地</span></div><div class="metric"><b>19<i>万台</i></b><span>达产年设计产能</span></div><div class="metric"><b>7.5<i>万台</i></b><span>人形机器人产能</span></div></div>
+      <div class="block"><div class="eyebrow">核心事实</div><p>11月20日披露：宇树拟投6.24亿元建智能机器人制造基地，达产年产7.5万台人形、11.5万台四足，合计19万台。</p></div>
+      <div class="implication"><div class="eyebrow2">产业含义</div><p>产能数量级扩张把关节与线束推入车规级一致性竞争；宜提前锁定头部本体厂互连定点。</p></div>
+      <div class="src-line">来源：<a href="https://www.cameta.org.cn/index.php?a=show&catid=238&id=3927" target="_blank" rel="noopener">世界机器人产业周刊</a> · <a href="https://www.163.com/dy/article/LCGSN7JS0534A4SC.html" target="_blank" rel="noopener">网易·界面新闻</a></div>
+    </article>
+  </div>
+
+  <h2 class="section-title" style="border-left-color:var(--accent3)">二、友商速递</h2>
+  <p class="section-sub">同期公开披露的连接器 / 互连同业动作</p>
+  <div class="competitor-grid">
+    <article class="comp-card">
+      <div class="comp-tag">中航光电</div>
+      <h4>光通信互连翻倍、液冷连接器订单翻番</h4>
+      <p>前三季营收181亿、净利19.35亿；光通信互连翻倍、液冷连接器订单翻番，数据中心与车载800V双线放量。</p>
+      <div class="comp-label">2026/11/24 · <a href="https://www.eet-china.com/mp/a541494.html" target="_blank" rel="noopener">来源</a></div>
+    </article>
+    <article class="comp-card">
+      <div class="comp-tag">立讯精密</div>
+      <h4>汽车连接器全系布局，助车企出海</h4>
+      <p>产品覆盖低压、高压、高速全系连接器，为中国车企出海提供Tier1全球制造配套，并布局AI算力高速互连。</p>
+      <div class="comp-label">2026/11/20 · <a href="https://www.eepw.com.cn/zhuanlan/202611/410148.html" target="_blank" rel="noopener">来源</a></div>
+    </article>
+    <article class="comp-card">
+      <div class="comp-tag">天海电子</div>
+      <h4>4.8亿拆分高压与高速连接器平台</h4>
+      <p>驭联、数联两孙公司完成登记，分攻高压连接器与车载万兆高速连接器；上半年连接器营收+24.21%。</p>
+      <div class="comp-label">2026/11/07 · <a href="https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN20260826153045b6a2f8bd" target="_blank" rel="noopener">来源</a></div>
+    </article>
+  </div>
+
+  <h2 class="section-title">三、本周关键词</h2>
+  <p class="section-sub">三个决定连接器价值量变化的技术与合规变量</p>
+  <div class="keywords-list">
+    <div class="keyword-card"><span class="kw-tag">587Ah大电芯</span><p>电芯从314Ah升至587Ah，接点与铜排减少、单Wh连接价值承压。</p></div>
+    <div class="keyword-card"><span class="kw-tag">MIP合规溯源</span><p>美国设0.38美元/W底价，组件须可溯源，直流互连转本地配套。</p></div>
+    <div class="keyword-card"><span class="kw-tag">力控降本</span><p>灵巧手力觉模组BOM三年降35%，微型互连随降本放量。</p></div>
+  </div>
+
+  <section class="sources">
+    <h3>四、信息来源</h3>
+    <ul>
+      <li><span class="s-title">中国汽车趋势网《方程豹钛9售27.99万元起正式上市》</span><span class="s-date">2026-11-20</span><a href="http://www.chinaautotrends.com/xincheMes.aspx?id=19720&t=5" target="_blank" rel="noopener">http://www.chinaautotrends.com/xincheMes.aspx?id=19720&amp;t=5</a></li>
+      <li><span class="s-title">国际储能网《星辰新能10GWh储能电芯框采开标》</span><span class="s-date">2026-11-24</span><a href="https://chuneng.in-en.com/html/chunengy-60337.shtml" target="_blank" rel="noopener">https://chuneng.in-en.com/html/chunengy-60337.shtml</a></li>
+      <li><span class="s-title">同花顺《海辰/楚能/中创新航入围星辰新能10GWh框采》</span><span class="s-date">2026-11-25</span><a href="https://stock.10jqka.com.cn/hks/20261125/c682194382.shtml" target="_blank" rel="noopener">https://stock.10jqka.com.cn/hks/20261125/c682194382.shtml</a></li>
+      <li><span class="s-title">盖锡新能源《美国光伏组件价格三个月上涨35.1%》</span><span class="s-date">2026-11-20</span><a href="https://www.gessey.com/h-nd-52494.html" target="_blank" rel="noopener">https://www.gessey.com/h-nd-52494.html</a></li>
+      <li><span class="s-title">InfoLink《美国光伏迈入232时代》</span><span class="s-date">2026-11-20</span><a href="https://www.infolink-group.com/energy-article/cn/solar-topic-us-solar-pv-section232-market-insights-re-2026" target="_blank" rel="noopener">https://www.infolink-group.com/energy-article/cn/solar-topic-us-solar-pv-section232-market-insights-re-2026</a></li>
+      <li><span class="s-title">优分析《特斯拉拟在德州生产多晶硅，进口与本土模组价差缩小》</span><span class="s-date">2026-11-21</span><a href="https://uanalyze.com.tw/articles/4916560612" target="_blank" rel="noopener">https://uanalyze.com.tw/articles/4916560612</a></li>
+      <li><span class="s-title">中国机电一体化技术应用协会《世界机器人产业周刊第28期》</span><span class="s-date">2026-11-20</span><a href="https://www.cameta.org.cn/index.php?a=show&catid=238&id=3927" target="_blank" rel="noopener">https://www.cameta.org.cn/index.php?a=show&amp;catid=238&amp;id=3927</a></li>
+      <li><span class="s-title">新浪财经《机器人丝杠+灵巧手：走到订单兑现阶段的10家公司》</span><span class="s-date">2026-11-24</span><a href="https://finance.sina.com.cn/roll/2026-11-24/doc-inizvzhz2150060.shtml" target="_blank" rel="noopener">https://finance.sina.com.cn/roll/2026-11-24/doc-inizvzhz2150060.shtml</a></li>
+      <li><span class="s-title">网易·界面新闻《人形机器人开始比谁交得出货》</span><span class="s-date">2026-11-24</span><a href="https://www.163.com/dy/article/LCGSN7JS0534A4SC.html" target="_blank" rel="noopener">https://www.163.com/dy/article/LCGSN7JS0534A4SC.html</a></li>
+      <li><span class="s-title">新华财经《电动两轮车整体回暖 政策落地后或冲击销量》</span><span class="s-date">2026-11-23</span><a href="https://www.cnfin.com/gs-lb/detail/20261123/4498899_1.html" target="_blank" rel="noopener">https://www.cnfin.com/gs-lb/detail/20261123/4498899_1.html</a></li>
+      <li><span class="s-title">东方财富《九号公司：从两轮车到全球增长矩阵》</span><span class="s-date">2026-11-23</span><a href="https://finance.eastmoney.com/a/202611233937475577.html" target="_blank" rel="noopener">https://finance.eastmoney.com/a/202611233937475577.html</a></li>
+      <li><span class="s-title">新浪财经《协会发布车市扫描（11月16日-22日）》</span><span class="s-date">2026-11-25</span><a href="https://finance.sina.cn/2026-11-25/detail-inizxxyi4244699.d.html" target="_blank" rel="noopener">https://finance.sina.cn/2026-11-25/detail-inizxxyi4244699.d.html</a></li>
+      <li><span class="s-title">汽车之家《新能源汽车周订单数据（11.16-11.22）》</span><span class="s-date">2026-11-22</span><a href="https://chejiahao.autohome.com.cn/info/26953787" target="_blank" rel="noopener">https://chejiahao.autohome.com.cn/info/26953787</a></li>
+      <li><span class="s-title">电子工程专辑《泰科、中航光电财报里的连接器新周期》</span><span class="s-date">2026-11-24</span><a href="https://www.eet-china.com/mp/a541494.html" target="_blank" rel="noopener">https://www.eet-china.com/mp/a541494.html</a></li>
+      <li><span class="s-title">电子产品世界《2026年大电流连接器领域主要企业盘点》</span><span class="s-date">2026-11-20</span><a href="https://www.eepw.com.cn/zhuanlan/202611/410148.html" target="_blank" rel="noopener">https://www.eepw.com.cn/zhuanlan/202611/410148.html</a></li>
+      <li><span class="s-title">腾讯自选股《天海电子设立两家子公司推进高压、高速连接器运营》</span><span class="s-date">2026-11-07</span><a href="https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=SN20260826153045b6a2f8bd" target="_blank" rel="noopener">https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&amp;id=SN20260826153045b6a2f8bd</a></li>
+      <li><span class="s-title">雪球《中航光电VS核心对手：800V/液冷/PDB对比》</span><span class="s-date">2026-11-22</span><a href="https://www.xueqiu.com/1929367614/418035028" target="_blank" rel="noopener">https://www.xueqiu.com/1929367614/418035028</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  本报告基于公开信息整理，仅用于产业跟踪与内部研讨，不构成投资建议；涉及预测的数据已标注口径来源。<br>
+  TE Connectivity · Confidential &amp; Proprietary · 2026-11-26
+</footer>
+<!-- BACK HOME -->
+<a class="back-home" href="index.html">
+  <span>&larr;</span> 返回首页
+</a>
+</body>
+</html>
